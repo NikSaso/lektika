@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f6f4ef">
+<meta name="theme-color" content="#f5f5f2">
 
 <title>Λεκτικά — D2D Sales Toolkit</title>
 
@@ -18,35 +18,38 @@
 ===================================================== */
 
 :root {
-  --bg: #f7f5f1;
+  --bg: #f5f5f2;
   --surface: #ffffff;
-  --surface2: #f1efeb;
+  --surface-soft: #f0f0ed;
 
-  --text: #292631;
-  --muted: #85808a;
+  --text: #25242a;
+  --muted: #77757c;
 
-  --border: #e8e4df;
+  --border: #e5e4df;
 
-  --green: #45b981;
-  --green-dark: #247454;
-  --green-soft: #eaf8f1;
+  --green: #49b884;
+  --green-dark: #19704d;
+  --green-soft: #e8f7ef;
 
-  --red: #e57474;
-  --red-dark: #a94444;
+  --red: #e57676;
+  --red-dark: #a54545;
   --red-soft: #fff0f0;
 
-  --yellow: #f2c75b;
-  --yellow-soft: #fff7df;
+  --yellow: #f2c95d;
+  --yellow-soft: #fff7dc;
 
-  --purple: #665dd1;
+  --purple: #6860d5;
   --purple-soft: #eeecff;
 
-  --dark: #302d39;
+  --orange: #ff7658;
+  --orange-soft: #fff0eb;
 
-  --radius: 22px;
+  --dark: #29272f;
+
+  --radius: 20px;
 
   --shadow:
-    0 8px 30px rgba(40,35,45,.055);
+    0 7px 25px rgba(30,28,35,.055);
 }
 
 
@@ -79,6 +82,7 @@ body {
 
 button {
   font: inherit;
+
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -89,11 +93,11 @@ button {
 
 .page {
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
 
   margin: 0 auto;
 
-  padding: 18px 16px 60px;
+  padding: 16px 14px 55px;
 }
 
 
@@ -106,7 +110,7 @@ button {
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .logo-area {
@@ -117,48 +121,49 @@ button {
 .eyebrow {
   color: var(--muted);
 
-  font-size: 8px;
+  font-size: 7px;
   font-weight: 800;
 
   letter-spacing: 2px;
 }
 
 .logo {
-  margin-top: -3px;
+  margin-top: -4px;
 
   font-family: "Baloo 2", sans-serif;
 
-  font-size: 39px;
-  line-height: 1;
-
+  font-size: 38px;
   font-weight: 800;
+
+  line-height: 1;
 }
 
 .logo span {
-  color: #ff7658;
+  color: var(--orange);
 }
 
 .theme-button {
-  width: 43px;
-  height: 43px;
+  width: 42px;
+  height: 42px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 13px;
 
   background: var(--surface);
   color: var(--text);
 
   box-shadow: var(--shadow);
 
-  font-size: 18px;
+  font-size: 17px;
 
   cursor: pointer;
 
-  transition: transform .18s ease;
+  transition:
+    transform .18s ease;
 }
 
 .theme-button:active {
@@ -177,20 +182,20 @@ button {
 
   padding: 27px 21px 23px;
 
-  border-radius: 28px;
+  border-radius: 27px;
 
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(255,142,111,.85),
-      transparent 32%
+      rgba(255,133,99,.85),
+      transparent 34%
     ),
     radial-gradient(
       circle at 0% 100%,
-      rgba(105,96,211,.8),
-      transparent 35%
+      rgba(103,94,210,.8),
+      transparent 38%
     ),
-    #312e3b;
+    #302d38;
 
   color: white;
 
@@ -203,12 +208,12 @@ button {
 
   position: absolute;
 
-  right: 13px;
-  bottom: -4px;
+  right: 9px;
+  bottom: -12px;
 
   color: rgba(255,255,255,.07);
 
-  font-size: 90px;
+  font-size: 95px;
 
   pointer-events: none;
 }
@@ -231,34 +236,215 @@ button {
   position: relative;
   z-index: 1;
 
-  margin: 17px 0 8px;
+  margin: 16px 0 7px;
 
   font-family: "Baloo 2", sans-serif;
 
-  font-size: clamp(34px, 9vw, 50px);
+  font-size: clamp(34px, 9vw, 49px);
 
   line-height: .92;
 
-  letter-spacing: -1.2px;
+  letter-spacing: -1px;
 }
 
 .hero h1 span {
-  color: #ffd46a;
+  color: #ffd568;
 }
 
 .hero-description {
   position: relative;
   z-index: 1;
 
-  max-width: 570px;
+  max-width: 560px;
 
   margin: 0;
 
   color: #dedbe4;
 
-  font-size: 11px;
+  font-size: 10px;
 
   line-height: 1.55;
+}
+
+
+/* =====================================================
+   DAILY TIP
+===================================================== */
+
+.daily-tip {
+  position: relative;
+
+  margin-top: 11px;
+
+  padding: 14px 15px;
+
+  border: 1px solid #efdda9;
+
+  border-radius: 17px;
+
+  background: var(--yellow-soft);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+.daily-tip-label {
+  color: #967019;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.daily-tip p {
+  margin: 5px 0 0;
+
+  color: #55451f;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.25;
+}
+
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick-actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 9px;
+
+  margin-top: 11px;
+}
+
+.quick-button {
+  min-height: 83px;
+
+  padding: 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  text-align: left;
+
+  box-shadow: var(--shadow);
+
+  cursor: pointer;
+
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.quick-button:active {
+  transform: scale(.97);
+}
+
+.quick-icon {
+  font-size: 20px;
+
+  margin-bottom: 5px;
+}
+
+.quick-title {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.quick-subtitle {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-card {
+  margin-top: 11px;
+
+  padding: 12px 14px;
+
+  border-radius: 16px;
+
+  background: var(--dark);
+
+  color: white;
+}
+
+.progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+}
+
+.progress-label {
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .7px;
+
+  text-transform: uppercase;
+
+  color: #d8d5dc;
+}
+
+.progress-number {
+  color: #ffd66c;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.1);
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: #ffd66c;
+
+  transition: width .35s ease;
 }
 
 
@@ -269,14 +455,15 @@ button {
 .intro {
   display: flex;
   align-items: center;
-  gap: 9px;
 
-  margin: 20px 3px 18px;
+  gap: 8px;
+
+  margin: 21px 3px 12px;
 
   color: var(--muted);
 
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 8px;
+  font-weight: 700;
 
   line-height: 1.4;
 }
@@ -284,10 +471,10 @@ button {
 .intro:before {
   content: "";
 
-  width: 22px;
+  width: 20px;
   height: 2px;
 
-  flex: 0 0 22px;
+  flex: 0 0 20px;
 
   border-radius: 20px;
 
@@ -299,22 +486,17 @@ button {
    MAIN ACCORDION
 ===================================================== */
 
-.main-accordion {
+.accordion {
   display: flex;
   flex-direction: column;
 
-  gap: 10px;
+  gap: 9px;
 }
 
-
-/* =====================================================
-   MAIN ITEM
-===================================================== */
-
-.main-item {
+.accordion-item {
   border: 1px solid var(--border);
 
-  border-radius: var(--radius);
+  border-radius: 20px;
 
   background: var(--surface);
 
@@ -323,29 +505,28 @@ button {
   overflow: hidden;
 
   transition:
-    box-shadow .2s ease,
-    border-color .2s ease;
+    box-shadow .2s ease;
 }
 
-.main-item.open {
+.accordion-item.open {
   box-shadow:
-    0 12px 35px rgba(40,35,45,.075);
+    0 12px 35px rgba(30,28,35,.075);
 }
 
 
 /* =====================================================
-   MAIN HEADER
+   MAIN CATEGORY HEADER
 ===================================================== */
 
-.main-header {
+.accordion-header {
   width: 100%;
 
   display: flex;
   align-items: center;
 
-  gap: 13px;
+  gap: 12px;
 
-  padding: 17px 15px;
+  padding: 15px 14px;
 
   border: 0;
 
@@ -359,18 +540,18 @@ button {
 }
 
 .section-icon {
-  width: 43px;
-  height: 43px;
+  width: 42px;
+  height: 42px;
 
-  flex: 0 0 43px;
+  flex: 0 0 42px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 13px;
 
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .icon-green {
@@ -400,10 +581,10 @@ button {
 
   color: var(--muted);
 
-  font-size: 7px;
+  font-size: 6.5px;
   font-weight: 800;
 
-  letter-spacing: 1.3px;
+  letter-spacing: 1.2px;
 }
 
 .section-name {
@@ -411,7 +592,7 @@ button {
 
   font-family: "Baloo 2", sans-serif;
 
-  font-size: 22px;
+  font-size: 21px;
 
   line-height: 1;
 }
@@ -421,106 +602,75 @@ button {
 
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 8px;
 }
 
 .chevron {
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
 
-  flex: 0 0 30px;
+  flex: 0 0 29px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
-  background: var(--surface2);
+  background: var(--surface-soft);
 
   color: var(--muted);
 
-  font-size: 16px;
+  font-size: 15px;
 
   transition:
-    transform .25s ease,
-    background .25s ease;
+    transform .25s ease;
 }
 
-.main-item.open .chevron {
+.accordion-item.open .chevron {
   transform: rotate(180deg);
 }
 
 
 /* =====================================================
-   MAIN CONTENT
+   MAIN ACCORDION CONTENT
 ===================================================== */
 
-.main-content {
+.accordion-content {
   display: grid;
 
   grid-template-rows: 0fr;
 
   transition:
-    grid-template-rows .35s cubic-bezier(.4,0,.2,1);
+    grid-template-rows .34s cubic-bezier(.4,0,.2,1);
 }
 
-.main-item.open .main-content {
+.accordion-item.open .accordion-content {
   grid-template-rows: 1fr;
 }
 
-.main-inner {
+.accordion-inner {
   overflow: hidden;
 
   min-height: 0;
 }
 
-.main-body {
+.accordion-body {
   padding: 0 9px 10px;
 }
 
 
 /* =====================================================
-   SUBCATEGORY LIST
+   SUBCATEGORY
 ===================================================== */
 
-.subcategory-list {
-  display: flex;
-  flex-direction: column;
-
-  gap: 7px;
-
-  padding: 8px 0 2px;
+.subcategory {
+  border-top: 1px solid var(--border);
 }
 
-
-/* =====================================================
-   SUBCATEGORY ITEM
-===================================================== */
-
-.subcategory-item {
-  border: 1px solid var(--border);
-
-  border-radius: 16px;
-
-  background: var(--surface);
-
-  overflow: hidden;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
+.subcategory:first-child {
+  border-top: 0;
 }
-
-.subcategory-item.open {
-  box-shadow:
-    0 7px 20px rgba(40,35,45,.055);
-}
-
-
-/* =====================================================
-   SUBCATEGORY HEADER
-===================================================== */
 
 .subcategory-header {
   width: 100%;
@@ -528,9 +678,9 @@ button {
   display: flex;
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
-  padding: 14px 13px;
+  padding: 14px 7px;
 
   border: 0;
 
@@ -543,7 +693,7 @@ button {
   cursor: pointer;
 }
 
-.subcategory-marker {
+.subcategory-dot {
   width: 8px;
   height: 8px;
 
@@ -552,24 +702,17 @@ button {
   border-radius: 50%;
 
   background: var(--green);
-
-  transition:
-    transform .2s ease;
 }
 
-.subcategory-item.open .subcategory-marker {
-  transform: scale(1.25);
-}
-
-.subcategory-item.red-theme .subcategory-marker {
+.subcategory-dot.red {
   background: var(--red);
 }
 
-.subcategory-item.yellow-theme .subcategory-marker {
+.subcategory-dot.yellow {
   background: var(--yellow);
 }
 
-.subcategory-item.purple-theme .subcategory-marker {
+.subcategory-dot.purple {
   background: var(--purple);
 }
 
@@ -582,11 +725,10 @@ button {
 .subcategory-title {
   margin: 0;
 
-  font-family: "Baloo 2", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
 
-  font-size: 17px;
-
-  line-height: 1.1;
+  line-height: 1.3;
 }
 
 .subcategory-count {
@@ -594,34 +736,30 @@ button {
 
   color: var(--muted);
 
-  font-size: 8px;
-
-  font-weight: 600;
+  font-size: 7px;
 }
 
-.sub-chevron {
-  width: 28px;
-  height: 28px;
-
-  flex: 0 0 28px;
+.subcategory-chevron {
+  width: 26px;
+  height: 26px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
-  background: var(--surface2);
+  background: var(--surface-soft);
 
   color: var(--muted);
 
-  font-size: 14px;
+  font-size: 13px;
 
   transition:
     transform .25s ease;
 }
 
-.subcategory-item.open .sub-chevron {
+.subcategory.open .subcategory-chevron {
   transform: rotate(180deg);
 }
 
@@ -636,10 +774,10 @@ button {
   grid-template-rows: 0fr;
 
   transition:
-    grid-template-rows .3s cubic-bezier(.4,0,.2,1);
+    grid-template-rows .3s ease;
 }
 
-.subcategory-item.open .subcategory-content {
+.subcategory.open .subcategory-content {
   grid-template-rows: 1fr;
 }
 
@@ -650,7 +788,10 @@ button {
 }
 
 .subcategory-body {
-  padding: 0 9px 10px;
+  padding:
+    0
+    7px
+    12px;
 }
 
 
@@ -662,14 +803,12 @@ button {
   display: grid;
 
   gap: 6px;
-
-  padding-top: 3px;
 }
 
 .phrase {
   position: relative;
 
-  padding: 13px 14px;
+  padding: 13px 13px;
 
   border: 1px solid var(--border);
 
@@ -677,7 +816,15 @@ button {
 
   background: var(--surface);
 
-  animation: phraseIn .25s ease both;
+  cursor: pointer;
+
+  transition:
+    transform .14s ease,
+    background .18s ease;
+}
+
+.phrase:active {
+  transform: scale(.985);
 }
 
 .phrase-positive {
@@ -688,18 +835,75 @@ button {
   border-left: 3px solid var(--red);
 }
 
-.phrase-neutral {
-  border-left: 3px solid var(--yellow);
-}
-
 .phrase p {
   margin: 0;
 
-  font-size: 11.5px;
+  font-size: 10.5px;
 
   line-height: 1.45;
 
   font-weight: 600;
+}
+
+
+/* =====================================================
+   PHRASE REVEAL
+===================================================== */
+
+.phrase-text {
+  display: block;
+
+  transition:
+    opacity .2s ease;
+}
+
+.phrase-hint {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.phrase-hint-icon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: var(--surface-soft);
+
+  font-size: 11px;
+}
+
+.phrase.revealed .phrase-hint {
+  display: none;
+}
+
+.phrase.revealed {
+  animation: revealPhrase .22s ease;
+}
+
+@keyframes revealPhrase {
+
+  from {
+    transform: scale(.98);
+    opacity: .7;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
 }
 
 
@@ -710,9 +914,9 @@ button {
 .example {
   margin-top: 8px;
 
-  padding: 14px;
+  padding: 13px;
 
-  border: 1px solid #f0dda9;
+  border: 1px solid #efdda9;
 
   border-radius: 14px;
 
@@ -720,7 +924,7 @@ button {
 }
 
 .example-label {
-  color: #987019;
+  color: #967019;
 
   font-size: 7px;
   font-weight: 800;
@@ -731,13 +935,13 @@ button {
 }
 
 .example p {
-  margin: 6px 0 0;
+  margin: 5px 0 0;
 
   color: #5e4c22;
 
   font-family: "Baloo 2", sans-serif;
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 1.4;
 }
@@ -748,7 +952,7 @@ button {
 ===================================================== */
 
 .better {
-  margin-top: 9px;
+  margin-top: 8px;
 
   padding: 10px;
 
@@ -758,7 +962,7 @@ button {
 }
 
 .better-title {
-  margin: 0 3px 8px;
+  margin: 0 3px 7px;
 
   color: var(--green-dark);
 
@@ -779,8 +983,6 @@ button {
   display: grid;
 
   gap: 7px;
-
-  padding-top: 3px;
 }
 
 .swap {
@@ -788,7 +990,7 @@ button {
 
   grid-template-columns:
     minmax(0,1fr)
-    25px
+    23px
     minmax(0,1fr);
 
   align-items: center;
@@ -799,7 +1001,7 @@ button {
 
   border: 1px solid var(--border);
 
-  border-radius: 15px;
+  border-radius: 14px;
 
   background: var(--surface);
 }
@@ -807,7 +1009,7 @@ button {
 .swap-label {
   margin-bottom: 4px;
 
-  font-size: 7px;
+  font-size: 6.5px;
   font-weight: 800;
 
   letter-spacing: .7px;
@@ -824,7 +1026,7 @@ button {
 }
 
 .swap-text {
-  font-size: 10px;
+  font-size: 9.5px;
 
   line-height: 1.4;
 
@@ -836,9 +1038,9 @@ button {
   align-items: center;
   justify-content: center;
 
-  color: #aaa4ad;
+  color: #aaa5ad;
 
-  font-size: 15px;
+  font-size: 14px;
 }
 
 
@@ -849,9 +1051,7 @@ button {
 .gold-list {
   display: grid;
 
-  gap: 8px;
-
-  padding-top: 3px;
+  gap: 7px;
 }
 
 .gold {
@@ -859,9 +1059,9 @@ button {
 
   overflow: hidden;
 
-  padding: 16px;
+  padding: 15px;
 
-  border-radius: 18px;
+  border-radius: 17px;
 
   background:
     radial-gradient(
@@ -869,7 +1069,7 @@ button {
       rgba(255,214,108,.14),
       transparent 32%
     ),
-    #302d39;
+    #302d38;
 
   color: white;
 }
@@ -879,18 +1079,18 @@ button {
 
   position: absolute;
 
-  right: 12px;
+  right: 11px;
   top: 3px;
 
   color: rgba(255,213,106,.5);
 
-  font-size: 23px;
+  font-size: 21px;
 }
 
 .gold-label {
   color: #ffd66c;
 
-  font-size: 7px;
+  font-size: 6.5px;
   font-weight: 800;
 
   letter-spacing: .9px;
@@ -899,18 +1099,201 @@ button {
 }
 
 .gold p {
-  position: relative;
-  z-index: 1;
-
-  margin: 7px 20px 0 0;
+  margin: 6px 18px 0 0;
 
   font-family: "Baloo 2", sans-serif;
 
   color: #f8f5f8;
 
+  font-size: 14px;
+
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   QUICK PICK MODAL
+===================================================== */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding: 14px;
+
+  background: rgba(20,19,24,.48);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .22s ease,
+    visibility .22s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 560px;
+
+  padding: 21px;
+
+  border-radius: 25px 25px 20px 20px;
+
+  background: var(--surface);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.2);
+
+  transform: translateY(20px);
+
+  transition:
+    transform .25s ease;
+}
+
+.modal.show .modal-card {
+  transform: translateY(0);
+}
+
+.modal-label {
+  color: var(--green-dark);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.modal-title {
+  margin: 4px 0 10px;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 24px;
+}
+
+.random-phrase {
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: var(--dark);
+
+  color: white;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.35;
+
+  text-align: center;
+}
+
+.modal-buttons {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.modal-button {
+  padding: 12px;
+
+  border: 0;
+
+  border-radius: 13px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.modal-button.primary {
+  background: var(--green);
+
+  color: white;
+}
+
+.modal-button.secondary {
+  background: var(--surface-soft);
+
+  color: var(--text);
+}
+
+
+/* =====================================================
+   OBJECTION MODAL
+===================================================== */
+
+.objection-list {
+  display: grid;
+
+  gap: 7px;
+}
+
+.objection-button {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  text-align: left;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.objection-answer {
+  display: none;
+
+  margin-top: 10px;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  background: var(--green-soft);
+
+  color: var(--green-dark);
+
+  font-family: "Baloo 2", sans-serif;
+
   font-size: 15px;
 
   line-height: 1.4;
+}
+
+.objection-answer.show {
+  display: block;
+
+  animation: fadeUp .2s ease;
 }
 
 
@@ -919,9 +1302,9 @@ button {
 ===================================================== */
 
 footer {
-  margin-top: 25px;
+  margin-top: 23px;
 
-  padding-top: 17px;
+  padding-top: 16px;
 
   border-top: 1px solid var(--border);
 
@@ -929,7 +1312,7 @@ footer {
 
   text-align: center;
 
-  font-size: 8px;
+  font-size: 7.5px;
 
   line-height: 1.5;
 }
@@ -940,10 +1323,51 @@ footer strong {
 
 
 /* =====================================================
-   ANIMATIONS
+   TOAST
 ===================================================== */
 
-@keyframes phraseIn {
+.toast {
+  position: fixed;
+
+  left: 50%;
+  bottom: 20px;
+
+  z-index: 200;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  background: var(--dark);
+
+  color: white;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, 12px);
+
+  transition: .22s ease;
+}
+
+.toast.show {
+  opacity: 1;
+
+  transform:
+    translate(-50%, 0);
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeUp {
 
   from {
     opacity: 0;
@@ -967,12 +1391,12 @@ body.dark {
   --bg: #18171c;
 
   --surface: #27242c;
-  --surface2: #35313a;
+  --surface-soft: #35313a;
 
   --text: #eeeaf0;
   --muted: #aaa4ad;
 
-  --border: #39353e;
+  --border: #3a363f;
 
   --green-soft: #203a2f;
   --red-soft: #3d2729;
@@ -981,6 +1405,10 @@ body.dark {
 
   --green-dark: #6bd09f;
   --red-dark: #ef9292;
+}
+
+body.dark .daily-tip p {
+  color: #eadcae;
 }
 
 body.dark .example p {
@@ -1002,15 +1430,32 @@ body.dark .example p {
     padding: 35px;
   }
 
-  .main-body {
+  .quick-button:hover {
+    box-shadow:
+      0 10px 30px rgba(30,28,35,.09);
+  }
+
+  .phrase:hover {
+    background: var(--surface-soft);
+  }
+
+  .accordion-body {
     padding:
       0 14px
       15px;
   }
 
-  .phrase-list {
+  .gold-list {
     grid-template-columns:
       repeat(2,minmax(0,1fr));
+  }
+
+  .modal {
+    align-items: center;
+  }
+
+  .modal-card {
+    border-radius: 25px;
   }
 
 }
@@ -1023,8 +1468,8 @@ body.dark .example p {
 @media (max-width: 360px) {
 
   .page {
-    padding-left: 11px;
-    padding-right: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .hero {
@@ -1033,22 +1478,26 @@ body.dark .example p {
   }
 
   .section-name {
-    font-size: 20px;
+    font-size: 19px;
   }
 
-  .subcategory-title {
-    font-size: 16px;
+  .quick-actions {
+    gap: 7px;
+  }
+
+  .quick-button {
+    padding: 11px;
   }
 
   .swap {
     grid-template-columns:
       minmax(0,1fr)
-      19px
+      18px
       minmax(0,1fr);
   }
 
   .swap-text {
-    font-size: 9px;
+    font-size: 8.5px;
   }
 
 }
@@ -1063,9 +1512,9 @@ body.dark .example p {
 <div class="page">
 
 
-<!-- =================================================
+<!-- =====================================================
      HEADER
-================================================== -->
+===================================================== -->
 
 <header class="topbar">
 
@@ -1094,9 +1543,9 @@ body.dark .example p {
 
 
 
-<!-- =================================================
+<!-- =====================================================
      HERO
-================================================== -->
+===================================================== -->
 
 <section class="hero">
 
@@ -1104,46 +1553,152 @@ body.dark .example p {
     🎯 Μίλα σωστά · Πούλα συμβουλευτικά
   </div>
 
-
   <h1>
     Οι σωστές λέξεις<br>
     <span>αλλάζουν τη συζήτηση.</span>
   </h1>
 
-
   <p class="hero-description">
-    Ένα γρήγορο D2D toolkit με φράσεις
-    για κάθε στιγμή της συζήτησης.
-    Διάλεξε κατηγορία και βρες αυτό
-    που χρειάζεσαι.
+    Ένα γρήγορο D2D toolkit για να βρίσκεις
+    τη σωστή φράση, τη σωστή στιγμή.
   </p>
 
 </section>
 
 
 
+<!-- =====================================================
+     DAILY TIP
+===================================================== -->
+
+<section class="daily-tip">
+
+  <div class="daily-tip-label">
+    ✨ Σήμερα θυμήσου
+  </div>
+
+  <p id="dailyTip">
+    «Με βάση αυτά που μου λέτε...»
+  </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="quick-actions">
+
+
+  <button
+    class="quick-button"
+    id="randomButton"
+  >
+
+    <div class="quick-icon">
+      🎲
+    </div>
+
+    <span class="quick-title">
+      Δώσε μου ένα λεκτικό
+    </span>
+
+    <span class="quick-subtitle">
+      Τυχαία φράση για έμπνευση
+    </span>
+
+  </button>
+
+
+
+  <button
+    class="quick-button"
+    id="objectionButton"
+  >
+
+    <div class="quick-icon">
+      💬
+    </div>
+
+    <span class="quick-title">
+      Αν σου πει...
+    </span>
+
+    <span class="quick-subtitle">
+      Δες πώς μπορείς να απαντήσεις
+    </span>
+
+  </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<section class="progress-card">
+
+  <div class="progress-top">
+
+    <div class="progress-label">
+      Σήμερα ανακάλυψες
+    </div>
+
+    <div
+      class="progress-number"
+      id="progressNumber"
+    >
+      0 λεκτικά
+    </div>
+
+  </div>
+
+  <div class="progress-track">
+
+    <div
+      class="progress-bar"
+      id="progressBar"
+    ></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
 <div class="intro">
-  Ξεκίνα από τις ανάγκες του πελάτη,
+  Ξεκίνα από την ανάγκη του πελάτη,
   όχι από το προϊόν.
 </div>
 
 
 
-<!-- =================================================
-     MAIN CATEGORIES
-================================================== -->
+<!-- =====================================================
+     MAIN ACCORDION
+===================================================== -->
 
-<main class="main-accordion">
+<main class="accordion">
 
 
-<!-- =================================================
-     01 · ΧΤΙΖΟΥΝ ΕΜΠΙΣΤΟΣΥΝΗ
-================================================== -->
 
-<section class="main-item">
+<!-- =====================================================
+     01 TRUST
+===================================================== -->
+
+<section class="accordion-item">
+
 
   <button
-    class="main-header"
+    class="accordion-header"
     type="button"
     aria-expanded="false"
   >
@@ -1175,316 +1730,160 @@ body.dark .example p {
   </button>
 
 
-  <div class="main-content">
 
-    <div class="main-inner">
+  <div class="accordion-content">
 
-      <div class="main-body">
+    <div class="accordion-inner">
 
-        <div class="subcategory-list">
-
-
-          <!-- ΜΕΙΩΝΟΥΝ ΠΙΕΣΗ -->
-
-          <div class="subcategory-item">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις που μειώνουν την πίεση
-                </h3>
-
-                <div class="subcategory-count">
-                  7 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
+      <div class="accordion-body">
 
 
-            <div class="subcategory-content">
 
-              <div class="subcategory-inner">
+        <!-- SUBCATEGORY 1 -->
 
-                <div class="subcategory-body">
+        <div class="subcategory">
 
-                  <div class="phrase-list">
 
-                    <div class="phrase phrase-positive">
-                      <p>«Να δω αν σας αφορά»</p>
-                    </div>
+          <button
+            class="subcategory-header"
+            type="button"
+          >
 
-                    <div class="phrase phrase-positive">
-                      <p>«Να δούμε αν ταιριάζει στη χρήση σας»</p>
-                    </div>
+            <span class="subcategory-dot"></span>
 
-                    <div class="phrase phrase-positive">
-                      <p>«Αν έχει νόημα για εσάς»</p>
-                    </div>
+            <div class="subcategory-info">
 
-                    <div class="phrase phrase-positive">
-                      <p>«Εφόσον σας εξυπηρετεί»</p>
-                    </div>
+              <h3 class="subcategory-title">
+                Φράσεις που μειώνουν την πίεση
+              </h3>
 
-                    <div class="phrase phrase-positive">
-                      <p>«Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Εσείς γνωρίζετε καλύτερα τις ανάγκες σας»</p>
-                    </div>
-
-                  </div>
-
-                </div>
-
+              <div class="subcategory-count">
+                7 λεκτικά · tap για εμφάνιση
               </div>
 
             </div>
 
-          </div>
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
 
 
+          <div class="subcategory-content">
 
-          <!-- ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΠΩΛΗΣΗ -->
+            <div class="subcategory-inner">
 
-          <div class="subcategory-item">
+              <div class="subcategory-body">
 
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις που δείχνουν συμβουλευτική πώληση
-                </h3>
-
-                <div class="subcategory-count">
-                  6 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
+                <div class="phrase-list">
 
 
-            <div class="subcategory-content">
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να δω αν σας αφορά">
 
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="phrase-list">
-
-                    <div class="phrase phrase-positive">
-                      <p>«Με βάση αυτά που μου λέτε...»</p>
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
                     </div>
 
-                    <div class="phrase phrase-positive">
-                      <p>«Από τη χρήση που μου περιγράφετε...»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Για τη δική σας περίπτωση...»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Αυτό που θα σας πρότεινα...»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Αυτό που βλέπω ότι σας ταιριάζει...»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Η πιο λογική επιλογή για εσάς είναι...»</p>
-                    </div>
-
-                  </div>
-
-
-                  <div class="example">
-
-                    <div class="example-label">
-                      💡 Παράδειγμα
-                    </div>
-
-                    <p>
-                      «Με βάση ότι έχετε δύο παιδιά,
-                      τηλεόραση και τηλεργασία,
-                      θα κοιτούσα περισσότερο το 1 Gbps.»
+                    <p class="phrase-text">
+                      «Να δω αν σας αφορά»
                     </p>
 
                   </div>
 
-                </div>
 
-              </div>
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να δούμε αν ταιριάζει στη χρήση σας">
 
-            </div>
-
-          </div>
-
-
-
-          <!-- ΑΥΞΑΝΟΥΝ ΑΞΙΑ -->
-
-          <div class="subcategory-item">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις που αυξάνουν την αξία
-                </h3>
-
-                <div class="subcategory-count">
-                  5 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="phrase-list">
-
-                    <div class="phrase phrase-positive">
-                      <p>«Πιο σταθερή εμπειρία»</p>
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
                     </div>
 
-                    <div class="phrase phrase-positive">
-                      <p>«Καλύτερη απόκριση»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Περισσότερη άνεση με πολλές συσκευές»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων»</p>
-                    </div>
+                    <p class="phrase-text">
+                      «Να δούμε αν ταιριάζει στη χρήση σας»
+                    </p>
 
                   </div>
 
-                </div>
 
-              </div>
+                  <div class="phrase phrase-positive"
+                       data-phrase="Αν έχει νόημα για εσάς">
 
-            </div>
-
-          </div>
-
-
-
-          <!-- ΚΛΕΙΣΙΜΟ -->
-
-          <div class="subcategory-item">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις για κλείσιμο χωρίς πίεση
-                </h3>
-
-                <div class="subcategory-count">
-                  5 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="phrase-list">
-
-                    <div class="phrase phrase-positive">
-                      <p>«Να το δούμε μαζί;»</p>
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
                     </div>
 
-                    <div class="phrase phrase-positive">
-                      <p>«Να κάνουμε έναν έλεγχο;»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Να δούμε αν υπάρχει διαθέσιμη επιλογή;»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Να σας δείξω τι μπορείτε να έχετε;»</p>
-                    </div>
-
-                    <div class="phrase phrase-positive">
-                      <p>«Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.»</p>
-                    </div>
+                    <p class="phrase-text">
+                      «Αν έχει νόημα για εσάς»
+                    </p>
 
                   </div>
 
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Εφόσον σας εξυπηρετεί">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Εφόσον σας εξυπηρετεί»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Εσείς γνωρίζετε καλύτερα τις ανάγκες σας">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Εσείς γνωρίζετε καλύτερα τις ανάγκες σας»
+                    </p>
+
+                  </div>
+
+
                 </div>
 
               </div>
@@ -1492,9 +1891,420 @@ body.dark .example p {
             </div>
 
           </div>
-
 
         </div>
+
+
+
+        <!-- SUBCATEGORY 2 -->
+
+        <div class="subcategory">
+
+
+          <button
+            class="subcategory-header"
+            type="button"
+          >
+
+            <span class="subcategory-dot"></span>
+
+            <div class="subcategory-info">
+
+              <h3 class="subcategory-title">
+                Φράσεις που δείχνουν συμβουλευτική πώληση
+              </h3>
+
+              <div class="subcategory-count">
+                6 λεκτικά · tap για εμφάνιση
+              </div>
+
+            </div>
+
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="subcategory-content">
+
+            <div class="subcategory-inner">
+
+              <div class="subcategory-body">
+
+                <div class="phrase-list">
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Με βάση αυτά που μου λέτε...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Με βάση αυτά που μου λέτε...»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Από τη χρήση που μου περιγράφετε...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Από τη χρήση που μου περιγράφετε...»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Για τη δική σας περίπτωση...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Για τη δική σας περίπτωση...»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Αυτό που θα σας πρότεινα...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Αυτό που θα σας πρότεινα...»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Αυτό που βλέπω ότι σας ταιριάζει...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Αυτό που βλέπω ότι σας ταιριάζει...»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Η πιο λογική επιλογή για εσάς είναι...">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Η πιο λογική επιλογή για εσάς είναι...»
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+
+                <div class="example">
+
+                  <div class="example-label">
+                    💡 Παράδειγμα
+                  </div>
+
+                  <p>
+                    «Με βάση ότι έχετε δύο παιδιά,
+                    τηλεόραση και τηλεργασία,
+                    θα κοιτούσα περισσότερο το 1 Gbps.»
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- SUBCATEGORY 3 -->
+
+        <div class="subcategory">
+
+
+          <button
+            class="subcategory-header"
+            type="button"
+          >
+
+            <span class="subcategory-dot"></span>
+
+            <div class="subcategory-info">
+
+              <h3 class="subcategory-title">
+                Φράσεις που αυξάνουν την αξία
+              </h3>
+
+              <div class="subcategory-count">
+                5 λεκτικά · tap για εμφάνιση
+              </div>
+
+            </div>
+
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="subcategory-content">
+
+            <div class="subcategory-inner">
+
+              <div class="subcategory-body">
+
+                <div class="phrase-list">
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Πιο σταθερή εμπειρία">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Πιο σταθερή εμπειρία»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Καλύτερη απόκριση">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Καλύτερη απόκριση»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Περισσότερη άνεση με πολλές συσκευές">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Περισσότερη άνεση με πολλές συσκευές»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων»
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- SUBCATEGORY 4 -->
+
+        <div class="subcategory">
+
+
+          <button
+            class="subcategory-header"
+            type="button"
+          >
+
+            <span class="subcategory-dot"></span>
+
+            <div class="subcategory-info">
+
+              <h3 class="subcategory-title">
+                Φράσεις για κλείσιμο χωρίς πίεση
+              </h3>
+
+              <div class="subcategory-count">
+                5 λεκτικά · tap για εμφάνιση
+              </div>
+
+            </div>
+
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="subcategory-content">
+
+            <div class="subcategory-inner">
+
+              <div class="subcategory-body">
+
+                <div class="phrase-list">
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να το δούμε μαζί;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Να το δούμε μαζί;»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να κάνουμε έναν έλεγχο;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Να κάνουμε έναν έλεγχο;»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να δούμε αν υπάρχει διαθέσιμη επιλογή;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Να δούμε αν υπάρχει διαθέσιμη επιλογή;»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Να σας δείξω τι μπορείτε να έχετε;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Να σας δείξω τι μπορείτε να έχετε;»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-positive"
+                       data-phrase="Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p class="phrase-text">
+                      «Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.»
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -1506,14 +2316,15 @@ body.dark .example p {
 
 
 
-<!-- =================================================
-     02 · ΣΗΚΩΝΟΥΝ ΑΜΥΝΑ
-================================================== -->
+<!-- =====================================================
+     02 DEFENSE
+===================================================== -->
 
-<section class="main-item">
+<section class="accordion-item">
+
 
   <button
-    class="main-header"
+    class="accordion-header"
     type="button"
     aria-expanded="false"
   >
@@ -1545,165 +2356,145 @@ body.dark .example p {
   </button>
 
 
-  <div class="main-content">
 
-    <div class="main-inner">
+  <div class="accordion-content">
 
-      <div class="main-body">
+    <div class="accordion-inner">
 
-        <div class="subcategory-list">
-
-
-          <!-- ΠΙΕΣΗ -->
-
-          <div class="subcategory-item red-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις που προκαλούν πίεση
-                </h3>
-
-                <div class="subcategory-count">
-                  6 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
+      <div class="accordion-body">
 
 
-            <div class="subcategory-content">
 
-              <div class="subcategory-inner">
+        <!-- SUBCATEGORY -->
 
-                <div class="subcategory-body">
+        <div class="subcategory">
 
-                  <div class="phrase-list">
 
-                    <div class="phrase phrase-negative">
-                      <p>«Ήρθα να σας κάνω προσφορά»</p>
-                    </div>
+          <button
+            class="subcategory-header"
+            type="button"
+          >
 
-                    <div class="phrase phrase-negative">
-                      <p>«Έχω μια μοναδική ευκαιρία»</p>
-                    </div>
+            <span class="subcategory-dot red"></span>
 
-                    <div class="phrase phrase-negative">
-                      <p>«Πρέπει να το κάνετε σήμερα»</p>
-                    </div>
+            <div class="subcategory-info">
 
-                    <div class="phrase phrase-negative">
-                      <p>«Είναι η τελευταία ευκαιρία»</p>
-                    </div>
+              <h3 class="subcategory-title">
+                Φράσεις που προκαλούν πίεση
+              </h3>
 
-                    <div class="phrase phrase-negative">
-                      <p>«Χάνετε χρήματα αν δεν το πάρετε»</p>
-                    </div>
-
-                    <div class="phrase phrase-negative">
-                      <p>«Πρέπει να αποφασίσετε τώρα»</p>
-                    </div>
-
-                  </div>
-
-                </div>
-
+              <div class="subcategory-count">
+                6 λεκτικά · tap για εμφάνιση
               </div>
 
             </div>
 
-          </div>
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
 
 
+          <div class="subcategory-content">
 
-          <!-- ΑΞΙΟΠΙΣΤΙΑ -->
+            <div class="subcategory-inner">
 
-          <div class="subcategory-item red-theme">
+              <div class="subcategory-body">
 
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Φράσεις που μειώνουν την αξιοπιστία
-                </h3>
-
-                <div class="subcategory-count">
-                  5 λεκτικά
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
+                <div class="phrase-list">
 
 
-            <div class="subcategory-content">
+                  <div class="phrase phrase-negative"
+                       data-phrase="Ήρθα να σας κάνω προσφορά">
 
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="phrase-list">
-
-                    <div class="phrase phrase-negative">
-                      <p>«Είναι το καλύτερο της αγοράς»</p>
-                    </div>
-
-                    <div class="phrase phrase-negative">
-                      <p>«Δεν θα έχετε ποτέ πρόβλημα»</p>
-                    </div>
-
-                    <div class="phrase phrase-negative">
-                      <p>«Είναι εγγυημένο 100%»</p>
-                    </div>
-
-                    <div class="phrase phrase-negative">
-                      <p>«Όλοι το παίρνουν»</p>
-                    </div>
-
-                    <div class="phrase phrase-negative">
-                      <p>«Δεν υπάρχει καλύτερο»</p>
-                    </div>
-
-                  </div>
-
-
-                  <div class="example">
-
-                    <div class="example-label">
-                      💡 Θυμήσου
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
                     </div>
 
                     <p>
-                      Ο πελάτης τα έχει ακούσει αυτά
-                      πολλές φορές.
+                      «Ήρθα να σας κάνω προσφορά»
                     </p>
 
                   </div>
 
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Έχω μια μοναδική ευκαιρία">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Έχω μια μοναδική ευκαιρία»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Πρέπει να το κάνετε σήμερα">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Πρέπει να το κάνετε σήμερα»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Είναι η τελευταία ευκαιρία">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Είναι η τελευταία ευκαιρία»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Χάνετε χρήματα αν δεν το πάρετε">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Χάνετε χρήματα αν δεν το πάρετε»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Πρέπει να αποφασίσετε τώρα">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Πρέπει να αποφασίσετε τώρα»
+                    </p>
+
+                  </div>
+
+
                 </div>
 
               </div>
@@ -1712,75 +2503,262 @@ body.dark .example p {
 
           </div>
 
+        </div>
 
 
-          <!-- ΑΜΥΝΑ -->
 
-          <div class="subcategory-item red-theme">
+        <!-- SUBCATEGORY -->
 
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
+        <div class="subcategory">
 
-              <span class="subcategory-marker"></span>
 
-              <div class="subcategory-info">
+          <button
+            class="subcategory-header"
+            type="button"
+          >
 
-                <h3 class="subcategory-title">
-                  Φράσεις που κάνουν τον πελάτη να αμυνθεί
-                </h3>
+            <span class="subcategory-dot red"></span>
 
-                <div class="subcategory-count">
-                  2 λεκτικά + 2 καλύτερες επιλογές
+            <div class="subcategory-info">
+
+              <h3 class="subcategory-title">
+                Φράσεις που μειώνουν την αξιοπιστία
+              </h3>
+
+              <div class="subcategory-count">
+                5 λεκτικά · tap για εμφάνιση
+              </div>
+
+            </div>
+
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="subcategory-content">
+
+            <div class="subcategory-inner">
+
+              <div class="subcategory-body">
+
+                <div class="phrase-list">
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Είναι το καλύτερο της αγοράς">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Είναι το καλύτερο της αγοράς»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Δεν θα έχετε ποτέ πρόβλημα">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Δεν θα έχετε ποτέ πρόβλημα»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Είναι εγγυημένο 100%">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Είναι εγγυημένο 100%»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Όλοι το παίρνουν">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Όλοι το παίρνουν»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Δεν υπάρχει καλύτερο">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Δεν υπάρχει καλύτερο»
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+
+                <div class="example">
+
+                  <div class="example-label">
+                    💡 Θυμήσου
+                  </div>
+
+                  <p>
+                    Ο πελάτης τα έχει ακούσει αυτά
+                    πολλές φορές.
+                  </p>
+
                 </div>
 
               </div>
 
-              <span class="sub-chevron">
-                ⌄
-              </span>
+            </div>
 
-            </button>
+          </div>
+
+        </div>
 
 
-            <div class="subcategory-content">
 
-              <div class="subcategory-inner">
+        <!-- SUBCATEGORY -->
 
-                <div class="subcategory-body">
+        <div class="subcategory">
+
+
+          <button
+            class="subcategory-header"
+            type="button"
+          >
+
+            <span class="subcategory-dot red"></span>
+
+            <div class="subcategory-info">
+
+              <h3 class="subcategory-title">
+                Φράσεις που κάνουν τον πελάτη να αμυνθεί
+              </h3>
+
+              <div class="subcategory-count">
+                2 λεκτικά · tap για εμφάνιση
+              </div>
+
+            </div>
+
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="subcategory-content">
+
+            <div class="subcategory-inner">
+
+              <div class="subcategory-body">
+
+                <div class="phrase-list">
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Είστε ευχαριστημένος από τη σύνδεσή σας;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Είστε ευχαριστημένος από τη σύνδεσή σας;»
+                    </p>
+
+                  </div>
+
+
+                  <div class="phrase phrase-negative"
+                       data-phrase="Θα θέλατε να αλλάξετε πάροχο;">
+
+                    <div class="phrase-hint">
+                      <span class="phrase-hint-icon">👆</span>
+                      Tap για να δεις το λεκτικό
+                    </div>
+
+                    <p>
+                      «Θα θέλατε να αλλάξετε πάροχο;»
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+
+                <div class="better">
+
+                  <div class="better-title">
+                    ✨ Πες καλύτερα
+                  </div>
 
                   <div class="phrase-list">
 
-                    <div class="phrase phrase-negative">
-                      <p>«Είστε ευχαριστημένος από τη σύνδεσή σας;»</p>
-                    </div>
 
-                    <div class="phrase phrase-negative">
-                      <p>«Θα θέλατε να αλλάξετε πάροχο;»</p>
-                    </div>
+                    <div class="phrase phrase-positive"
+                         data-phrase="Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;">
 
-                  </div>
-
-
-                  <div class="better">
-
-                    <div class="better-title">
-                      ✨ Πες καλύτερα
-                    </div>
-
-                    <div class="phrase-list">
-
-                      <div class="phrase phrase-positive">
-                        <p>«Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;»</p>
+                      <div class="phrase-hint">
+                        <span class="phrase-hint-icon">👆</span>
+                        Tap για να δεις το λεκτικό
                       </div>
 
-                      <div class="phrase phrase-positive">
-                        <p>«Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;»</p>
-                      </div>
+                      <p>
+                        «Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;»
+                      </p>
 
                     </div>
+
+
+                    <div class="phrase phrase-positive"
+                         data-phrase="Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;">
+
+                      <div class="phrase-hint">
+                        <span class="phrase-hint-icon">👆</span>
+                        Tap για να δεις το λεκτικό
+                      </div>
+
+                      <p>
+                        «Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;»
+                      </p>
+
+                    </div>
+
 
                   </div>
 
@@ -1792,8 +2770,8 @@ body.dark .example p {
 
           </div>
 
-
         </div>
+
 
       </div>
 
@@ -1805,14 +2783,15 @@ body.dark .example p {
 
 
 
-<!-- =================================================
-     03 · ΜΗΝ ΠΕΙΣ → ΠΕΣ
-================================================== -->
+<!-- =====================================================
+     03 SWAPS
+===================================================== -->
 
-<section class="main-item">
+<section class="accordion-item">
+
 
   <button
-    class="main-header"
+    class="accordion-header"
     type="button"
     aria-expanded="false"
   >
@@ -1844,87 +2823,288 @@ body.dark .example p {
   </button>
 
 
-  <div class="main-content">
 
-    <div class="main-inner">
+  <div class="accordion-content">
 
-      <div class="main-body">
+    <div class="accordion-inner">
 
-        <div class="subcategory-list">
+      <div class="accordion-body">
 
 
-          <!-- FIBER -->
+        <div class="subcategory">
 
-          <div class="subcategory-item yellow-theme">
 
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
+          <button
+            class="subcategory-header"
+            type="button"
+          >
 
-              <span class="subcategory-marker"></span>
+            <span class="subcategory-dot yellow"></span>
 
-              <div class="subcategory-info">
+            <div class="subcategory-info">
 
-                <h3 class="subcategory-title">
-                  Παρουσίαση Fiber
-                </h3>
+              <h3 class="subcategory-title">
+                Δες τη σωστή διατύπωση
+              </h3>
 
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
+              <div class="subcategory-count">
+                7 αντικαταστάσεις · tap για εμφάνιση
               </div>
 
-              <span class="sub-chevron">
-                ⌄
-              </span>
+            </div>
 
-            </button>
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
 
 
-            <div class="subcategory-content">
+          <div class="subcategory-content">
 
-              <div class="subcategory-inner">
+            <div class="subcategory-inner">
 
-                <div class="subcategory-body">
+              <div class="subcategory-body">
 
-                  <div class="swap-list">
+                <div class="swap-list">
 
-                    <div class="swap">
 
-                      <div class="swap-side swap-bad">
+                  <div class="swap">
 
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
+                    <div class="swap-side swap-bad">
 
-                        <div class="swap-text">
-                          «Θέλετε να βάλετε Fiber;»
-                        </div>
-
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
                       </div>
 
-                      <div class="swap-arrow">
-                        →
+                      <div class="swap-text">
+                        «Θέλετε να βάλετε Fiber;»
                       </div>
 
-                      <div class="swap-side swap-good">
+                    </div>
 
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
+                    <div class="swap-arrow">
+                      →
+                    </div>
 
-                        <div class="swap-text">
-                          «Να δούμε αν το Fiber σας ταιριάζει;»
-                        </div>
+                    <div class="swap-side swap-good">
 
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Να δούμε αν το Fiber σας ταιριάζει;»
                       </div>
 
                     </div>
 
                   </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Έχουμε προσφορά»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Υπάρχουν διαθέσιμες επιλογές»
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Είναι καλύτερο»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Είναι διαφορετική τεχνολογία»
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Θα έχετε τέλειο internet»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Στόχος είναι η μεγαλύτερη σταθερότητα»
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Πρέπει να υπογράψετε»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Αν σας καλύπτει, μπορούμε να προχωρήσουμε»
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Θα σας βολέψει»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Από αυτά που μου λέτε, φαίνεται να σας ταιριάζει»
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="swap">
+
+                    <div class="swap-side swap-bad">
+
+                      <div class="swap-label">
+                        ❌ Αντιπωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Είναι φθηνό»
+                      </div>
+
+                    </div>
+
+                    <div class="swap-arrow">
+                      →
+                    </div>
+
+                    <div class="swap-side swap-good">
+
+                      <div class="swap-label">
+                        ✓ Πωλησιακό
+                      </div>
+
+                      <div class="swap-text">
+                        «Έχει καλή σχέση κόστους/απόδοσης»
+                      </div>
+
+                    </div>
+
+                  </div>
+
 
                 </div>
 
@@ -1933,507 +3113,9 @@ body.dark .example p {
             </div>
 
           </div>
-
-
-
-          <!-- ΠΡΟΣΦΟΡΑ -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Παρουσίαση επιλογών
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Έχουμε προσφορά»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Υπάρχουν διαθέσιμες επιλογές»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΚΑΛΥΤΕΡΟ -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Πώς παρουσιάζω το όφελος
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Είναι καλύτερο»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Είναι διαφορετική τεχνολογία»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- INTERNET -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Υπόσχεση αποτελέσματος
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Θα έχετε τέλειο internet»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Στόχος είναι η μεγαλύτερη σταθερότητα»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΥΠΟΓΡΑΦΗ -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Κλείσιμο
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Πρέπει να υπογράψετε»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Αν σας καλύπτει, μπορούμε να προχωρήσουμε»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΤΑΙΡΙΑΖΕΙ -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Πρόταση με βάση τις ανάγκες
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Θα σας βολέψει»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Από αυτά που μου λέτε, φαίνεται να σας ταιριάζει»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΚΟΣΤΟΣ -->
-
-          <div class="subcategory-item yellow-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Παρουσίαση κόστους
-                </h3>
-
-                <div class="subcategory-count">
-                  1 αντικατάσταση
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="swap-list">
-
-                    <div class="swap">
-
-                      <div class="swap-side swap-bad">
-
-                        <div class="swap-label">
-                          ❌ Αντιπωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Είναι φθηνό»
-                        </div>
-
-                      </div>
-
-                      <div class="swap-arrow">
-                        →
-                      </div>
-
-                      <div class="swap-side swap-good">
-
-                        <div class="swap-label">
-                          ✓ Πωλησιακό
-                        </div>
-
-                        <div class="swap-text">
-                          «Έχει καλή σχέση κόστους/απόδοσης»
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
 
         </div>
+
 
       </div>
 
@@ -2445,14 +3127,15 @@ body.dark .example p {
 
 
 
-<!-- =================================================
-     04 · ΛΕΚΤΙΚΑ ΧΡΥΣΑΦΙ
-================================================== -->
+<!-- =====================================================
+     04 GOLD
+===================================================== -->
 
-<section class="main-item">
+<section class="accordion-item">
+
 
   <button
-    class="main-header"
+    class="accordion-header"
     type="button"
     aria-expanded="false"
   >
@@ -2484,69 +3167,114 @@ body.dark .example p {
   </button>
 
 
-  <div class="main-content">
 
-    <div class="main-inner">
+  <div class="accordion-content">
 
-      <div class="main-body">
+    <div class="accordion-inner">
 
-        <div class="subcategory-list">
+      <div class="accordion-body">
 
 
-          <!-- ΔΥΣΚΟΛΟΣ ΠΕΛΑΤΗΣ -->
+        <div class="subcategory">
 
-          <div class="subcategory-item purple-theme">
 
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
+          <button
+            class="subcategory-header"
+            type="button"
+          >
 
-              <span class="subcategory-marker"></span>
+            <span class="subcategory-dot purple"></span>
 
-              <div class="subcategory-info">
+            <div class="subcategory-info">
 
-                <h3 class="subcategory-title">
-                  Όταν ο πελάτης είναι δύσκολος
-                </h3>
+              <h3 class="subcategory-title">
+                Δύσκολες στιγμές
+              </h3>
 
-                <div class="subcategory-count">
-                  1 λεκτικό
-                </div>
-
+              <div class="subcategory-count">
+                4 περιπτώσεις · tap για εμφάνιση
               </div>
 
-              <span class="sub-chevron">
-                ⌄
-              </span>
+            </div>
 
-            </button>
+            <div class="subcategory-chevron">
+              ⌄
+            </div>
+
+          </button>
 
 
-            <div class="subcategory-content">
+          <div class="subcategory-content">
 
-              <div class="subcategory-inner">
+            <div class="subcategory-inner">
 
-                <div class="subcategory-body">
+              <div class="subcategory-body">
 
-                  <div class="gold-list">
+                <div class="gold-list">
 
-                    <div class="gold">
 
-                      <div class="gold-label">
-                        Όταν ο πελάτης είναι δύσκολος
-                      </div>
+                  <div class="gold">
 
-                      <p>
-                        «Δεν θέλω να σας πείσω να πάρετε
-                        κάτι που δεν χρειάζεστε. Θέλω απλά
-                        να δω αν υπάρχει λόγος να το εξετάσετε.»
-                      </p>
-
+                    <div class="gold-label">
+                      Όταν ο πελάτης είναι δύσκολος
                     </div>
 
+                    <p>
+                      «Δεν θέλω να σας πείσω να πάρετε
+                      κάτι που δεν χρειάζεστε. Θέλω απλά
+                      να δω αν υπάρχει λόγος να το εξετάσετε.»
+                    </p>
+
                   </div>
+
+
+
+                  <div class="gold">
+
+                    <div class="gold-label">
+                      Όταν φοβάται αλλαγή
+                    </div>
+
+                    <p>
+                      «Το σημαντικό δεν είναι μόνο να
+                      αλλάξει κάποιος πάροχο. Είναι να
+                      ξέρει γιατί αλλάζει.»
+                    </p>
+
+                  </div>
+
+
+
+                  <div class="gold">
+
+                    <div class="gold-label">
+                      Όταν λέει «όλοι τα ίδια λέτε»
+                    </div>
+
+                    <p>
+                      «Το καταλαβαίνω. Γι' αυτό δεν θέλω
+                      να σας πω απλά ότι είναι καλύτερο.
+                      Θέλω να δούμε αν ταιριάζει στη
+                      δική σας χρήση.»
+                    </p>
+
+                  </div>
+
+
+
+                  <div class="gold">
+
+                    <div class="gold-label">
+                      Όταν βιάζεται
+                    </div>
+
+                    <p>
+                      «Θα σας κάνω μόνο δύο ερωτήσεις.
+                      Αν δεν σας αφορά, σταματάμε εκεί.»
+                    </p>
+
+                  </div>
+
 
                 </div>
 
@@ -2555,204 +3283,9 @@ body.dark .example p {
             </div>
 
           </div>
-
-
-
-          <!-- ΦΟΒΑΤΑΙ ΑΛΛΑΓΗ -->
-
-          <div class="subcategory-item purple-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Όταν φοβάται αλλαγή
-                </h3>
-
-                <div class="subcategory-count">
-                  1 λεκτικό
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="gold-list">
-
-                    <div class="gold">
-
-                      <div class="gold-label">
-                        Όταν φοβάται αλλαγή
-                      </div>
-
-                      <p>
-                        «Το σημαντικό δεν είναι μόνο να
-                        αλλάξει κάποιος πάροχο. Είναι να
-                        ξέρει γιατί αλλάζει.»
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΟΛΟΙ ΤΑ ΙΔΙΑ -->
-
-          <div class="subcategory-item purple-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Όταν λέει «όλοι τα ίδια λέτε»
-                </h3>
-
-                <div class="subcategory-count">
-                  1 λεκτικό
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="gold-list">
-
-                    <div class="gold">
-
-                      <div class="gold-label">
-                        Όταν λέει «όλοι τα ίδια λέτε»
-                      </div>
-
-                      <p>
-                        «Το καταλαβαίνω. Γι' αυτό δεν θέλω
-                        να σας πω απλά ότι είναι καλύτερο.
-                        Θέλω να δούμε αν ταιριάζει στη
-                        δική σας χρήση.»
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- ΒΙΑΖΕΤΑΙ -->
-
-          <div class="subcategory-item purple-theme">
-
-            <button
-              class="subcategory-header"
-              type="button"
-              aria-expanded="false"
-            >
-
-              <span class="subcategory-marker"></span>
-
-              <div class="subcategory-info">
-
-                <h3 class="subcategory-title">
-                  Όταν βιάζεται
-                </h3>
-
-                <div class="subcategory-count">
-                  1 λεκτικό
-                </div>
-
-              </div>
-
-              <span class="sub-chevron">
-                ⌄
-              </span>
-
-            </button>
-
-
-            <div class="subcategory-content">
-
-              <div class="subcategory-inner">
-
-                <div class="subcategory-body">
-
-                  <div class="gold-list">
-
-                    <div class="gold">
-
-                      <div class="gold-label">
-                        Όταν βιάζεται
-                      </div>
-
-                      <p>
-                        «Θα σας κάνω μόνο δύο ερωτήσεις.
-                        Αν δεν σας αφορά, σταματάμε εκεί.»
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
 
         </div>
+
 
       </div>
 
@@ -2767,9 +3300,9 @@ body.dark .example p {
 
 
 
-<!-- =================================================
+<!-- =====================================================
      FOOTER
-================================================== -->
+===================================================== -->
 
 <footer>
 
@@ -2787,20 +3320,165 @@ body.dark .example p {
 
 
 
+<!-- =====================================================
+     RANDOM MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="randomModal"
+>
+
+  <div class="modal-card">
+
+    <div class="modal-label">
+      🎲 Quick Pick
+    </div>
+
+    <h2 class="modal-title">
+      Το λεκτικό σου
+    </h2>
+
+    <div
+      class="random-phrase"
+      id="randomPhrase"
+    >
+      «Να δούμε αν ταιριάζει στη χρήση σας;»
+    </div>
+
+    <div class="modal-buttons">
+
+      <button
+        class="modal-button primary"
+        id="anotherPhrase"
+      >
+        🎲 Άλλο ένα
+      </button>
+
+      <button
+        class="modal-button secondary"
+        data-close-modal
+      >
+        Κλείσιμο
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTION MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="objectionModal"
+>
+
+  <div class="modal-card">
+
+    <div class="modal-label">
+      💬 D2D MOMENTS
+    </div>
+
+    <h2 class="modal-title">
+      Αν σου πει...
+    </h2>
+
+
+    <div class="objection-list">
+
+
+      <button
+        class="objection-button"
+        data-answer="Το καταλαβαίνω. Γι' αυτό δεν θέλω να σας πω απλά ότι είναι καλύτερο. Θέλω να δούμε αν ταιριάζει στη δική σας χρήση."
+      >
+        «Όλοι τα ίδια λέτε»
+      </button>
+
+
+      <button
+        class="objection-button"
+        data-answer="Δεν θέλω να σας πείσω να πάρετε κάτι που δεν χρειάζεστε. Θέλω απλά να δω αν υπάρχει λόγος να το εξετάσετε."
+      >
+        «Δεν ενδιαφέρομαι»
+      </button>
+
+
+      <button
+        class="objection-button"
+        data-answer="Το σημαντικό δεν είναι μόνο να αλλάξει κάποιος πάροχο. Είναι να ξέρει γιατί αλλάζει."
+      >
+        «Δεν θέλω να αλλάξω πάροχο»
+      </button>
+
+
+      <button
+        class="objection-button"
+        data-answer="Θα σας κάνω μόνο δύο ερωτήσεις. Αν δεν σας αφορά, σταματάμε εκεί."
+      >
+        «Βιάζομαι»
+      </button>
+
+
+    </div>
+
+
+    <div
+      class="objection-answer"
+      id="objectionAnswer"
+    ></div>
+
+
+    <div class="modal-buttons">
+
+      <button
+        class="modal-button secondary"
+        data-close-modal
+      >
+        Κλείσιμο
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+  class="toast"
+  id="toast"
+>
+  ✨ Το είδες!
+</div>
+
+
+
 <script>
+
 
 /* =====================================================
    MAIN ACCORDION
 ===================================================== */
 
-const mainItems =
-  document.querySelectorAll(".main-item");
+const accordionItems =
+  document.querySelectorAll(".accordion-item");
 
 
-mainItems.forEach(item => {
+accordionItems.forEach(item => {
 
   const header =
-    item.querySelector(".main-header");
+    item.querySelector(".accordion-header");
 
 
   header.addEventListener("click", () => {
@@ -2809,49 +3487,19 @@ mainItems.forEach(item => {
       item.classList.contains("open");
 
 
-    /*
-      Κλείνουμε όλες τις κύριες κατηγορίες.
-    */
-
-    mainItems.forEach(other => {
+    accordionItems.forEach(other => {
 
       other.classList.remove("open");
 
       other
-        .querySelector(".main-header")
+        .querySelector(".accordion-header")
         .setAttribute(
           "aria-expanded",
           "false"
         );
 
-
-      /*
-        Όταν κλείνει μια κύρια κατηγορία,
-        κλείνουμε και τις υποκατηγορίες της.
-      */
-
-      other
-        .querySelectorAll(".subcategory-item")
-        .forEach(sub => {
-
-          sub.classList.remove("open");
-
-          sub
-            .querySelector(".subcategory-header")
-            .setAttribute(
-              "aria-expanded",
-              "false"
-            );
-
-        });
-
     });
 
-
-    /*
-      Αν ήταν κλειστή,
-      την ανοίγουμε.
-    */
 
     if (!isOpen) {
 
@@ -2861,21 +3509,6 @@ mainItems.forEach(item => {
         "aria-expanded",
         "true"
       );
-
-
-      setTimeout(() => {
-
-        const top =
-          item.getBoundingClientRect().top +
-          window.scrollY -
-          12;
-
-        window.scrollTo({
-          top: top,
-          behavior: "smooth"
-        });
-
-      }, 80);
 
     }
 
@@ -2886,92 +3519,492 @@ mainItems.forEach(item => {
 
 
 /* =====================================================
-   SUBCATEGORY ACCORDION
+   SUBCATEGORIES
 ===================================================== */
 
-const subcategoryItems =
-  document.querySelectorAll(".subcategory-item");
+const subcategories =
+  document.querySelectorAll(".subcategory");
 
 
-subcategoryItems.forEach(item => {
+subcategories.forEach(subcategory => {
 
   const header =
-    item.querySelector(".subcategory-header");
+    subcategory.querySelector(
+      ".subcategory-header"
+    );
 
 
   header.addEventListener("click", event => {
 
-    /*
-      Δεν αφήνουμε το click να επηρεάσει
-      την κύρια κατηγορία.
-    */
-
     event.stopPropagation();
 
 
-    const parent =
-      item.closest(".main-item");
-
-
     const isOpen =
-      item.classList.contains("open");
+      subcategory.classList.contains("open");
 
 
-    /*
-      Κλείνουμε όλες τις υποκατηγορίες
-      μέσα στην ίδια κύρια κατηγορία.
-    */
+    const parent =
+      subcategory.parentElement;
+
 
     parent
-      .querySelectorAll(".subcategory-item")
+      .querySelectorAll(":scope > .subcategory")
       .forEach(other => {
 
-        other.classList.remove("open");
+        if (other !== subcategory) {
 
-        other
-          .querySelector(".subcategory-header")
-          .setAttribute(
-            "aria-expanded",
-            "false"
-          );
+          other.classList.remove("open");
+
+        }
 
       });
 
 
-    /*
-      Αν ήταν κλειστή,
-      την ανοίγουμε.
-    */
-
-    if (!isOpen) {
-
-      item.classList.add("open");
-
-      header.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-
-      setTimeout(() => {
-
-        const top =
-          item.getBoundingClientRect().top +
-          window.scrollY -
-          12;
-
-        window.scrollTo({
-          top: top,
-          behavior: "smooth"
-        });
-
-      }, 80);
-
-    }
+    subcategory.classList.toggle(
+      "open",
+      !isOpen
+    );
 
   });
 
 });
+
+
+
+/* =====================================================
+   PHRASE REVEAL
+===================================================== */
+
+const phrases =
+  document.querySelectorAll(".phrase");
+
+
+let discovered =
+  Number(
+    localStorage.getItem(
+      "lekτικά-discovered"
+    )
+  ) || 0;
+
+
+const discoveredSet =
+  new Set(
+    JSON.parse(
+      localStorage.getItem(
+        "lekτικά-discovered-set"
+      ) || "[]"
+    )
+  );
+
+
+phrases.forEach(phrase => {
+
+  phrase.addEventListener(
+    "click",
+    event => {
+
+      event.stopPropagation();
+
+
+      if (
+        phrase.classList.contains(
+          "revealed"
+        )
+      ) {
+        return;
+      }
+
+
+      phrase.classList.add(
+        "revealed"
+      );
+
+
+      const text =
+        phrase.dataset.phrase;
+
+
+      if (
+        text &&
+        !discoveredSet.has(text)
+      ) {
+
+        discoveredSet.add(text);
+
+        discovered++;
+
+        localStorage.setItem(
+          "lekτικά-discovered",
+          discovered
+        );
+
+        localStorage.setItem(
+          "lekτικά-discovered-set",
+          JSON.stringify(
+            [...discoveredSet]
+          )
+        );
+
+        updateProgress();
+
+      }
+
+
+      showToast(
+        "✨ Το λεκτικό αποκαλύφθηκε"
+      );
+
+    }
+  );
+
+});
+
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+  const max =
+    30;
+
+  const percentage =
+    Math.min(
+      (discovered / max) * 100,
+      100
+    );
+
+
+  document.getElementById(
+    "progressNumber"
+  ).textContent =
+    `${discovered} λεκτικά`;
+
+
+  document.getElementById(
+    "progressBar"
+  ).style.width =
+    `${percentage}%`;
+
+}
+
+
+updateProgress();
+
+
+
+/* =====================================================
+   DAILY TIP
+===================================================== */
+
+const dailyTips = [
+
+  "«Με βάση αυτά που μου λέτε...»",
+
+  "«Να δούμε αν ταιριάζει στη χρήση σας;»",
+
+  "«Εσείς γνωρίζετε καλύτερα τις ανάγκες σας.»",
+
+  "«Αν έχει νόημα για εσάς.»",
+
+  "«Αυτό που θα σας πρότεινα...»",
+
+  "«Να το δούμε μαζί;»",
+
+  "«Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.»"
+
+];
+
+
+const today =
+  new Date();
+
+
+const dayIndex =
+  today.getDate() %
+  dailyTips.length;
+
+
+document.getElementById(
+  "dailyTip"
+).textContent =
+  dailyTips[dayIndex];
+
+
+
+/* =====================================================
+   RANDOM PHRASE
+===================================================== */
+
+const randomPhrases = [
+
+  "Να δω αν σας αφορά",
+
+  "Να δούμε αν ταιριάζει στη χρήση σας",
+
+  "Αν έχει νόημα για εσάς",
+
+  "Εφόσον σας εξυπηρετεί",
+
+  "Με βάση αυτά που μου λέτε...",
+
+  "Από τη χρήση που μου περιγράφετε...",
+
+  "Για τη δική σας περίπτωση...",
+
+  "Αυτό που θα σας πρότεινα...",
+
+  "Πιο σταθερή εμπειρία",
+
+  "Καλύτερη απόκριση",
+
+  "Περισσότερη άνεση με πολλές συσκευές",
+
+  "Να το δούμε μαζί;",
+
+  "Να κάνουμε έναν έλεγχο;",
+
+  "Να δούμε αν υπάρχει διαθέσιμη επιλογή;",
+
+  "Να σας δείξω τι μπορείτε να έχετε;",
+
+  "Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε."
+
+];
+
+
+const randomModal =
+  document.getElementById(
+    "randomModal"
+  );
+
+
+const randomPhrase =
+  document.getElementById(
+    "randomPhrase"
+  );
+
+
+function getRandomPhrase() {
+
+  const index =
+    Math.floor(
+      Math.random() *
+      randomPhrases.length
+    );
+
+
+  randomPhrase.textContent =
+    `«${randomPhrases[index]}»`;
+
+}
+
+
+document.getElementById(
+  "randomButton"
+).addEventListener(
+  "click",
+  () => {
+
+    getRandomPhrase();
+
+    randomModal.classList.add(
+      "show"
+    );
+
+  }
+);
+
+
+document.getElementById(
+  "anotherPhrase"
+).addEventListener(
+  "click",
+  () => {
+
+    getRandomPhrase();
+
+  }
+);
+
+
+
+/* =====================================================
+   OBJECTIONS
+===================================================== */
+
+const objectionModal =
+  document.getElementById(
+    "objectionModal"
+  );
+
+
+const objectionAnswer =
+  document.getElementById(
+    "objectionAnswer"
+  );
+
+
+document.getElementById(
+  "objectionButton"
+).addEventListener(
+  "click",
+  () => {
+
+    objectionAnswer.classList.remove(
+      "show"
+    );
+
+    objectionAnswer.textContent =
+      "";
+
+    objectionModal.classList.add(
+      "show"
+    );
+
+  }
+);
+
+
+document
+  .querySelectorAll(
+    ".objection-button"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        objectionAnswer.textContent =
+          `«${button.dataset.answer}»`;
+
+        objectionAnswer.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+  });
+
+
+
+/* =====================================================
+   CLOSE MODALS
+===================================================== */
+
+document
+  .querySelectorAll(
+    "[data-close-modal]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        button
+          .closest(".modal")
+          .classList.remove(
+            "show"
+          );
+
+      }
+    );
+
+  });
+
+
+document
+  .querySelectorAll(".modal")
+  .forEach(modal => {
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          modal.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      document
+        .querySelectorAll(".modal")
+        .forEach(modal => {
+
+          modal.classList.remove(
+            "show"
+          );
+
+        });
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+const toast =
+  document.getElementById(
+    "toast"
+  );
+
+
+function showToast(message) {
+
+  toast.textContent =
+    message;
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    window.toastTimeout
+  );
+
+
+  window.toastTimeout =
+    setTimeout(
+      () => {
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      1400
+    );
+
+}
 
 
 
@@ -2980,26 +4013,62 @@ subcategoryItems.forEach(item => {
 ===================================================== */
 
 const themeButton =
-  document.getElementById("themeButton");
+  document.getElementById(
+    "themeButton"
+  );
+
+
+const savedTheme =
+  localStorage.getItem(
+    "lekτικά-theme"
+  );
+
+
+if (
+  savedTheme === "dark"
+) {
+
+  document.body.classList.add(
+    "dark"
+  );
+
+  themeButton.textContent =
+    "☀";
+
+}
 
 
 themeButton.addEventListener(
   "click",
   () => {
 
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle(
+      "dark"
+    );
+
 
     const dark =
-      document.body.classList.contains("dark");
+      document.body.classList.contains(
+        "dark"
+      );
+
 
     themeButton.textContent =
       dark ? "☀" : "☾";
 
+
+    localStorage.setItem(
+      "lekτικά-theme",
+      dark
+        ? "dark"
+        : "light"
+    );
+
   }
 );
 
-</script>
 
+</script>
 
 </body>
 </html>
