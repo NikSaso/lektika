@@ -1,1363 +1,1319 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Λεκτικά — D2D Toolkit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#f7f6f3;
+  --surface:#ffffff;
+  --surface2:#f1efec;
+  --text:#292630;
+  --muted:#89838d;
+  --green:#4dbb89;
+  --green-dark:#247352;
+  --red:#e97878;
+  --red-dark:#a94747;
+  --yellow:#f3c65c;
+  --purple:#6258c9;
+  --dark:#302d3a;
+  --border:#ebe8e4;
+  --shadow:0 8px 28px rgba(35,31,42,.06);
+}
+
+*{
+  box-sizing:border-box;
+}
 
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  transition:.25s;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.app{
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  max-width:760px;
+  margin:auto;
+
+  padding:22px 18px 12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand-small{
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--muted);
+}
 
-  <title>Λεκτικά — D2D Sales Toolkit</title>
+.brand{
+  margin-top:1px;
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+  font-family:"Baloo 2",sans-serif;
+  font-size:38px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-1px;
+}
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+.brand span{
+  color:#ff7858;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+.theme{
+  width:44px;
+  height:44px;
 
-  <style>
+  border-radius:15px;
 
-    * {
-      box-sizing: border-box;
-    }
+  background:var(--surface);
+  color:var(--text);
 
-    html {
-      scroll-behavior: smooth;
-    }
+  box-shadow:var(--shadow);
 
-    body {
-      margin: 0;
-      background: #f7f6f2;
-      color: #292631;
-      font-family: Inter, sans-serif;
-      transition: background .25s, color .25s;
-    }
+  font-size:19px;
 
-    button,
-    input {
-      font-family: inherit;
-    }
+  transition:.2s;
+}
 
-    button {
-      border: 0;
-      cursor: pointer;
-    }
+.theme:active{
+  transform:scale(.92);
+}
 
 
-    /* =========================
-       APP
-    ========================= */
+/* =========================
+   HERO
+========================= */
 
-    #app {
-      min-height: 100vh;
-      padding-bottom: 85px;
-    }
+.hero{
+  max-width:760px;
+  margin:8px auto 0;
 
+  padding:28px 20px 22px;
 
-    /* =========================
-       TOP BAR
-    ========================= */
+  border-radius:30px;
 
-    .topbar {
-      max-width: 760px;
-      margin: auto;
+  color:white;
 
-      padding: 20px 18px 12px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      #ff9574 0,
+      #ff9574 12%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      #6e65d8 0,
+      #6e65d8 11%,
+      transparent 34%
+    ),
+    #302d3a;
+}
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.hero-kicker{
+  display:inline-flex;
 
-    .eyebrow {
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #938c98;
-    }
+  padding:7px 11px;
 
-    .logo {
-      margin: 2px 0 0;
+  border-radius:50px;
 
-      font-family: "Baloo 2", sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.13);
 
-    .logo span {
-      color: #ff7959;
-    }
+  font-size:9px;
+  font-weight:700;
+}
 
-    .theme-btn {
-      width: 43px;
-      height: 43px;
+.hero h1{
+  margin:20px 0 10px;
 
-      border-radius: 15px;
+  font-family:"Baloo 2",sans-serif;
 
-      background: #fff;
+  font-size:39px;
+  line-height:.96;
+  letter-spacing:-1px;
+}
 
-      box-shadow:
-        0 6px 20px rgba(0,0,0,.07);
+.hero h1 span{
+  color:#ffd56a;
+}
 
-      font-size: 19px;
+.hero p{
+  margin:0;
 
-      transition: transform .2s;
-    }
+  max-width:510px;
 
-    .theme-btn:active {
-      transform: scale(.9);
-    }
+  color:#ded9e5;
 
+  font-size:12px;
+  line-height:1.55;
+}
 
-    /* =========================
-       HERO
-    ========================= */
 
-    .hero {
-      position: relative;
-      overflow: hidden;
+/* =========================
+   SEARCH
+========================= */
 
-      max-width: 760px;
-      min-height: 350px;
+.search{
+  margin-top:20px;
 
-      margin: 8px auto 0;
-      padding: 30px 22px;
+  display:flex;
+  align-items:center;
 
-      border-radius: 31px;
+  background:white;
 
-      background:
-        radial-gradient(
-          circle at 90% 5%,
-          #ff9b78 0,
-          #ff8a69 13%,
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 0% 100%,
-          #7569e8 0,
-          #7569e8 12%,
-          transparent 35%
-        ),
-        #302d3a;
+  border-radius:17px;
 
-      color: white;
-    }
+  box-shadow:0 12px 28px rgba(0,0,0,.16);
 
-    .hero:after {
-      content: "";
+  overflow:hidden;
+}
 
-      position: absolute;
+.search-icon{
+  padding-left:15px;
 
-      width: 160px;
-      height: 160px;
+  color:#98919c;
 
-      right: -70px;
-      bottom: -70px;
+  font-size:23px;
+}
 
-      border-radius: 50%;
+.search input{
+  width:100%;
 
-      background: #ffd66d;
+  padding:16px 13px;
 
-      opacity: .15;
-    }
+  border:0;
+  outline:0;
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
+  color:#292630;
+  background:transparent;
 
-    .badge {
-      display: inline-flex;
+  font-size:13px;
+}
 
-      padding: 8px 12px;
+.search input::placeholder{
+  color:#aaa4ac;
+}
 
-      border-radius: 100px;
 
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.15);
+/* =========================
+   QUICK LINKS
+========================= */
 
-      font-size: 10px;
-      font-weight: 700;
-    }
+.quick{
+  max-width:760px;
+  margin:14px auto 0;
 
-    .hero h2 {
-      margin: 24px 0 12px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
 
-      font-family: "Baloo 2", sans-serif;
-      font-size: 39px;
-      line-height: .98;
-      letter-spacing: -1px;
-    }
+  gap:8px;
+}
 
-    .hero h2 em {
-      color: #ffd66d;
-      font-style: normal;
-    }
+.quick button{
+  min-height:70px;
 
-    .hero p {
-      max-width: 500px;
+  padding:11px 8px;
 
-      margin: 0;
+  border-radius:18px;
 
-      color: #ded9e4;
+  background:var(--surface);
 
-      font-size: 13px;
-      line-height: 1.55;
-    }
+  box-shadow:var(--shadow);
 
+  color:var(--text);
 
-    /* =========================
-       SEARCH
-    ========================= */
+  transition:.2s;
+}
 
-    .search {
-      display: flex;
-      align-items: center;
+.quick button:active{
+  transform:scale(.97);
+}
 
-      margin-top: 22px;
+.quick-icon{
+  display:block;
+  margin-bottom:4px;
+  font-size:20px;
+}
 
-      padding: 0 14px;
+.quick-label{
+  font-size:10px;
+  font-weight:700;
+}
 
-      background: #fff;
 
-      border-radius: 17px;
+/* =========================
+   MAIN
+========================= */
 
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
-    }
+main{
+  max-width:760px;
+  margin:auto;
+}
 
-    .search-icon {
-      color: #9a94a0;
-      font-size: 25px;
-    }
+.section{
+  margin-top:34px;
+}
 
-    .search input {
-      width: 100%;
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
 
-      padding: 16px 9px;
+  padding:0 4px;
 
-      border: 0;
-      outline: 0;
+  margin-bottom:13px;
+}
 
-      background: transparent;
+.section-head h2{
+  margin:0;
 
-      color: #292631;
+  font-family:"Baloo 2",sans-serif;
 
-      font-size: 13px;
-    }
+  font-size:27px;
+  line-height:1;
+}
 
-    .search input::placeholder {
-      color: #aaa4ad;
-    }
+.section-head p{
+  margin:0;
 
+  color:var(--muted);
 
-    /* =========================
-       QUICK ACTIONS
-    ========================= */
+  font-size:9px;
+  font-weight:700;
+}
 
-    .quick {
-      max-width: 760px;
 
-      margin: 15px auto;
+/* =========================
+   INTRO
+========================= */
 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+.intro{
+  margin:22px 4px 0;
 
-      gap: 11px;
-    }
+  color:var(--muted);
 
-    .quick-card {
-      display: flex;
-      align-items: center;
+  font-size:12px;
+  line-height:1.55;
+}
 
-      gap: 11px;
 
-      padding: 15px;
+/* =========================
+   GROUP
+========================= */
 
-      border-radius: 20px;
+.group{
+  margin-top:20px;
+}
 
-      background: #fff;
+.group-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
 
-      box-shadow:
-        0 5px 18px rgba(0,0,0,.055);
+  margin:0 4px 9px;
 
-      text-align: left;
+  color:#77717c;
 
-      transition: .2s;
-    }
+  font-size:10px;
+  font-weight:800;
 
-    .quick-card:active {
-      transform: scale(.97);
-    }
+  text-transform:uppercase;
+  letter-spacing:.7px;
+}
 
-    .quick-icon {
-      font-size: 25px;
-    }
+.group-title:before{
+  content:"";
 
-    .quick-text {
-      color: #817b87;
+  width:7px;
+  height:7px;
 
-      font-size: 11px;
-      line-height: 1.25;
-    }
+  border-radius:50%;
 
-    .quick-text strong {
-      color: #292631;
-      font-size: 14px;
-    }
+  background:var(--green);
+}
 
 
-    /* =========================
-       CONTENT
-    ========================= */
+/* =========================
+   PHRASE
+========================= */
 
-    .section {
-      max-width: 760px;
+.phrases{
+  display:grid;
+  gap:8px;
+}
 
-      margin: 30px auto;
-    }
+.phrase{
+  position:relative;
 
-    .section-title {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+  min-height:63px;
 
-      padding: 0 4px;
+  padding:15px 58px 15px 17px;
 
-      margin-bottom: 13px;
-    }
+  display:flex;
+  align-items:center;
 
-    .section-title h3 {
-      margin: 0;
+  background:var(--surface);
 
-      font-family: "Baloo 2", sans-serif;
+  border-radius:17px;
 
-      font-size: 26px;
-      line-height: 1;
-    }
+  border:1px solid var(--border);
 
-    .section-title small {
-      color: #938c98;
+  box-shadow:0 4px 14px rgba(30,25,38,.035);
 
-      font-size: 10px;
-      font-weight: 600;
-    }
+  transition:
+    transform .18s,
+    box-shadow .18s;
+}
 
-    .sub-title {
-      margin: 22px 4px 9px;
+.phrase:active{
+  transform:scale(.985);
+}
 
-      color: #77717d;
+.phrase p{
+  margin:0;
 
-      font-size: 10px;
-      font-weight: 800;
+  font-size:13px;
+  line-height:1.45;
+  font-weight:600;
+}
 
-      letter-spacing: .8px;
-      text-transform: uppercase;
-    }
+.phrase.negative{
+  border-left:4px solid var(--red);
+}
 
+.phrase.positive{
+  border-left:4px solid var(--green);
+}
 
-    /* =========================
-       PHRASES
-    ========================= */
+.copy{
+  position:absolute;
 
-    .cards {
-      display: grid;
-      gap: 9px;
-    }
+  right:10px;
+  top:50%;
 
-    .phrase {
-      position: relative;
+  width:35px;
+  height:35px;
 
-      min-height: 64px;
+  transform:translateY(-50%);
 
-      padding:
-        14px
-        90px
-        14px
-        17px;
+  border-radius:11px;
 
-      display: flex;
-      align-items: center;
+  background:var(--surface2);
 
-      border-radius: 17px;
+  color:#77717d;
 
-      background: #fff;
+  font-size:16px;
 
-      border-left: 4px solid #63c89a;
+  transition:.18s;
+}
 
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.045);
+.copy:active{
+  transform:translateY(-50%) scale(.88);
+}
 
-      animation: appear .25s ease;
-    }
 
-    .phrase.bad {
-      border-left-color: #ef8b8b;
-    }
+/* =========================
+   EXAMPLE
+========================= */
 
-    .phrase p {
-      margin: 0;
+.example{
+  margin-top:9px;
 
-      font-size: 13px;
-      line-height: 1.45;
-      font-weight: 600;
-    }
+  padding:16px;
 
-    .star {
-      position: absolute;
+  border-radius:18px;
 
-      right: 45px;
-      top: 50%;
+  background:#fff5d9;
 
-      width: 29px;
-      height: 29px;
+  border:1px solid #f1daa1;
+}
 
-      transform: translateY(-50%);
+.example-label{
+  color:#9d6e0b;
 
-      background: transparent;
+  font-size:9px;
+  font-weight:800;
 
-      color: #c5bec9;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
 
-      font-size: 18px;
-    }
+.example p{
+  margin:7px 0 0;
 
-    .star.active {
-      color: #f1b83c;
-    }
+  font-family:"Baloo 2",sans-serif;
 
-    .copy {
-      position: absolute;
+  font-size:17px;
+  line-height:1.35;
+}
 
-      right: 9px;
-      top: 50%;
 
-      width: 34px;
-      height: 34px;
+/* =========================
+   BETTER
+========================= */
 
-      transform: translateY(-50%);
+.better{
+  margin-top:12px;
+}
 
-      border-radius: 11px;
+.better-title{
+  margin:0 4px 8px;
 
-      background: #f4f2ef;
+  color:var(--green-dark);
 
-      color: #77717c;
+  font-size:9px;
+  font-weight:800;
 
-      font-size: 16px;
-    }
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
 
 
-    /* =========================
-       SWAP
-    ========================= */
+/* =========================
+   SWAPS
+========================= */
 
-    .swap {
-      margin-bottom: 10px;
+.swap{
+  margin-bottom:9px;
 
-      padding: 15px 16px;
+  padding:15px 16px;
 
-      background: #fff;
+  border-radius:18px;
 
-      border-radius: 18px;
+  background:var(--surface);
 
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.045);
-    }
+  border:1px solid var(--border);
 
-    .swap-line {
-      padding: 6px 0;
+  box-shadow:0 4px 14px rgba(30,25,38,.035);
+}
 
-      font-size: 13px;
-      line-height: 1.4;
-    }
+.swap-row{
+  font-size:13px;
+  line-height:1.4;
+}
 
-    .swap-line.bad {
-      color: #a95353;
-    }
+.swap-row.bad{
+  color:var(--red-dark);
+}
 
-    .swap-line.good {
-      color: #267653;
-    }
+.swap-row.good{
+  color:var(--green-dark);
+}
 
-    .tag {
-      display: block;
+.swap-label{
+  display:block;
 
-      margin-bottom: 4px;
+  margin-bottom:4px;
 
-      font-size: 8px;
-      font-weight: 800;
+  font-size:8px;
+  font-weight:800;
 
-      letter-spacing: 1px;
+  letter-spacing:1px;
+  text-transform:uppercase;
 
-      text-transform: uppercase;
+  opacity:.65;
+}
 
-      opacity: .65;
-    }
+.swap-arrow{
+  margin:6px 0;
 
-    .arrow {
-      text-align: center;
+  color:#aaa3ad;
 
-      color: #b5aeb8;
+  text-align:center;
+}
 
-      font-weight: 800;
-    }
 
+/* =========================
+   GOLD
+========================= */
 
-    /* =========================
-       GOLD
-    ========================= */
+.gold{
+  position:relative;
 
-    .gold {
-      margin-bottom: 11px;
+  margin-bottom:10px;
 
-      padding: 19px;
+  padding:18px 17px;
 
-      border-radius: 22px;
+  border-radius:21px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #302d3a,
-          #4b4358
-        );
+  background:
+    linear-gradient(
+      135deg,
+      #302d3a,
+      #484253
+    );
 
-      color: white;
+  color:white;
 
-      box-shadow:
-        0 7px 20px rgba(0,0,0,.12);
-    }
+  box-shadow:0 8px 22px rgba(34,30,40,.11);
+}
 
-    .gold-label {
-      color: #ffd66d;
+.gold:after{
+  content:"✦";
 
-      font-size: 9px;
-      font-weight: 800;
+  position:absolute;
 
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+  right:15px;
+  top:10px;
 
-    .gold p {
-      margin: 9px 0 0;
+  color:#ffd66c;
 
-      font-family: "Baloo 2", sans-serif;
+  font-size:22px;
+  opacity:.7;
+}
 
-      font-size: 19px;
-      line-height: 1.35;
-    }
+.gold-label{
+  color:#ffd66c;
 
+  font-size:9px;
+  font-weight:800;
 
-    /* =========================
-       EXAMPLE
-    ========================= */
+  letter-spacing:1px;
 
-    .example {
-      margin-top: 10px;
+  text-transform:uppercase;
+}
 
-      padding: 16px;
+.gold p{
+  margin:8px 25px 0 0;
 
-      border-radius: 18px;
+  font-family:"Baloo 2",sans-serif;
 
-      background: #fff4d8;
+  font-size:18px;
+  line-height:1.35;
+}
 
-      border: 1px solid #f2d797;
-    }
 
-    .example-label {
-      color: #a06c00;
+/* =========================
+   RANDOM
+========================= */
 
-      font-size: 9px;
-      font-weight: 800;
+.random{
+  max-width:760px;
 
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+  margin:15px auto 0;
 
-    .example p {
-      margin: 7px 0 0;
+  padding:18px;
 
-      font-family: "Baloo 2", sans-serif;
+  border-radius:20px;
 
-      font-size: 17px;
-      line-height: 1.35;
-    }
+  background:#fff4d5;
 
+  border:1px solid #efd699;
 
-    /* =========================
-       EMPTY / RANDOM
-    ========================= */
+  animation:slideIn .25s ease;
+}
 
-    .random {
-      max-width: 760px;
+.random-label{
+  color:#9c6b08;
 
-      margin: 0 auto 18px;
+  font-size:9px;
+  font-weight:800;
 
-      padding: 17px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
 
-      border-radius: 20px;
+.random p{
+  margin:7px 0 0;
 
-      background: #fff4d8;
+  font-family:"Baloo 2",sans-serif;
 
-      border: 1px solid #f2d797;
-    }
+  font-size:20px;
+  line-height:1.3;
+}
 
-    .random-label {
-      color: #a06c00;
 
-      font-size: 9px;
-      font-weight: 800;
+/* =========================
+   SEARCH RESULTS
+========================= */
 
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+.results{
+  margin-top:30px;
+}
 
-    .random p {
-      margin: 8px 0 0;
+.no-results{
+  padding:35px 20px;
 
-      font-family: "Baloo 2", sans-serif;
+  text-align:center;
 
-      font-size: 19px;
-      line-height: 1.35;
-    }
+  color:var(--muted);
 
-    .empty {
-      padding: 35px 20px;
+  font-size:12px;
+}
 
-      text-align: center;
 
-      color: #908994;
+/* =========================
+   BOTTOM NAV
+========================= */
 
-      font-size: 13px;
-    }
+.bottom{
+  position:fixed;
 
-    .hidden {
-      display: none;
-    }
+  left:0;
+  right:0;
+  bottom:0;
 
+  z-index:50;
 
-    /* =========================
-       BOTTOM NAV
-    ========================= */
+  max-width:760px;
 
-    .bottom-nav {
-      position: fixed;
+  margin:auto;
 
-      left: 0;
-      right: 0;
-      bottom: 0;
+  padding:
+    7px
+    7px
+    calc(7px + env(safe-area-inset-bottom));
 
-      z-index: 50;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
 
-      max-width: 760px;
+  background:rgba(255,255,255,.93);
 
-      margin: auto;
+  backdrop-filter:blur(18px);
 
-      padding:
-        8px
-        7px
-        calc(8px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--border);
+}
 
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
+.nav{
+  padding:7px 3px;
 
-      background: rgba(255,255,255,.93);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 
-      backdrop-filter: blur(15px);
+  gap:2px;
 
-      border-top: 1px solid #eeeaf0;
-    }
+  background:transparent;
 
-    .nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  color:#aaa4ad;
 
-      gap: 2px;
+  font-size:19px;
+}
 
-      background: transparent;
+.nav small{
+  font-size:8px;
+  font-weight:700;
+}
 
-      color: #aaa4ae;
+.nav.active{
+  color:var(--dark);
+}
 
-      font-size: 20px;
-    }
 
-    .nav small {
-      font-size: 9px;
-      font-weight: 700;
-    }
+/* =========================
+   TOAST
+========================= */
 
-    .nav.active {
-      color: #302d3a;
-    }
+.toast{
+  position:fixed;
 
+  left:50%;
+  bottom:82px;
 
-    /* =========================
-       TOAST
-    ========================= */
+  z-index:100;
 
-    .toast {
-      position: fixed;
+  padding:10px 15px;
 
-      left: 50%;
-      bottom: 82px;
+  border-radius:13px;
 
-      z-index: 100;
+  background:#292630;
 
-      padding: 10px 15px;
+  color:white;
 
-      border-radius: 13px;
+  font-size:11px;
+  font-weight:700;
 
-      background: #292631;
-      color: white;
+  opacity:0;
 
-      font-size: 12px;
-      font-weight: 600;
+  pointer-events:none;
 
-      opacity: 0;
+  transform:translate(-50%,15px);
 
-      transform:
-        translate(-50%, 15px);
+  transition:.25s;
+}
 
-      pointer-events: none;
+.toast.show{
+  opacity:1;
 
-      transition: .25s;
-    }
+  transform:translate(-50%,0);
+}
 
-    .toast.show {
-      opacity: 1;
 
-      transform:
-        translate(-50%, 0);
-    }
+/* =========================
+   ANIMATION
+========================= */
 
+@keyframes slideIn{
+  from{
+    opacity:0;
+    transform:translateY(7px);
+  }
 
-    /* =========================
-       ANIMATION
-    ========================= */
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-    @keyframes appear {
 
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
+/* =========================
+   DARK
+========================= */
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+body.dark{
+  --bg:#18171c;
+  --surface:#28252d;
+  --surface2:#35313b;
+  --text:#eeeaf0;
+  --muted:#aaa3ae;
+  --border:#39353e;
+}
 
-    }
+body.dark .search{
+  background:#29262f;
+}
 
+body.dark .search input{
+  color:white;
+}
 
-    /* =========================
-       DARK MODE
-    ========================= */
+body.dark .bottom{
+  background:rgba(35,32,41,.94);
+}
 
-    body.dark {
-      background: #19171d;
-      color: #eeeaf0;
-    }
+body.dark .nav.active{
+  color:white;
+}
 
-    body.dark .theme-btn,
-    body.dark .quick-card,
-    body.dark .phrase,
-    body.dark .swap {
-      background: #29262f;
-      color: #eeeaf0;
-    }
 
-    body.dark .quick-text {
-      color: #aaa3af;
-    }
+/* =========================
+   DESKTOP
+========================= */
 
-    body.dark .quick-text strong {
-      color: #eeeaf0;
-    }
+@media(min-width:700px){
 
-    body.dark .search {
-      background: #29262f;
-    }
+  .hero,
+  .quick,
+  .random{
+    margin-left:20px;
+    margin-right:20px;
+  }
 
-    body.dark .search input {
-      color: white;
-    }
+  main{
+    padding:0 20px;
+  }
 
-    body.dark .copy {
-      background: #36323d;
-      color: #bbb4c0;
-    }
+  .phrases{
+    grid-template-columns:1fr 1fr;
+  }
 
-    body.dark .bottom-nav {
-      background: rgba(35,32,41,.94);
-      border-color: #3b3742;
-    }
+  .bottom{
+    border-radius:22px 22px 0 0;
+  }
 
-    body.dark .nav.active {
-      color: white;
-    }
+}
 
-
-    /* =========================
-       DESKTOP
-    ========================= */
-
-    @media (min-width: 700px) {
-
-      main {
-        padding: 0 20px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .bottom-nav {
-        border-radius: 22px 22px 0 0;
-      }
-
-    }
-
-  </style>
-
+</style>
 </head>
 
 
 <body>
 
-<div id="app">
+<div class="app">
 
 
-  <!-- HEADER -->
+<!-- HEADER -->
 
-  <header class="topbar">
+<header class="header">
 
-    <div>
+  <div>
 
-      <div class="eyebrow">
-        D2D SALES TOOLKIT
-      </div>
-
-      <div class="logo">
-        Λεκτικά <span>✦</span>
-      </div>
-
+    <div class="brand-small">
+      D2D SALES TOOLKIT
     </div>
 
+    <div class="brand">
+      Λεκτικά <span>✦</span>
+    </div>
 
-    <button
-      class="theme-btn"
-      id="themeBtn"
+  </div>
+
+  <button
+    class="theme"
+    id="themeBtn"
+    aria-label="Dark mode"
+  >
+    ☾
+  </button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <span class="hero-kicker">
+    🎯 Μίλα σωστά. Πούλα συμβουλευτικά.
+  </span>
+
+  <h1>
+    Οι σωστές λέξεις<br>
+    <span>αλλάζουν τη συζήτηση.</span>
+  </h1>
+
+  <p>
+    Γρήγορα, πρακτικά λεκτικά για D2D,
+    Fiber και κάθε συζήτηση με πελάτη.
+  </p>
+
+  <div class="search">
+
+    <span class="search-icon">
+      ⌕
+    </span>
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Ψάξε ένα λεκτικό..."
     >
-      ☾
-    </button>
 
-  </header>
+  </div>
 
-
-  <main>
+</section>
 
 
-    <!-- HERO -->
+<!-- QUICK -->
 
-    <section class="hero">
+<section class="quick">
 
-      <div class="hero-content">
+  <button onclick="showMode('positive')">
 
-        <span class="badge">
-          🎯 Μίλα σωστά. Πούλα συμβουλευτικά.
-        </span>
+    <span class="quick-icon">🟢</span>
 
+    <span class="quick-label">
+      Πωλησιακά
+    </span>
 
-        <h2>
-          Οι σωστές λέξεις<br>
-          <em>αλλάζουν τη συζήτηση.</em>
-        </h2>
+  </button>
 
 
-        <p>
-          Ένα γρήγορο toolkit για D2D πωλήσεις,
-          Fiber και κάθε συζήτηση με πελάτη.
-        </p>
+  <button onclick="showMode('negative')">
+
+    <span class="quick-icon">🔴</span>
+
+    <span class="quick-label">
+      Αντιπωλησιακά
+    </span>
+
+  </button>
 
 
-        <div class="search">
+  <button onclick="randomPhrase()">
 
-          <span class="search-icon">
-            ⌕
-          </span>
+    <span class="quick-icon">🎲</span>
 
-          <input
-            id="search"
-            type="search"
-            placeholder="Ψάξε λεκτικό, π.χ. Fiber..."
-          >
+    <span class="quick-label">
+      Τυχαίο
+    </span>
 
-        </div>
+  </button>
 
-      </div>
-
-    </section>
+</section>
 
 
-    <!-- QUICK -->
+<!-- RANDOM -->
 
-    <section class="quick">
-
-      <button
-        class="quick-card"
-        id="randomBtn"
-      >
-
-        <span class="quick-icon">
-          🎲
-        </span>
-
-        <span class="quick-text">
-          Τυχαίο<br>
-          <strong>λεκτικό</strong>
-        </span>
-
-      </button>
+<div
+  id="randomBox"
+  class="random"
+  style="display:none"
+></div>
 
 
-      <button
-        class="quick-card"
-        id="favoritesBtn"
-      >
-
-        <span class="quick-icon">
-          ⭐
-        </span>
-
-        <span class="quick-text">
-          Τα<br>
-          <strong>αγαπημένα</strong>
-        </span>
-
-      </button>
-
-    </section>
-
-
-    <!-- RANDOM -->
-
-    <div
-      id="randomBox"
-      class="random hidden"
-    ></div>
-
-
-    <!-- CONTENT -->
-
-    <div id="content"></div>
-
-
-  </main>
-
-
-  <!-- NAV -->
-
-  <nav class="bottom-nav">
-
-    <button
-      class="nav active"
-      data-mode="home"
-    >
-      <span>⌂</span>
-      <small>Αρχή</small>
-    </button>
-
-
-    <button
-      class="nav"
-      data-mode="positive"
-    >
-      <span>✓</span>
-      <small>Πωλησιακά</small>
-    </button>
-
-
-    <button
-      class="nav"
-      data-mode="negative"
-    >
-      <span>×</span>
-      <small>Αντιπωλησιακά</small>
-    </button>
-
-
-    <button
-      class="nav"
-      data-mode="swap"
-    >
-      <span>↔</span>
-      <small>Αλλαγές</small>
-    </button>
-
-  </nav>
-
-
-  <div
-    id="toast"
-    class="toast"
-  ></div>
+<main id="content"></main>
 
 
 </div>
 
 
+<!-- BOTTOM NAV -->
+
+<nav class="bottom">
+
+  <button
+    class="nav active"
+    data-mode="home"
+  >
+    <span>⌂</span>
+    <small>Αρχή</small>
+  </button>
+
+  <button
+    class="nav"
+    data-mode="positive"
+  >
+    <span>✓</span>
+    <small>Πωλησιακά</small>
+  </button>
+
+  <button
+    class="nav"
+    data-mode="negative"
+  >
+    <span>×</span>
+    <small>Αντιπωλησιακά</small>
+  </button>
+
+  <button
+    class="nav"
+    data-mode="swap"
+  >
+    <span>↔</span>
+    <small>Αλλαγές</small>
+  </button>
+
+</nav>
+
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
+
 <script>
+
+/* =========================
+   DATA
+========================= */
 
 const data = {
 
+positive:[
 
-  positive: [
+{
+title:"Μείωσε την πίεση",
 
-    {
-      title:
-        "Φράσεις που μειώνουν την πίεση",
+items:[
 
-      items: [
+"Να δω αν σας αφορά",
 
-        "Να δω αν σας αφορά",
+"Να δούμε αν ταιριάζει στη χρήση σας",
 
-        "Να δούμε αν ταιριάζει στη χρήση σας",
+"Αν έχει νόημα για εσάς",
 
-        "Αν έχει νόημα για εσάς",
+"Εφόσον σας εξυπηρετεί",
 
-        "Εφόσον σας εξυπηρετεί",
+"Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε",
 
-        "Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε",
+"Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς",
 
-        "Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς",
+"Εσείς γνωρίζετε καλύτερα τις ανάγκες σας"
 
-        "Εσείς γνωρίζετε καλύτερα τις ανάγκες σας"
+]
+},
 
-      ]
-    },
+{
+title:"Πούλησε συμβουλευτικά",
 
+items:[
 
-    {
-      title:
-        "Φράσεις που δείχνουν συμβουλευτική πώληση",
+"Με βάση αυτά που μου λέτε...",
 
-      items: [
+"Από τη χρήση που μου περιγράφετε...",
 
-        "Με βάση αυτά που μου λέτε...",
+"Για τη δική σας περίπτωση...",
 
-        "Από τη χρήση που μου περιγράφετε...",
+"Αυτό που θα σας πρότεινα...",
 
-        "Για τη δική σας περίπτωση...",
+"Αυτό που βλέπω ότι σας ταιριάζει...",
 
-        "Αυτό που θα σας πρότεινα...",
+"Η πιο λογική επιλογή για εσάς είναι..."
 
-        "Αυτό που βλέπω ότι σας ταιριάζει...",
+],
 
-        "Η πιο λογική επιλογή για εσάς είναι..."
+example:
+"Με βάση ότι έχετε δύο παιδιά, τηλεόραση και τηλεργασία, θα κοιτούσα περισσότερο το 1 Gbps."
 
-      ],
+},
 
-      example:
-        "Με βάση ότι έχετε δύο παιδιά, τηλεόραση και τηλεργασία, θα κοιτούσα περισσότερο το 1 Gbps."
+{
+title:"Αύξησε την αξία",
 
-    },
+items:[
 
+"Πιο σταθερή εμπειρία",
 
-    {
-      title:
-        "Φράσεις που αυξάνουν την αξία",
+"Καλύτερη απόκριση",
 
-      items: [
+"Περισσότερη άνεση με πολλές συσκευές",
 
-        "Πιο σταθερή εμπειρία",
+"Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet",
 
-        "Καλύτερη απόκριση",
+"Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων"
 
-        "Περισσότερη άνεση με πολλές συσκευές",
+]
+},
 
-        "Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet",
+{
+title:"Κλείσε χωρίς πίεση",
 
-        "Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων"
+items:[
 
-      ]
+"Να το δούμε μαζί;",
 
-    },
+"Να κάνουμε έναν έλεγχο;",
 
+"Να δούμε αν υπάρχει διαθέσιμη επιλογή;",
 
-    {
-      title:
-        "Φράσεις για κλείσιμο χωρίς πίεση",
+"Να σας δείξω τι μπορείτε να έχετε;",
 
-      items: [
+"Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε."
 
-        "Να το δούμε μαζί;",
+]
+}
 
-        "Να κάνουμε έναν έλεγχο;",
+],
 
-        "Να δούμε αν υπάρχει διαθέσιμη επιλογή;",
 
-        "Να σας δείξω τι μπορείτε να έχετε;",
+negative:[
 
-        "Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε."
+{
+title:"Απόφυγε την πίεση",
 
-      ]
+items:[
 
-    }
+"Ήρθα να σας κάνω προσφορά",
 
-  ],
+"Έχω μια μοναδική ευκαιρία",
 
+"Πρέπει να το κάνετε σήμερα",
 
-  negative: [
+"Είναι η τελευταία ευκαιρία",
 
-    {
-      title:
-        "Φράσεις που προκαλούν πίεση",
+"Χάνετε χρήματα αν δεν το πάρετε",
 
-      items: [
+"Πρέπει να αποφασίσετε τώρα"
 
-        "Ήρθα να σας κάνω προσφορά",
+]
+},
 
-        "Έχω μια μοναδική ευκαιρία",
+{
+title:"Απόφυγε τις υπερβολές",
 
-        "Πρέπει να το κάνετε σήμερα",
+items:[
 
-        "Είναι η τελευταία ευκαιρία",
+"Είναι το καλύτερο της αγοράς",
 
-        "Χάνετε χρήματα αν δεν το πάρετε",
+"Δεν θα έχετε ποτέ πρόβλημα",
 
-        "Πρέπει να αποφασίσετε τώρα"
+"Είναι εγγυημένο 100%",
 
-      ]
+"Όλοι το παίρνουν",
 
-    },
+"Δεν υπάρχει καλύτερο"
 
+]
+},
 
-    {
-      title:
-        "Φράσεις που μειώνουν την αξιοπιστία",
+{
+title:"Μην οδηγείς τον πελάτη σε άμυνα",
 
-      items: [
+items:[
 
-        "Είναι το καλύτερο της αγοράς",
+"Είστε ευχαριστημένος από τη σύνδεσή σας;",
 
-        "Δεν θα έχετε ποτέ πρόβλημα",
+"Θα θέλατε να αλλάξετε πάροχο;"
 
-        "Είναι εγγυημένο 100%",
+],
 
-        "Όλοι το παίρνουν",
+better:[
 
-        "Δεν υπάρχει καλύτερο"
+"Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;",
 
-      ]
+"Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;"
 
-    },
+]
 
+}
 
-    {
-      title:
-        "Φράσεις που κάνουν τον πελάτη να αμυνθεί",
+],
 
-      items: [
 
-        "Είστε ευχαριστημένος από τη σύνδεσή σας;",
+swap:[
 
-        "Θα θέλατε να αλλάξετε πάροχο;"
+[
+"Θέλετε να βάλετε Fiber?",
+"Να δούμε αν το Fiber σας ταιριάζει;"
+],
 
-      ],
+[
+"Έχουμε προσφορά",
+"Υπάρχουν διαθέσιμες επιλογές"
+],
 
-      better: [
+[
+"Είναι καλύτερο",
+"Είναι διαφορετική τεχνολογία"
+],
 
-        "Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;",
+[
+"Θα έχετε τέλειο internet",
+"Στόχος είναι η μεγαλύτερη σταθερότητα"
+],
 
-        "Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;"
+[
+"Πρέπει να υπογράψετε",
+"Αν σας καλύπτει, μπορούμε να προχωρήσουμε"
+],
 
-      ]
+[
+"Θα σας βολέψει",
+"Από αυτά που μου λέτε, φαίνεται να σας ταιριάζει"
+],
 
-    }
+[
+"Είναι φθηνό",
+"Έχει καλή σχέση κόστους/απόδοσης"
+]
 
-  ],
+],
 
 
-  swap: [
+gold:[
 
-    [
-      "Θέλετε να βάλετε Fiber;",
-      "Να δούμε αν το Fiber σας ταιριάζει;"
-    ],
+[
+"Όταν ο πελάτης είναι δύσκολος",
 
-    [
-      "Έχουμε προσφορά",
-      "Υπάρχουν διαθέσιμες επιλογές"
-    ],
+"Δεν θέλω να σας πείσω να πάρετε κάτι που δεν χρειάζεστε. Θέλω απλά να δω αν υπάρχει λόγος να το εξετάσετε."
+],
 
-    [
-      "Είναι καλύτερο",
-      "Είναι διαφορετική τεχνολογία"
-    ],
+[
+"Όταν φοβάται αλλαγή",
 
-    [
-      "Θα έχετε τέλειο internet",
-      "Στόχος είναι η μεγαλύτερη σταθερότητα"
-    ],
+"Το σημαντικό δεν είναι μόνο να αλλάξει κάποιος πάροχο. Είναι να ξέρει γιατί αλλάζει."
+],
 
-    [
-      "Πρέπει να υπογράψετε",
-      "Αν σας καλύπτει, μπορούμε να προχωρήσουμε"
-    ],
+[
+"Όταν λέει «όλοι τα ίδια λέτε»",
 
-    [
-      "Θα σας βολέψει",
-      "Από αυτά που μου λέτε, φαίνεται να σας ταιριάζει"
-    ],
+"Το καταλαβαίνω. Γι' αυτό δεν θέλω να σας πω απλά ότι είναι καλύτερο. Θέλω να δούμε αν ταιριάζει στη δική σας χρήση."
+],
 
-    [
-      "Είναι φθηνό",
-      "Έχει καλή σχέση κόστους/απόδοσης"
-    ]
+[
+"Όταν βιάζεται",
 
-  ],
+"Θα σας κάνω μόνο δύο ερωτήσεις. Αν δεν σας αφορά, σταματάμε εκεί."
+]
 
-
-  gold: [
-
-    [
-      "Όταν ο πελάτης είναι δύσκολος",
-
-      "Δεν θέλω να σας πείσω να πάρετε κάτι που δεν χρειάζεστε. Θέλω απλά να δω αν υπάρχει λόγος να το εξετάσετε."
-    ],
-
-    [
-      "Όταν φοβάται αλλαγή",
-
-      "Το σημαντικό δεν είναι μόνο να αλλάξει κάποιος πάροχο. Είναι να ξέρει γιατί αλλάζει."
-    ],
-
-    [
-      "Όταν λέει «όλοι τα ίδια λέτε»",
-
-      "Το καταλαβαίνω. Γι' αυτό δεν θέλω να σας πω απλά ότι είναι καλύτερο. Θέλω να δούμε αν ταιριάζει στη δική σας χρήση."
-    ],
-
-    [
-      "Όταν βιάζεται",
-
-      "Θα σας κάνω μόνο δύο ερωτήσεις. Αν δεν σας αφορά, σταματάμε εκεί."
-    ]
-
-  ]
+]
 
 };
 
 
 /* =========================
-   STATE
-========================= */
-
-let favorites =
-  JSON.parse(
-    localStorage.getItem("lekitika-favorites") || "[]"
-  );
-
-
-/* =========================
-   ELEMENTS
+   HELPERS
 ========================= */
 
 const content =
-  document.getElementById("content");
+document.getElementById("content");
 
 const search =
-  document.getElementById("search");
-
-const randomBox =
-  document.getElementById("randomBox");
+document.getElementById("search");
 
 const toast =
-  document.getElementById("toast");
+document.getElementById("toast");
+
+const randomBox =
+document.getElementById("randomBox");
 
 
-/* =========================
-   ESCAPE HTML
-========================= */
+function esc(text){
 
-function escapeHTML(text) {
+return text.replace(
+/[&<>"']/g,
+char=>({
 
-  return text
-    .replace(/[&<>"']/g, char => {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
 
-      const chars = {
-
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-
-      };
-
-      return chars[char];
-
-    });
+}[char])
+);
 
 }
 
 
 /* =========================
-   PHRASE CARD
+   PHRASE
 ========================= */
 
-function phraseCard(
-  text,
-  negative = false
-) {
+function phrase(text,type){
 
-  const saved =
-    favorites.includes(text);
+return `
 
+<div class="phrase ${type}">
 
-  return `
+<p>
+${esc(text)}
+</p>
 
-    <div
-      class="phrase ${negative ? "bad" : ""}"
-      data-text="${escapeHTML(text)}"
-    >
+<button
+class="copy"
+data-copy="${esc(text)}"
+>
+⧉
+</button>
 
-      <p>
-        ${escapeHTML(text)}
-      </p>
+</div>
 
-
-      <button
-        class="star ${saved ? "active" : ""}"
-        aria-label="Αγαπημένο"
-      >
-        ${saved ? "★" : "☆"}
-      </button>
-
-
-      <button
-        class="copy"
-        aria-label="Αντιγραφή"
-      >
-        ⧉
-      </button>
-
-    </div>
-
-  `;
+`;
 
 }
 
@@ -1366,384 +1322,364 @@ function phraseCard(
    HOME
 ========================= */
 
-function renderHome() {
+function renderHome(){
 
-  content.innerHTML = `
+content.innerHTML=`
 
-    <section class="section">
+<section class="section">
 
-      <div class="section-title">
+<div class="section-head">
 
-        <h3>
-          🟢 Πωλησιακά λεκτικά
-        </h3>
+<h2>
+🟢 Πωλησιακά
+</h2>
 
-        <small>
-          χτίζουν εμπιστοσύνη
-        </small>
+<p>
+ΧΤΙΖΟΥΝ ΕΜΠΙΣΤΟΣΥΝΗ
+</p>
 
-      </div>
+</div>
 
+<p class="intro">
+Ξεκίνα από τις ανάγκες του πελάτη,
+όχι από το προϊόν. Η σωστή ερώτηση
+ανοίγει τη συζήτηση.
+</p>
 
-      <div class="cards">
+${data.positive.map(group=>`
 
-        <button
-          class="quick-card"
-          onclick="showMode('positive')"
-        >
+<div class="group">
 
-          <span class="quick-icon">
-            🧠
-          </span>
+<div class="group-title">
+${esc(group.title)}
+</div>
 
-          <span class="quick-text">
-            Μίλα σαν<br>
-            <strong>σύμβουλος</strong>
-          </span>
+<div class="phrases">
 
-        </button>
+${group.items
+.map(item=>phrase(item,"positive"))
+.join("")}
 
+</div>
 
-        <button
-          class="quick-card"
-          onclick="showMode('swap')"
-        >
+${group.example?`
 
-          <span class="quick-icon">
-            ↔️
-          </span>
+<div class="example">
 
-          <span class="quick-text">
-            Άλλαξε<br>
-            <strong>τη φράση</strong>
-          </span>
+<div class="example-label">
+💡 Παράδειγμα
+</div>
 
-        </button>
+<p>
+${esc(group.example)}
+</p>
 
-      </div>
+</div>
 
-    </section>
+`:""}
 
+</div>
 
-    <section class="section">
+`).join("")}
 
-      <div class="section-title">
-
-        <h3>
-          🔴 Αντιπωλησιακά
-        </h3>
-
-        <small>
-          σηκώνουν άμυνα
-        </small>
-
-      </div>
+</section>
 
 
-      <div class="cards">
+<section class="section">
 
-        <button
-          class="quick-card"
-          onclick="showMode('negative')"
-        >
+<div class="section-head">
 
-          <span class="quick-icon">
-            🛑
-          </span>
+<h2>
+🔴 Αντιπωλησιακά
+</h2>
 
-          <span class="quick-text">
-            Απόφυγε<br>
-            <strong>αυτές τις φράσεις</strong>
-          </span>
+<p>
+ΣΗΚΩΝΟΥΝ ΑΜΥΝΑ
+</p>
 
-        </button>
+</div>
+
+<p class="intro">
+Απόφυγε φράσεις που δημιουργούν πίεση,
+υπερβολή ή κάνουν τον πελάτη να θέλει
+να τελειώσει γρήγορα τη συζήτηση.
+</p>
+
+${data.negative.map(group=>`
+
+<div class="group">
+
+<div class="group-title">
+${esc(group.title)}
+</div>
+
+<div class="phrases">
+
+${group.items
+.map(item=>phrase(item,"negative"))
+.join("")}
+
+</div>
+
+${group.better?`
+
+<div class="better">
+
+<div class="better-title">
+✨ Πες καλύτερα
+</div>
+
+<div class="phrases">
+
+${group.better
+.map(item=>phrase(item,"positive"))
+.join("")}
+
+</div>
+
+</div>
+
+`:""}
+
+</div>
+
+`).join("")}
+
+</section>
 
 
-        <button
-          class="quick-card"
-          onclick="showMode('gold')"
-        >
+<section class="section">
 
-          <span class="quick-icon">
-            ⭐
-          </span>
+${renderSwap()}
 
-          <span class="quick-text">
-            Φράσεις<br>
-            <strong>«χρυσάφι»</strong>
-          </span>
-
-        </button>
-
-      </div>
-
-    </section>
+</section>
 
 
-    <section class="section">
+<section class="section">
 
-      <div class="section-title">
+${renderGold()}
 
-        <h3>
-          ⭐ Χρυσάφι για D2D
-        </h3>
+</section>
 
-        <small>
-          δύσκολες στιγμές
-        </small>
-
-      </div>
-
-
-      ${data.gold.map(item => `
-
-        <div class="gold">
-
-          <div class="gold-label">
-            ${escapeHTML(item[0])}
-          </div>
-
-          <p>
-            “${escapeHTML(item[1])}”
-          </p>
-
-        </div>
-
-      `).join("")}
-
-    </section>
-
-  `;
+`;
 
 }
 
 
 /* =========================
-   LIST
+   LIST MODE
 ========================= */
 
-function renderList(mode) {
+function renderList(mode){
 
+if(mode==="swap"){
 
-  /* SWAP */
+content.innerHTML=`
 
-  if (mode === "swap") {
+<section class="section">
 
-    content.innerHTML = `
+${renderSwap()}
 
-      <section class="section">
+</section>
 
-        <div class="section-title">
+`;
 
-          <h3>
-            ↔️ Αντικαταστάσεις
-          </h3>
+return;
 
-          <small>
-            Μικρές αλλαγές, μεγάλη διαφορά
-          </small>
+}
 
-        </div>
 
+content.innerHTML=`
 
-        ${data.swap.map(pair => `
+<section class="section">
 
-          <div class="swap">
+<div class="section-head">
 
-            <div class="swap-line bad">
+<h2>
+${mode==="positive"?"🟢 Πωλησιακά":"🔴 Αντιπωλησιακά"}
+</h2>
 
-              <span class="tag">
-                ❌ Αντιπωλησιακό
-              </span>
+<p>
+${mode==="positive"
+?"ΧΤΙΖΟΥΝ ΕΜΠΙΣΤΟΣΥΝΗ"
+:"ΣΗΚΩΝΟΥΝ ΑΜΥΝΑ"}
+</p>
 
-              ${escapeHTML(pair[0])}
+</div>
 
-            </div>
+${data[mode].map(group=>`
 
+<div class="group">
 
-            <div class="arrow">
-              ↓
-            </div>
+<div class="group-title">
+${esc(group.title)}
+</div>
 
+<div class="phrases">
 
-            <div class="swap-line good">
+${group.items
+.map(item=>phrase(
+item,
+mode==="positive"
+?"positive"
+:"negative"
+))
+.join("")}
 
-              <span class="tag">
-                ✅ Πωλησιακό
-              </span>
+</div>
 
-              ${escapeHTML(pair[1])}
+${group.example?`
 
-            </div>
+<div class="example">
 
-          </div>
+<div class="example-label">
+💡 Παράδειγμα
+</div>
 
-        `).join("")}
+<p>
+${esc(group.example)}
+</p>
 
-      </section>
+</div>
 
-    `;
+`:""}
 
-    return;
+${group.better?`
 
-  }
+<div class="better">
 
+<div class="better-title">
+✨ Πες καλύτερα
+</div>
 
-  /* GOLD */
+<div class="phrases">
 
-  if (mode === "gold") {
+${group.better
+.map(item=>phrase(item,"positive"))
+.join("")}
 
-    content.innerHTML = `
+</div>
 
-      <section class="section">
+</div>
 
-        <div class="section-title">
+`:""}
 
-          <h3>
-            ⭐ Φράσεις «χρυσάφι»
-          </h3>
+</div>
 
-          <small>
-            D2D moments
-          </small>
+`).join("")}
 
-        </div>
+</section>
 
+`;
 
-        ${data.gold.map(item => `
+}
 
-          <div class="gold">
 
-            <div class="gold-label">
-              ${escapeHTML(item[0])}
-            </div>
+/* =========================
+   SWAPS
+========================= */
 
-            <p>
-              “${escapeHTML(item[1])}”
-            </p>
+function renderSwap(){
 
-          </div>
+return `
 
-        `).join("")}
+<div class="section-head">
 
-      </section>
+<h2>
+↔️ Αντικαταστάσεις
+</h2>
 
-    `;
+<p>
+ΜΙΚΡΗ ΑΛΛΑΓΗ · ΜΕΓΑΛΗ ΔΙΑΦΟΡΑ
+</p>
 
-    return;
+</div>
 
-  }
+<p class="intro">
+Η ίδια πρόθεση μπορεί να ακουστεί
+πολύ διαφορετικά. Δες πώς μετατρέπεις
+μια πιεστική φράση σε συμβουλευτική.
+</p>
 
+${data.swap.map(pair=>`
 
-  /* POSITIVE / NEGATIVE */
+<div class="swap">
 
-  const negative =
-    mode === "negative";
+<div class="swap-row bad">
 
+<span class="swap-label">
+❌ Αντιπωλησιακό
+</span>
 
-  let html = `
+${esc(pair[0])}
 
-    <section class="section">
+</div>
 
-      <div class="section-title">
+<div class="swap-arrow">
+↓
+</div>
 
-        <h3>
-          ${negative ? "🔴" : "🟢"}
-          ${negative
-            ? "Αντιπωλησιακά"
-            : "Πωλησιακά"} λεκτικά
-        </h3>
+<div class="swap-row good">
 
-        <small>
-          ${negative
-            ? "σηκώνουν άμυνα"
-            : "χτίζουν εμπιστοσύνη"}
-        </small>
+<span class="swap-label">
+✅ Πωλησιακό
+</span>
 
-      </div>
+${esc(pair[1])}
 
-  `;
+</div>
 
+</div>
 
-  data[mode].forEach(group => {
+`).join("")}
 
+`;
 
-    html += `
+}
 
-      <div class="sub-title">
-        ${escapeHTML(group.title)}
-      </div>
 
+/* =========================
+   GOLD
+========================= */
 
-      <div class="cards">
+function renderGold(){
 
-        ${group.items
-          .map(item =>
-            phraseCard(
-              item,
-              negative
-            )
-          )
-          .join("")}
+return `
 
-      </div>
+<div class="section-head">
 
-    `;
+<h2>
+⭐ Λεκτικά «χρυσάφι»
+</h2>
 
+<p>
+D2D MOMENTS
+</p>
 
-    if (group.example) {
+</div>
 
-      html += `
+<p class="intro">
+Κράτησέ τα για τις δύσκολες στιγμές
+της συζήτησης.
+</p>
 
-        <div class="example">
+${data.gold.map(item=>`
 
-          <div class="example-label">
-            💡 Παράδειγμα
-          </div>
+<div class="gold">
 
-          <p>
-            ${escapeHTML(group.example)}
-          </p>
+<div class="gold-label">
+${esc(item[0])}
+</div>
 
-        </div>
+<p>
+“${esc(item[1])}”
+</p>
 
-      `;
+</div>
 
-    }
+`).join("")}
 
-
-    if (group.better) {
-
-      html += `
-
-        <div class="sub-title">
-          ✨ Καλύτερα
-        </div>
-
-
-        <div class="cards">
-
-          ${group.better
-            .map(item =>
-              phraseCard(item)
-            )
-            .join("")}
-
-        </div>
-
-      `;
-
-    }
-
-  });
-
-
-  html += `
-    </section>
-  `;
-
-
-  content.innerHTML = html;
+`;
 
 }
 
@@ -1752,130 +1688,112 @@ function renderList(mode) {
    MODE
 ========================= */
 
-function showMode(mode) {
+function showMode(mode){
 
-  document
-    .querySelectorAll(".nav")
-    .forEach(nav => {
+document
+.querySelectorAll(".nav")
+.forEach(nav=>{
 
-      nav.classList.toggle(
-        "active",
-        nav.dataset.mode === mode
-      );
+nav.classList.toggle(
+"active",
+nav.dataset.mode===mode
+);
 
-    });
+});
 
+randomBox.style.display="none";
 
-  if (mode === "home") {
+if(mode==="home"){
 
-    renderHome();
+renderHome();
 
-  } else {
+}else{
 
-    renderList(mode);
+renderList(mode);
 
-  }
+}
 
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
 /* =========================
-   COPY + FAVORITES
+   RANDOM
+========================= */
+
+function randomPhrase(){
+
+const phrases=[
+
+...data.positive.flatMap(
+g=>g.items
+),
+
+...data.swap.map(
+p=>p[1]
+),
+
+...data.gold.map(
+g=>g[1]
+)
+
+];
+
+const result=
+phrases[
+Math.floor(
+Math.random()*phrases.length
+)
+];
+
+randomBox.innerHTML=`
+
+<div class="random-label">
+🎲 Τυχαίο λεκτικό
+</div>
+
+<p>
+“${esc(result)}”
+</p>
+
+`;
+
+randomBox.style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   COPY
 ========================= */
 
 document.addEventListener(
-  "click",
-  event => {
+"click",
+event=>{
 
+const button=
+event.target.closest("[data-copy]");
 
-    const copy =
-      event.target.closest(".copy");
+if(!button) return;
 
+const text=
+button.getAttribute("data-copy");
 
-    const star =
-      event.target.closest(".star");
+navigator.clipboard
+?.writeText(text);
 
+showToast("✓ Αντιγράφηκε!");
 
-    if (copy) {
-
-      const text =
-        copy.parentElement.dataset.text;
-
-
-      if (
-        navigator.clipboard
-      ) {
-
-        navigator.clipboard
-          .writeText(text);
-
-      }
-
-
-      showToast(
-        "✓ Αντιγράφηκε!"
-      );
-
-    }
-
-
-    if (star) {
-
-      const text =
-        star.parentElement.dataset.text;
-
-
-      if (
-        favorites.includes(text)
-      ) {
-
-        favorites =
-          favorites.filter(
-            item => item !== text
-          );
-
-      } else {
-
-        favorites.push(text);
-
-      }
-
-
-      localStorage.setItem(
-        "lekitika-favorites",
-        JSON.stringify(favorites)
-      );
-
-
-      const active =
-        favorites.includes(text);
-
-
-      star.classList.toggle(
-        "active",
-        active
-      );
-
-
-      star.textContent =
-        active ? "★" : "☆";
-
-
-      showToast(
-        active
-          ? "⭐ Προστέθηκε στα αγαπημένα"
-          : "Αφαιρέθηκε από τα αγαπημένα"
-      );
-
-    }
-
-  }
+}
 );
 
 
@@ -1884,171 +1802,17 @@ document.addEventListener(
 ========================= */
 
 document
-  .querySelectorAll(".nav")
-  .forEach(nav => {
+.querySelectorAll(".nav")
+.forEach(nav=>{
 
-    nav.addEventListener(
-      "click",
-      () => {
+nav.addEventListener(
+"click",
+()=>showMode(
+nav.dataset.mode
+)
+);
 
-        showMode(
-          nav.dataset.mode
-        );
-
-      }
-    );
-
-  });
-
-
-/* =========================
-   RANDOM
-========================= */
-
-document
-  .getElementById("randomBtn")
-  .addEventListener(
-    "click",
-    () => {
-
-
-      const all = [
-
-        ...data.positive.flatMap(
-          group => group.items
-        ),
-
-        ...data.swap.map(
-          pair => pair[1]
-        ),
-
-        ...data.gold.map(
-          item => item[1]
-        )
-
-      ];
-
-
-      const random =
-        all[
-          Math.floor(
-            Math.random() * all.length
-          )
-        ];
-
-
-      randomBox.innerHTML = `
-
-        <div class="random-label">
-          🎲 Τυχαίο λεκτικό
-        </div>
-
-        <p>
-          “${escapeHTML(random)}”
-        </p>
-
-      `;
-
-
-      randomBox.classList.remove(
-        "hidden"
-      );
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-  );
-
-
-/* =========================
-   FAVORITES
-========================= */
-
-document
-  .getElementById("favoritesBtn")
-  .addEventListener(
-    "click",
-    () => {
-
-
-      if (!favorites.length) {
-
-        randomBox.innerHTML = `
-
-          <div class="random-label">
-            ⭐ Αγαπημένα
-          </div>
-
-          <p>
-            Δεν έχεις αποθηκεύσει ακόμα
-            κάποιο λεκτικό.
-          </p>
-
-        `;
-
-      } else {
-
-        randomBox.innerHTML = `
-
-          <div class="random-label">
-            ⭐ Αγαπημένα
-          </div>
-
-          <p>
-            ${favorites
-              .map(escapeHTML)
-              .join("<br><br>")}
-          </p>
-
-        `;
-
-      }
-
-
-      randomBox.classList.remove(
-        "hidden"
-      );
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-  );
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-document
-  .getElementById("themeBtn")
-  .addEventListener(
-    "click",
-    () => {
-
-      document.body
-        .classList.toggle("dark");
-
-
-      const dark =
-        document.body
-          .classList.contains("dark");
-
-
-      document
-        .getElementById("themeBtn")
-        .textContent =
-          dark ? "☀" : "☾";
-
-    }
-  );
+});
 
 
 /* =========================
@@ -2056,164 +1820,207 @@ document
 ========================= */
 
 search.addEventListener(
-  "input",
-  () => {
+"input",
+()=>{
+
+const q=
+search.value
+.trim()
+.toLowerCase();
+
+if(!q){
+
+renderHome();
+
+return;
+
+}
+
+const results=[];
 
 
-    const query =
-      search.value
-        .trim()
-        .toLowerCase();
+/* Positive */
+
+data.positive.forEach(group=>{
+
+group.items.forEach(text=>{
+
+if(text.toLowerCase().includes(q)){
+
+results.push({
+text,
+type:"positive"
+});
+
+}
+
+});
+
+});
 
 
-    if (!query) {
+/* Negative */
 
-      renderHome();
+data.negative.forEach(group=>{
 
-      return;
+group.items.forEach(text=>{
 
-    }
+if(text.toLowerCase().includes(q)){
 
+results.push({
+text,
+type:"negative"
+});
 
-    const results = [];
+}
 
+});
 
-    ["positive", "negative"]
-      .forEach(mode => {
+if(group.better){
 
-        data[mode].forEach(group => {
+group.better.forEach(text=>{
 
-          group.items.forEach(text => {
+if(text.toLowerCase().includes(q)){
 
-            if (
-              text
-                .toLowerCase()
-                .includes(query)
-            ) {
+results.push({
+text,
+type:"positive"
+});
 
-              results.push({
-                text,
-                negative:
-                  mode === "negative"
-              });
+}
 
-            }
+});
 
-          });
+}
 
-        });
-
-      });
+});
 
 
-    data.swap.forEach(pair => {
+/* Swap */
 
-      pair.forEach(text => {
+data.swap.forEach(pair=>{
 
-        if (
-          text
-            .toLowerCase()
-            .includes(query)
-        ) {
+pair.forEach((text,index)=>{
 
-          results.push({
-            text,
-            negative: false
-          });
+if(text.toLowerCase().includes(q)){
 
-        }
+results.push({
+text,
+type:index===0
+?"negative"
+:"positive"
+});
 
-      });
+}
 
-    });
+});
 
-
-    content.innerHTML = `
-
-      <section class="section">
-
-        <div class="section-title">
-
-          <h3>
-            🔎 Αποτελέσματα
-          </h3>
-
-          <small>
-            ${results.length} λεκτικά
-          </small>
-
-        </div>
+});
 
 
-        ${
-          results.length
+/* Render */
 
-          ? `
+content.innerHTML=`
 
-            <div class="cards">
+<section class="results section">
 
-              ${results
-                .map(result =>
-                  phraseCard(
-                    result.text,
-                    result.negative
-                  )
-                )
-                .join("")}
+<div class="section-head">
 
-            </div>
+<h2>
+🔎 Αποτελέσματα
+</h2>
 
-          `
+<p>
+${results.length} ΛΕΚΤΙΚΑ
+</p>
 
-          :
+</div>
 
-          `
+${
+results.length
 
-            <div class="empty">
+?
 
-              Δεν βρήκα κάτι.<br>
-              Δοκίμασε άλλη λέξη.
+`<div class="phrases">
 
-            </div>
+${results
+.map(r=>phrase(r.text,r.type))
+.join("")}
 
-          `
-        }
+</div>`
 
-      </section>
+:
 
-    `;
+`
 
-  });
+<div class="no-results">
+
+Δεν βρέθηκε κάποιο λεκτικό.<br>
+Δοκίμασε άλλη λέξη.
+
+</div>
+
+`
+
+}
+
+</section>
+
+`;
+
+}
+);
 
 
 /* =========================
    TOAST
 ========================= */
 
-function showToast(message) {
+function showToast(message){
 
-  toast.textContent = message;
+toast.textContent=message;
 
-  toast.classList.add("show");
+toast.classList.add("show");
 
-  clearTimeout(
-    window.toastTimer
-  );
+clearTimeout(
+window.toastTimer
+);
 
-
-  window.toastTimer =
-    setTimeout(
-      () => {
-
-        toast.classList.remove(
-          "show"
-        );
-
-      },
-      1600
-    );
+window.toastTimer=
+setTimeout(
+()=>{
+toast.classList.remove("show");
+},
+1500
+);
 
 }
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+document
+.getElementById("themeBtn")
+.addEventListener(
+"click",
+()=>{
+
+document.body
+.classList.toggle("dark");
+
+const dark=
+document.body
+.classList.contains("dark");
+
+document
+.getElementById("themeBtn")
+.textContent=
+dark?"☀":"☾";
+
+}
+);
 
 
 /* =========================
