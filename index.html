@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Λεκτικά — D2D Sales Toolkit</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f6f2;
+      color: #292631;
+      font-family: Inter, sans-serif;
+      transition: background .25s, color .25s;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       APP
+    ========================= */
+
+    #app {
+      min-height: 100vh;
+      padding-bottom: 85px;
+    }
+
+
+    /* =========================
+       TOP BAR
+    ========================= */
+
+    .topbar {
+      max-width: 760px;
+      margin: auto;
+
+      padding: 20px 18px 12px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #938c98;
+    }
+
+    .logo {
+      margin: 2px 0 0;
+
+      font-family: "Baloo 2", sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #ff7959;
+    }
+
+    .theme-btn {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 15px;
+
+      background: #fff;
+
+      box-shadow:
+        0 6px 20px rgba(0,0,0,.07);
+
+      font-size: 19px;
+
+      transition: transform .2s;
+    }
+
+    .theme-btn:active {
+      transform: scale(.9);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      max-width: 760px;
+      min-height: 350px;
+
+      margin: 8px auto 0;
+      padding: 30px 22px;
+
+      border-radius: 31px;
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          #ff9b78 0,
+          #ff8a69 13%,
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          #7569e8 0,
+          #7569e8 12%,
+          transparent 35%
+        ),
+        #302d3a;
+
+      color: white;
+    }
+
+    .hero:after {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      right: -70px;
+      bottom: -70px;
+
+      border-radius: 50%;
+
+      background: #ffd66d;
+
+      opacity: .15;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      padding: 8px 12px;
+
+      border-radius: 100px;
+
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.15);
+
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin: 24px 0 12px;
+
+      font-family: "Baloo 2", sans-serif;
+      font-size: 39px;
+      line-height: .98;
+      letter-spacing: -1px;
+    }
+
+    .hero h2 em {
+      color: #ffd66d;
+      font-style: normal;
+    }
+
+    .hero p {
+      max-width: 500px;
+
+      margin: 0;
+
+      color: #ded9e4;
+
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search {
+      display: flex;
+      align-items: center;
+
+      margin-top: 22px;
+
+      padding: 0 14px;
+
+      background: #fff;
+
+      border-radius: 17px;
+
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .search-icon {
+      color: #9a94a0;
+      font-size: 25px;
+    }
+
+    .search input {
+      width: 100%;
+
+      padding: 16px 9px;
+
+      border: 0;
+      outline: 0;
+
+      background: transparent;
+
+      color: #292631;
+
+      font-size: 13px;
+    }
+
+    .search input::placeholder {
+      color: #aaa4ad;
+    }
+
+
+    /* =========================
+       QUICK ACTIONS
+    ========================= */
+
+    .quick {
+      max-width: 760px;
+
+      margin: 15px auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 11px;
+    }
+
+    .quick-card {
+      display: flex;
+      align-items: center;
+
+      gap: 11px;
+
+      padding: 15px;
+
+      border-radius: 20px;
+
+      background: #fff;
+
+      box-shadow:
+        0 5px 18px rgba(0,0,0,.055);
+
+      text-align: left;
+
+      transition: .2s;
+    }
+
+    .quick-card:active {
+      transform: scale(.97);
+    }
+
+    .quick-icon {
+      font-size: 25px;
+    }
+
+    .quick-text {
+      color: #817b87;
+
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .quick-text strong {
+      color: #292631;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .section {
+      max-width: 760px;
+
+      margin: 30px auto;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      padding: 0 4px;
+
+      margin-bottom: 13px;
+    }
+
+    .section-title h3 {
+      margin: 0;
+
+      font-family: "Baloo 2", sans-serif;
+
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .section-title small {
+      color: #938c98;
+
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .sub-title {
+      margin: 22px 4px 9px;
+
+      color: #77717d;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================
+       PHRASES
+    ========================= */
+
+    .cards {
+      display: grid;
+      gap: 9px;
+    }
+
+    .phrase {
+      position: relative;
+
+      min-height: 64px;
+
+      padding:
+        14px
+        90px
+        14px
+        17px;
+
+      display: flex;
+      align-items: center;
+
+      border-radius: 17px;
+
+      background: #fff;
+
+      border-left: 4px solid #63c89a;
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.045);
+
+      animation: appear .25s ease;
+    }
+
+    .phrase.bad {
+      border-left-color: #ef8b8b;
+    }
+
+    .phrase p {
+      margin: 0;
+
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .star {
+      position: absolute;
+
+      right: 45px;
+      top: 50%;
+
+      width: 29px;
+      height: 29px;
+
+      transform: translateY(-50%);
+
+      background: transparent;
+
+      color: #c5bec9;
+
+      font-size: 18px;
+    }
+
+    .star.active {
+      color: #f1b83c;
+    }
+
+    .copy {
+      position: absolute;
+
+      right: 9px;
+      top: 50%;
+
+      width: 34px;
+      height: 34px;
+
+      transform: translateY(-50%);
+
+      border-radius: 11px;
+
+      background: #f4f2ef;
+
+      color: #77717c;
+
+      font-size: 16px;
+    }
+
+
+    /* =========================
+       SWAP
+    ========================= */
+
+    .swap {
+      margin-bottom: 10px;
+
+      padding: 15px 16px;
+
+      background: #fff;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.045);
+    }
+
+    .swap-line {
+      padding: 6px 0;
+
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .swap-line.bad {
+      color: #a95353;
+    }
+
+    .swap-line.good {
+      color: #267653;
+    }
+
+    .tag {
+      display: block;
+
+      margin-bottom: 4px;
+
+      font-size: 8px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      opacity: .65;
+    }
+
+    .arrow {
+      text-align: center;
+
+      color: #b5aeb8;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       GOLD
+    ========================= */
+
+    .gold {
+      margin-bottom: 11px;
+
+      padding: 19px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #302d3a,
+          #4b4358
+        );
+
+      color: white;
+
+      box-shadow:
+        0 7px 20px rgba(0,0,0,.12);
+    }
+
+    .gold-label {
+      color: #ffd66d;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .gold p {
+      margin: 9px 0 0;
+
+      font-family: "Baloo 2", sans-serif;
+
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+
+    /* =========================
+       EXAMPLE
+    ========================= */
+
+    .example {
+      margin-top: 10px;
+
+      padding: 16px;
+
+      border-radius: 18px;
+
+      background: #fff4d8;
+
+      border: 1px solid #f2d797;
+    }
+
+    .example-label {
+      color: #a06c00;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .example p {
+      margin: 7px 0 0;
+
+      font-family: "Baloo 2", sans-serif;
+
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+
+    /* =========================
+       EMPTY / RANDOM
+    ========================= */
+
+    .random {
+      max-width: 760px;
+
+      margin: 0 auto 18px;
+
+      padding: 17px;
+
+      border-radius: 20px;
+
+      background: #fff4d8;
+
+      border: 1px solid #f2d797;
+    }
+
+    .random-label {
+      color: #a06c00;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .random p {
+      margin: 8px 0 0;
+
+      font-family: "Baloo 2", sans-serif;
+
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .empty {
+      padding: 35px 20px;
+
+      text-align: center;
+
+      color: #908994;
+
+      font-size: 13px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+    /* =========================
+       BOTTOM NAV
+    ========================= */
+
+    .bottom-nav {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 50;
+
+      max-width: 760px;
+
+      margin: auto;
+
+      padding:
+        8px
+        7px
+        calc(8px + env(safe-area-inset-bottom));
+
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+
+      background: rgba(255,255,255,.93);
+
+      backdrop-filter: blur(15px);
+
+      border-top: 1px solid #eeeaf0;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 2px;
+
+      background: transparent;
+
+      color: #aaa4ae;
+
+      font-size: 20px;
+    }
+
+    .nav small {
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .nav.active {
+      color: #302d3a;
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 82px;
+
+      z-index: 100;
+
+      padding: 10px 15px;
+
+      border-radius: 13px;
+
+      background: #292631;
+      color: white;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      opacity: 0;
+
+      transform:
+        translate(-50%, 15px);
+
+      pointer-events: none;
+
+      transition: .25s;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes appear {
+
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    body.dark {
+      background: #19171d;
+      color: #eeeaf0;
+    }
+
+    body.dark .theme-btn,
+    body.dark .quick-card,
+    body.dark .phrase,
+    body.dark .swap {
+      background: #29262f;
+      color: #eeeaf0;
+    }
+
+    body.dark .quick-text {
+      color: #aaa3af;
+    }
+
+    body.dark .quick-text strong {
+      color: #eeeaf0;
+    }
+
+    body.dark .search {
+      background: #29262f;
+    }
+
+    body.dark .search input {
+      color: white;
+    }
+
+    body.dark .copy {
+      background: #36323d;
+      color: #bbb4c0;
+    }
+
+    body.dark .bottom-nav {
+      background: rgba(35,32,41,.94);
+      border-color: #3b3742;
+    }
+
+    body.dark .nav.active {
+      color: white;
+    }
+
+
+    /* =========================
+       DESKTOP
+    ========================= */
+
+    @media (min-width: 700px) {
+
+      main {
+        padding: 0 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .bottom-nav {
+        border-radius: 22px 22px 0 0;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+  <!-- HEADER -->
+
+  <header class="topbar">
+
+    <div>
+
+      <div class="eyebrow">
+        D2D SALES TOOLKIT
+      </div>
+
+      <div class="logo">
+        Λεκτικά <span>✦</span>
+      </div>
+
+    </div>
+
+
+    <button
+      class="theme-btn"
+      id="themeBtn"
+    >
+      ☾
+    </button>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <span class="badge">
+          🎯 Μίλα σωστά. Πούλα συμβουλευτικά.
+        </span>
+
+
+        <h2>
+          Οι σωστές λέξεις<br>
+          <em>αλλάζουν τη συζήτηση.</em>
+        </h2>
+
+
+        <p>
+          Ένα γρήγορο toolkit για D2D πωλήσεις,
+          Fiber και κάθε συζήτηση με πελάτη.
+        </p>
+
+
+        <div class="search">
+
+          <span class="search-icon">
+            ⌕
+          </span>
+
+          <input
+            id="search"
+            type="search"
+            placeholder="Ψάξε λεκτικό, π.χ. Fiber..."
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUICK -->
+
+    <section class="quick">
+
+      <button
+        class="quick-card"
+        id="randomBtn"
+      >
+
+        <span class="quick-icon">
+          🎲
+        </span>
+
+        <span class="quick-text">
+          Τυχαίο<br>
+          <strong>λεκτικό</strong>
+        </span>
+
+      </button>
+
+
+      <button
+        class="quick-card"
+        id="favoritesBtn"
+      >
+
+        <span class="quick-icon">
+          ⭐
+        </span>
+
+        <span class="quick-text">
+          Τα<br>
+          <strong>αγαπημένα</strong>
+        </span>
+
+      </button>
+
+    </section>
+
+
+    <!-- RANDOM -->
+
+    <div
+      id="randomBox"
+      class="random hidden"
+    ></div>
+
+
+    <!-- CONTENT -->
+
+    <div id="content"></div>
+
+
+  </main>
+
+
+  <!-- NAV -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav active"
+      data-mode="home"
+    >
+      <span>⌂</span>
+      <small>Αρχή</small>
+    </button>
+
+
+    <button
+      class="nav"
+      data-mode="positive"
+    >
+      <span>✓</span>
+      <small>Πωλησιακά</small>
+    </button>
+
+
+    <button
+      class="nav"
+      data-mode="negative"
+    >
+      <span>×</span>
+      <small>Αντιπωλησιακά</small>
+    </button>
+
+
+    <button
+      class="nav"
+      data-mode="swap"
+    >
+      <span>↔</span>
+      <small>Αλλαγές</small>
+    </button>
+
+  </nav>
+
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+</div>
+
+
+<script>
+
+const data = {
+
+
+  positive: [
+
+    {
+      title:
+        "Φράσεις που μειώνουν την πίεση",
+
+      items: [
+
+        "Να δω αν σας αφορά",
+
+        "Να δούμε αν ταιριάζει στη χρήση σας",
+
+        "Αν έχει νόημα για εσάς",
+
+        "Εφόσον σας εξυπηρετεί",
+
+        "Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε",
+
+        "Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς",
+
+        "Εσείς γνωρίζετε καλύτερα τις ανάγκες σας"
+
+      ]
+    },
+
+
+    {
+      title:
+        "Φράσεις που δείχνουν συμβουλευτική πώληση",
+
+      items: [
+
+        "Με βάση αυτά που μου λέτε...",
+
+        "Από τη χρήση που μου περιγράφετε...",
+
+        "Για τη δική σας περίπτωση...",
+
+        "Αυτό που θα σας πρότεινα...",
+
+        "Αυτό που βλέπω ότι σας ταιριάζει...",
+
+        "Η πιο λογική επιλογή για εσάς είναι..."
+
+      ],
+
+      example:
+        "Με βάση ότι έχετε δύο παιδιά, τηλεόραση και τηλεργασία, θα κοιτούσα περισσότερο το 1 Gbps."
+
+    },
+
+
+    {
+      title:
+        "Φράσεις που αυξάνουν την αξία",
+
+      items: [
+
+        "Πιο σταθερή εμπειρία",
+
+        "Καλύτερη απόκριση",
+
+        "Περισσότερη άνεση με πολλές συσκευές",
+
+        "Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet",
+
+        "Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων"
+
+      ]
+
+    },
+
+
+    {
+      title:
+        "Φράσεις για κλείσιμο χωρίς πίεση",
+
+      items: [
+
+        "Να το δούμε μαζί;",
+
+        "Να κάνουμε έναν έλεγχο;",
+
+        "Να δούμε αν υπάρχει διαθέσιμη επιλογή;",
+
+        "Να σας δείξω τι μπορείτε να έχετε;",
+
+        "Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε."
+
+      ]
+
+    }
+
+  ],
+
+
+  negative: [
+
+    {
+      title:
+        "Φράσεις που προκαλούν πίεση",
+
+      items: [
+
+        "Ήρθα να σας κάνω προσφορά",
+
+        "Έχω μια μοναδική ευκαιρία",
+
+        "Πρέπει να το κάνετε σήμερα",
+
+        "Είναι η τελευταία ευκαιρία",
+
+        "Χάνετε χρήματα αν δεν το πάρετε",
+
+        "Πρέπει να αποφασίσετε τώρα"
+
+      ]
+
+    },
+
+
+    {
+      title:
+        "Φράσεις που μειώνουν την αξιοπιστία",
+
+      items: [
+
+        "Είναι το καλύτερο της αγοράς",
+
+        "Δεν θα έχετε ποτέ πρόβλημα",
+
+        "Είναι εγγυημένο 100%",
+
+        "Όλοι το παίρνουν",
+
+        "Δεν υπάρχει καλύτερο"
+
+      ]
+
+    },
+
+
+    {
+      title:
+        "Φράσεις που κάνουν τον πελάτη να αμυνθεί",
+
+      items: [
+
+        "Είστε ευχαριστημένος από τη σύνδεσή σας;",
+
+        "Θα θέλατε να αλλάξετε πάροχο;"
+
+      ],
+
+      better: [
+
+        "Κάθε πότε αντιμετωπίζετε διακοπές/αποσυνδέσεις;",
+
+        "Έχετε δει τις διαθέσιμες επιλογές Fiber στην περιοχή;"
+
+      ]
+
+    }
+
+  ],
+
+
+  swap: [
+
+    [
+      "Θέλετε να βάλετε Fiber;",
+      "Να δούμε αν το Fiber σας ταιριάζει;"
+    ],
+
+    [
+      "Έχουμε προσφορά",
+      "Υπάρχουν διαθέσιμες επιλογές"
+    ],
+
+    [
+      "Είναι καλύτερο",
+      "Είναι διαφορετική τεχνολογία"
+    ],
+
+    [
+      "Θα έχετε τέλειο internet",
+      "Στόχος είναι η μεγαλύτερη σταθερότητα"
+    ],
+
+    [
+      "Πρέπει να υπογράψετε",
+      "Αν σας καλύπτει, μπορούμε να προχωρήσουμε"
+    ],
+
+    [
+      "Θα σας βολέψει",
+      "Από αυτά που μου λέτε, φαίνεται να σας ταιριάζει"
+    ],
+
+    [
+      "Είναι φθηνό",
+      "Έχει καλή σχέση κόστους/απόδοσης"
+    ]
+
+  ],
+
+
+  gold: [
+
+    [
+      "Όταν ο πελάτης είναι δύσκολος",
+
+      "Δεν θέλω να σας πείσω να πάρετε κάτι που δεν χρειάζεστε. Θέλω απλά να δω αν υπάρχει λόγος να το εξετάσετε."
+    ],
+
+    [
+      "Όταν φοβάται αλλαγή",
+
+      "Το σημαντικό δεν είναι μόνο να αλλάξει κάποιος πάροχο. Είναι να ξέρει γιατί αλλάζει."
+    ],
+
+    [
+      "Όταν λέει «όλοι τα ίδια λέτε»",
+
+      "Το καταλαβαίνω. Γι' αυτό δεν θέλω να σας πω απλά ότι είναι καλύτερο. Θέλω να δούμε αν ταιριάζει στη δική σας χρήση."
+    ],
+
+    [
+      "Όταν βιάζεται",
+
+      "Θα σας κάνω μόνο δύο ερωτήσεις. Αν δεν σας αφορά, σταματάμε εκεί."
+    ]
+
+  ]
+
+};
+
+
+/* =========================
+   STATE
+========================= */
+
+let favorites =
+  JSON.parse(
+    localStorage.getItem("lekitika-favorites") || "[]"
+  );
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const content =
+  document.getElementById("content");
+
+const search =
+  document.getElementById("search");
+
+const randomBox =
+  document.getElementById("randomBox");
+
+const toast =
+  document.getElementById("toast");
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(text) {
+
+  return text
+    .replace(/[&<>"']/g, char => {
+
+      const chars = {
+
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+
+      };
+
+      return chars[char];
+
+    });
+
+}
+
+
+/* =========================
+   PHRASE CARD
+========================= */
+
+function phraseCard(
+  text,
+  negative = false
+) {
+
+  const saved =
+    favorites.includes(text);
+
+
+  return `
+
+    <div
+      class="phrase ${negative ? "bad" : ""}"
+      data-text="${escapeHTML(text)}"
+    >
+
+      <p>
+        ${escapeHTML(text)}
+      </p>
+
+
+      <button
+        class="star ${saved ? "active" : ""}"
+        aria-label="Αγαπημένο"
+      >
+        ${saved ? "★" : "☆"}
+      </button>
+
+
+      <button
+        class="copy"
+        aria-label="Αντιγραφή"
+      >
+        ⧉
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+function renderHome() {
+
+  content.innerHTML = `
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h3>
+          🟢 Πωλησιακά λεκτικά
+        </h3>
+
+        <small>
+          χτίζουν εμπιστοσύνη
+        </small>
+
+      </div>
+
+
+      <div class="cards">
+
+        <button
+          class="quick-card"
+          onclick="showMode('positive')"
+        >
+
+          <span class="quick-icon">
+            🧠
+          </span>
+
+          <span class="quick-text">
+            Μίλα σαν<br>
+            <strong>σύμβουλος</strong>
+          </span>
+
+        </button>
+
+
+        <button
+          class="quick-card"
+          onclick="showMode('swap')"
+        >
+
+          <span class="quick-icon">
+            ↔️
+          </span>
+
+          <span class="quick-text">
+            Άλλαξε<br>
+            <strong>τη φράση</strong>
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h3>
+          🔴 Αντιπωλησιακά
+        </h3>
+
+        <small>
+          σηκώνουν άμυνα
+        </small>
+
+      </div>
+
+
+      <div class="cards">
+
+        <button
+          class="quick-card"
+          onclick="showMode('negative')"
+        >
+
+          <span class="quick-icon">
+            🛑
+          </span>
+
+          <span class="quick-text">
+            Απόφυγε<br>
+            <strong>αυτές τις φράσεις</strong>
+          </span>
+
+        </button>
+
+
+        <button
+          class="quick-card"
+          onclick="showMode('gold')"
+        >
+
+          <span class="quick-icon">
+            ⭐
+          </span>
+
+          <span class="quick-text">
+            Φράσεις<br>
+            <strong>«χρυσάφι»</strong>
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h3>
+          ⭐ Χρυσάφι για D2D
+        </h3>
+
+        <small>
+          δύσκολες στιγμές
+        </small>
+
+      </div>
+
+
+      ${data.gold.map(item => `
+
+        <div class="gold">
+
+          <div class="gold-label">
+            ${escapeHTML(item[0])}
+          </div>
+
+          <p>
+            “${escapeHTML(item[1])}”
+          </p>
+
+        </div>
+
+      `).join("")}
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================
+   LIST
+========================= */
+
+function renderList(mode) {
+
+
+  /* SWAP */
+
+  if (mode === "swap") {
+
+    content.innerHTML = `
+
+      <section class="section">
+
+        <div class="section-title">
+
+          <h3>
+            ↔️ Αντικαταστάσεις
+          </h3>
+
+          <small>
+            Μικρές αλλαγές, μεγάλη διαφορά
+          </small>
+
+        </div>
+
+
+        ${data.swap.map(pair => `
+
+          <div class="swap">
+
+            <div class="swap-line bad">
+
+              <span class="tag">
+                ❌ Αντιπωλησιακό
+              </span>
+
+              ${escapeHTML(pair[0])}
+
+            </div>
+
+
+            <div class="arrow">
+              ↓
+            </div>
+
+
+            <div class="swap-line good">
+
+              <span class="tag">
+                ✅ Πωλησιακό
+              </span>
+
+              ${escapeHTML(pair[1])}
+
+            </div>
+
+          </div>
+
+        `).join("")}
+
+      </section>
+
+    `;
+
+    return;
+
+  }
+
+
+  /* GOLD */
+
+  if (mode === "gold") {
+
+    content.innerHTML = `
+
+      <section class="section">
+
+        <div class="section-title">
+
+          <h3>
+            ⭐ Φράσεις «χρυσάφι»
+          </h3>
+
+          <small>
+            D2D moments
+          </small>
+
+        </div>
+
+
+        ${data.gold.map(item => `
+
+          <div class="gold">
+
+            <div class="gold-label">
+              ${escapeHTML(item[0])}
+            </div>
+
+            <p>
+              “${escapeHTML(item[1])}”
+            </p>
+
+          </div>
+
+        `).join("")}
+
+      </section>
+
+    `;
+
+    return;
+
+  }
+
+
+  /* POSITIVE / NEGATIVE */
+
+  const negative =
+    mode === "negative";
+
+
+  let html = `
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h3>
+          ${negative ? "🔴" : "🟢"}
+          ${negative
+            ? "Αντιπωλησιακά"
+            : "Πωλησιακά"} λεκτικά
+        </h3>
+
+        <small>
+          ${negative
+            ? "σηκώνουν άμυνα"
+            : "χτίζουν εμπιστοσύνη"}
+        </small>
+
+      </div>
+
+  `;
+
+
+  data[mode].forEach(group => {
+
+
+    html += `
+
+      <div class="sub-title">
+        ${escapeHTML(group.title)}
+      </div>
+
+
+      <div class="cards">
+
+        ${group.items
+          .map(item =>
+            phraseCard(
+              item,
+              negative
+            )
+          )
+          .join("")}
+
+      </div>
+
+    `;
+
+
+    if (group.example) {
+
+      html += `
+
+        <div class="example">
+
+          <div class="example-label">
+            💡 Παράδειγμα
+          </div>
+
+          <p>
+            ${escapeHTML(group.example)}
+          </p>
+
+        </div>
+
+      `;
+
+    }
+
+
+    if (group.better) {
+
+      html += `
+
+        <div class="sub-title">
+          ✨ Καλύτερα
+        </div>
+
+
+        <div class="cards">
+
+          ${group.better
+            .map(item =>
+              phraseCard(item)
+            )
+            .join("")}
+
+        </div>
+
+      `;
+
+    }
+
+  });
+
+
+  html += `
+    </section>
+  `;
+
+
+  content.innerHTML = html;
+
+}
+
+
+/* =========================
+   MODE
+========================= */
+
+function showMode(mode) {
+
+  document
+    .querySelectorAll(".nav")
+    .forEach(nav => {
+
+      nav.classList.toggle(
+        "active",
+        nav.dataset.mode === mode
+      );
+
+    });
+
+
+  if (mode === "home") {
+
+    renderHome();
+
+  } else {
+
+    renderList(mode);
+
+  }
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+   COPY + FAVORITES
+========================= */
+
+document.addEventListener(
+  "click",
+  event => {
+
+
+    const copy =
+      event.target.closest(".copy");
+
+
+    const star =
+      event.target.closest(".star");
+
+
+    if (copy) {
+
+      const text =
+        copy.parentElement.dataset.text;
+
+
+      if (
+        navigator.clipboard
+      ) {
+
+        navigator.clipboard
+          .writeText(text);
+
+      }
+
+
+      showToast(
+        "✓ Αντιγράφηκε!"
+      );
+
+    }
+
+
+    if (star) {
+
+      const text =
+        star.parentElement.dataset.text;
+
+
+      if (
+        favorites.includes(text)
+      ) {
+
+        favorites =
+          favorites.filter(
+            item => item !== text
+          );
+
+      } else {
+
+        favorites.push(text);
+
+      }
+
+
+      localStorage.setItem(
+        "lekitika-favorites",
+        JSON.stringify(favorites)
+      );
+
+
+      const active =
+        favorites.includes(text);
+
+
+      star.classList.toggle(
+        "active",
+        active
+      );
+
+
+      star.textContent =
+        active ? "★" : "☆";
+
+
+      showToast(
+        active
+          ? "⭐ Προστέθηκε στα αγαπημένα"
+          : "Αφαιρέθηκε από τα αγαπημένα"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================
+   NAV
+========================= */
+
+document
+  .querySelectorAll(".nav")
+  .forEach(nav => {
+
+    nav.addEventListener(
+      "click",
+      () => {
+
+        showMode(
+          nav.dataset.mode
+        );
+
+      }
+    );
+
+  });
+
+
+/* =========================
+   RANDOM
+========================= */
+
+document
+  .getElementById("randomBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+
+      const all = [
+
+        ...data.positive.flatMap(
+          group => group.items
+        ),
+
+        ...data.swap.map(
+          pair => pair[1]
+        ),
+
+        ...data.gold.map(
+          item => item[1]
+        )
+
+      ];
+
+
+      const random =
+        all[
+          Math.floor(
+            Math.random() * all.length
+          )
+        ];
+
+
+      randomBox.innerHTML = `
+
+        <div class="random-label">
+          🎲 Τυχαίο λεκτικό
+        </div>
+
+        <p>
+          “${escapeHTML(random)}”
+        </p>
+
+      `;
+
+
+      randomBox.classList.remove(
+        "hidden"
+      );
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+
+/* =========================
+   FAVORITES
+========================= */
+
+document
+  .getElementById("favoritesBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+
+      if (!favorites.length) {
+
+        randomBox.innerHTML = `
+
+          <div class="random-label">
+            ⭐ Αγαπημένα
+          </div>
+
+          <p>
+            Δεν έχεις αποθηκεύσει ακόμα
+            κάποιο λεκτικό.
+          </p>
+
+        `;
+
+      } else {
+
+        randomBox.innerHTML = `
+
+          <div class="random-label">
+            ⭐ Αγαπημένα
+          </div>
+
+          <p>
+            ${favorites
+              .map(escapeHTML)
+              .join("<br><br>")}
+          </p>
+
+        `;
+
+      }
+
+
+      randomBox.classList.remove(
+        "hidden"
+      );
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+document
+  .getElementById("themeBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      document.body
+        .classList.toggle("dark");
+
+
+      const dark =
+        document.body
+          .classList.contains("dark");
+
+
+      document
+        .getElementById("themeBtn")
+        .textContent =
+          dark ? "☀" : "☾";
+
+    }
+  );
+
+
+/* =========================
+   SEARCH
+========================= */
+
+search.addEventListener(
+  "input",
+  () => {
+
+
+    const query =
+      search.value
+        .trim()
+        .toLowerCase();
+
+
+    if (!query) {
+
+      renderHome();
+
+      return;
+
+    }
+
+
+    const results = [];
+
+
+    ["positive", "negative"]
+      .forEach(mode => {
+
+        data[mode].forEach(group => {
+
+          group.items.forEach(text => {
+
+            if (
+              text
+                .toLowerCase()
+                .includes(query)
+            ) {
+
+              results.push({
+                text,
+                negative:
+                  mode === "negative"
+              });
+
+            }
+
+          });
+
+        });
+
+      });
+
+
+    data.swap.forEach(pair => {
+
+      pair.forEach(text => {
+
+        if (
+          text
+            .toLowerCase()
+            .includes(query)
+        ) {
+
+          results.push({
+            text,
+            negative: false
+          });
+
+        }
+
+      });
+
+    });
+
+
+    content.innerHTML = `
+
+      <section class="section">
+
+        <div class="section-title">
+
+          <h3>
+            🔎 Αποτελέσματα
+          </h3>
+
+          <small>
+            ${results.length} λεκτικά
+          </small>
+
+        </div>
+
+
+        ${
+          results.length
+
+          ? `
+
+            <div class="cards">
+
+              ${results
+                .map(result =>
+                  phraseCard(
+                    result.text,
+                    result.negative
+                  )
+                )
+                .join("")}
+
+            </div>
+
+          `
+
+          :
+
+          `
+
+            <div class="empty">
+
+              Δεν βρήκα κάτι.<br>
+              Δοκίμασε άλλη λέξη.
+
+            </div>
+
+          `
+        }
+
+      </section>
+
+    `;
+
+  });
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message) {
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+
+  window.toastTimer =
+    setTimeout(
+      () => {
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      1600
+    );
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+renderHome();
+
+</script>
+
+</body>
+</html>
