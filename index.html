@@ -717,6 +717,91 @@ button,input,select{
   font-weight:800;
 }
 
+.calc-options{
+  display:grid;
+  gap:7px;
+}
+
+.calc-check{
+  position:relative;
+}
+
+.calc-check input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.calc-check label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:46px;
+  margin:0;
+  padding:9px 11px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:9px;
+  font-weight:700;
+  line-height:1.35;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.calc-check label:before{
+  content:"✓";
+  width:24px;
+  height:24px;
+  flex:0 0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--border);
+  border-radius:7px;
+  background:var(--surface);
+  color:transparent;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.calc-check input:checked + label{
+  border-color:var(--green);
+  background:var(--green-soft);
+}
+
+.calc-check input:checked + label:before{
+  border-color:var(--green);
+  background:var(--green);
+  color:#fff;
+}
+
+.calc-check.extender input:checked + label{
+  border-color:var(--orange);
+  background:var(--orange-soft);
+}
+
+.calc-check.extender input:checked + label:before{
+  border-color:var(--orange);
+  background:var(--orange);
+  color:#fff;
+}
+
+.calc-check-title{
+  display:block;
+  font-weight:800;
+}
+
+.calc-check-subtitle{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:7.5px;
+  font-weight:600;
+}
+
 .calc-button{
   width:100%;
   min-height:45px;
@@ -770,6 +855,10 @@ button,input,select{
   font-weight:700;
 }
 
+.result-saving.negative{
+  color:var(--red-dark);
+}
+
 .result-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -803,6 +892,39 @@ button,input,select{
 .result-box-value.orange{color:var(--orange-dark)}
 .result-box-value.green{color:var(--green-dark)}
 .result-box-value.red{color:var(--red-dark)}
+
+.total-benefit{
+  margin-top:8px;
+  padding:13px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--green-soft),#fff);
+  border:1px solid #bfe3cf;
+}
+
+.total-benefit-label{
+  color:var(--green-dark);
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+
+.total-benefit-value{
+  margin-top:3px;
+  color:var(--green-dark);
+  font-family:"Baloo 2",sans-serif;
+  font-size:27px;
+  font-weight:800;
+  line-height:1;
+}
+
+.total-benefit-note{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:7.5px;
+  line-height:1.4;
+  font-weight:600;
+}
 
 .break-even{
   margin-top:7px;
@@ -959,6 +1081,10 @@ body.dark .info-box,
 body.dark .winback-note{color:#f0c995}
 body.dark .benefit-phrase{color:#d7e7f5}
 
+body.dark .total-benefit{
+  background:linear-gradient(135deg,var(--green-soft),var(--surface));
+}
+
 /* DESKTOP */
 
 @media(min-width:700px){
@@ -972,6 +1098,11 @@ body.dark .benefit-phrase{color:#d7e7f5}
   .price-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 
   .calc-fields{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .calc-options{
+    grid-column:1/-1;
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
@@ -1787,7 +1918,7 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 <div class="section-number">03 · CALCULATOR</div>
 <h2 class="section-name">Υπολογισμός Οφέλους</h2>
 <div class="section-subtitle">
-3 πάγια δώρο · πραγματικό κόστος 24μήνου
+Σύγκριση πραγματικού κόστους 24μήνου
 </div>
 </div>
 
@@ -1812,7 +1943,7 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 Σύγκρινε το σημερινό πάγιο
 </h3>
 <div class="subcategory-count">
-Με 3 πάγια δώρο και προαιρετική ρήτρα
+Προαιρετικά δωρεάν πάγια + δωρεάν WiFi Extender
 </div>
 </div>
 
@@ -1830,8 +1961,8 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 Βάλε το σημερινό μηνιαίο πάγιο του πελάτη,
 διάλεξε το πακέτο που θα επιλέξει στη ΔΕΗ
 και, αν υπάρχει, πρόσθεσε τη ρήτρα αποχώρησης.
-Ο υπολογισμός θεωρεί ότι δίνονται
-<strong>3 πάγια δωρεάν</strong> μέσα στο 24μηνο.
+Στη συνέχεια κάνε τικ στα δώρα που πραγματικά
+θα δοθούν στον συγκεκριμένο πελάτη.
 </p>
 
 <div class="calc-fields">
@@ -1932,34 +2063,6 @@ inputmode="decimal">
 
 <div class="calc-field">
 
-<label for="freeMonths">
-Δωρεάν πάγια
-</label>
-
-<select id="freeMonths" class="calc-select">
-
-<option value="3" selected>
-3 πάγια δώρο
-</option>
-
-<option value="2">
-2 πάγια δώρο
-</option>
-
-<option value="1">
-1 πάγιο δώρο
-</option>
-
-<option value="0">
-Χωρίς δωρεάν πάγια
-</option>
-
-</select>
-
-</div>
-
-<div class="calc-field">
-
 <label for="penalty">
 Ρήτρα αποχώρησης
 </label>
@@ -1976,6 +2079,58 @@ value="0"
 inputmode="decimal">
 
 <span class="calc-euro">€</span>
+
+</div>
+
+</div>
+
+<!-- ΔΩΡΑ -->
+
+<div class="calc-options">
+
+<div class="calc-check">
+
+<input
+type="checkbox"
+id="freeMonths"
+value="3">
+
+<label for="freeMonths">
+
+<span>
+<span class="calc-check-title">
+🎁 3 πάγια δώρο
+</span>
+
+<span class="calc-check-subtitle">
+Ο πελάτης πληρώνει 21 αντί για 24 μήνες
+</span>
+</span>
+
+</label>
+
+</div>
+
+<div class="calc-check extender">
+
+<input
+type="checkbox"
+id="freeExtender"
+value="55">
+
+<label for="freeExtender">
+
+<span>
+<span class="calc-check-title">
+📶 Δωρεάν WiFi Extender
+</span>
+
+<span class="calc-check-subtitle">
+Αξία δώρου €55
+</span>
+</span>
+
+</label>
 
 </div>
 
@@ -2060,7 +2215,7 @@ type="button">
 <div class="result-box">
 
 <div class="result-box-label">
-Εξοικονόμηση · 12μηνο
+Διαφορά κόστους · 12μηνο
 </div>
 
 <div class="result-box-value green" id="saving12">
@@ -2072,7 +2227,7 @@ type="button">
 <div class="result-box">
 
 <div class="result-box-label">
-Εξοικονόμηση · 24μηνο
+Διαφορά κόστους · 24μηνο
 </div>
 
 <div class="result-box-value green" id="saving24">
@@ -2084,10 +2239,22 @@ type="button">
 <div class="result-box">
 
 <div class="result-box-label">
-Δωρεάν πάγια
+Αξία 3 δωρεάν παγίων
 </div>
 
 <div class="result-box-value orange" id="freeValue">
+€0,00
+</div>
+
+</div>
+
+<div class="result-box">
+
+<div class="result-box-label">
+WiFi Extender
+</div>
+
+<div class="result-box-value orange" id="extenderValue">
 €0,00
 </div>
 
@@ -2131,6 +2298,25 @@ type="button">
 
 </div>
 
+<!-- TOTAL BENEFIT -->
+
+<div class="total-benefit">
+
+<div class="total-benefit-label">
+🎁 Συνολικό όφελος πελάτη
+</div>
+
+<div class="total-benefit-value" id="totalBenefit">
+€0,00
+</div>
+
+<div class="total-benefit-note" id="totalBenefitNote">
+Σύγκριση με το συνολικό ποσό που θα πλήρωνε
+στον προηγούμενο πάροχο.
+</div>
+
+</div>
+
 <div class="break-even" id="breakEven">
 —
 </div>
@@ -2161,11 +2347,11 @@ type="button">
 </div>
 
 <div class="business-phrase" id="businessPhrase3">
-«Έτσι μπορείτε να έχετε WiFi ανοικτό και για περαστικούς ή πελάτες που το χρειάζονται.»
+«Έτσι θα μπορείτε να έχετε WiFi ανοικτό και για περαστικούς ή πελάτες που το χρειάζονται.»
 </div>
 
 <div class="business-phrase" id="businessPhrase4">
-«Είστε σε σημείο που περνάει κόσμος ο οποίος μπορεί να χρειάζεται WiFi.»
+«Είστε σε μέρος που περνάει πολύς κόσμος ο οποίος μπορεί να χρειάζεται WiFi.»
 </div>
 
 <div class="business-phrase" id="businessPhrase5">
@@ -2219,7 +2405,7 @@ type="button">
 </h3>
 
 <div class="subcategory-count">
-Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
+Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο + Extender
 </div>
 
 </div>
@@ -2239,9 +2425,11 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 </div>
 
 <p>
-€24 × 24 = <strong>€576</strong><br>
-ΔΕΗ Fiber: €17,90 × 21 = <strong>€375,90</strong><br>
-Διαφορά = <strong>€200,10</strong>
+€24 × 24 = <strong>€576,00</strong><br>
+ΔΕΗ Fiber: €17,90 × 21 =
+<strong>€375,90</strong><br>
+Διαφορά κόστους =
+<strong>€200,10</strong>
 </p>
 
 </div>
@@ -2249,14 +2437,14 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 <div class="example">
 
 <div class="example-label">
-🎁 Τι κερδίζει ο πελάτης
+🎁 Με δωρεάν WiFi Extender
 </div>
 
 <p>
-Τα 3 δωρεάν πάγια αξίζουν
-<strong>€53,70</strong>
-και μειώνουν το πραγματικό κόστος
-του 24μήνου.
+Διαφορά κόστους <strong>€200,10</strong>
++ Extender αξίας <strong>€55</strong>
+=
+<strong>€255,10 συνολικό όφελος</strong>
 </p>
 
 </div>
@@ -2287,7 +2475,15 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 <div class="phrase phrase-positive">
 <p>
 «Στο συγκεκριμένο παράδειγμα
-η διαφορά φτάνει τα €200,10 στο 24μηνο.»
+η διαφορά κόστους φτάνει τα €200,10
+στο 24μηνο.»
+</p>
+</div>
+
+<div class="phrase phrase-positive">
+<p>
+«Και αν σας δώσουμε και το WiFi Extender,
+το συνολικό όφελος φτάνει τα €255,10.»
 </p>
 </div>
 
@@ -2466,6 +2662,9 @@ document.getElementById("newPrice");
 const freeMonthsInput =
 document.getElementById("freeMonths");
 
+const freeExtenderInput =
+document.getElementById("freeExtender");
+
 const penaltyInput =
 document.getElementById("penalty");
 
@@ -2496,6 +2695,9 @@ document.getElementById("saving24");
 const freeValue =
 document.getElementById("freeValue");
 
+const extenderValue =
+document.getElementById("extenderValue");
+
 const resultPenalty =
 document.getElementById("resultPenalty");
 
@@ -2507,6 +2709,12 @@ document.getElementById("net24");
 
 const result24 =
 document.getElementById("result24");
+
+const totalBenefit =
+document.getElementById("totalBenefit");
+
+const totalBenefitNote =
+document.getElementById("totalBenefitNote");
 
 const breakEven =
 document.getElementById("breakEven");
@@ -2576,8 +2784,21 @@ parseFloat(oldPriceInput.value) || 0;
 const newPrice =
 parseFloat(newPriceInput.value) || 0;
 
+/*
+  ΤΑ ΔΩΡΕΑΝ ΠΑΓΙΑ ΕΝΕΡΓΟΠΟΙΟΥΝΤΑΙ
+  ΜΟΝΟ ΜΕ ΤΟ ΤΙΚ ΤΟΥ ΠΩΛΗΤΗ
+*/
+
 const freeMonths =
-parseInt(freeMonthsInput.value) || 0;
+freeMonthsInput.checked ? 3 : 0;
+
+/*
+  ΤΟ EXTENDER ΕΝΕΡΓΟΠΟΙΕΙΤΑΙ
+  ΜΟΝΟ ΜΕ ΤΟ ΤΙΚ ΤΟΥ ΠΩΛΗΤΗ
+*/
+
+const extenderValueAmount =
+freeExtenderInput.checked ? 55 : 0;
 
 const penalty =
 parseFloat(penaltyInput.value) || 0;
@@ -2590,11 +2811,9 @@ const paidMonths24 =
 Math.max(24 - freeMonths,0);
 
 /*
-  Για το 12μηνο:
-  Αν έχουμε 3 δωρεάν πάγια,
-  θεωρούμε ότι τα 3 δωρεάν
-  βρίσκονται μέσα στους πρώτους
-  12 μήνες.
+  Για το 12μηνο θεωρούμε
+  ότι τα δωρεάν πάγια βρίσκονται
+  μέσα στους πρώτους 12 μήνες.
 */
 
 const paidMonths12 =
@@ -2602,6 +2821,9 @@ Math.max(12 - freeMonths,0);
 
 /*
   ΚΟΣΤΗ ΑΛΛΟΥ ΠΑΡΟΧΟΥ
+
+  Αυτό είναι το ποσό που θα πλήρωνε
+  ο πελάτης αν έμενε στον παλιό πάροχο.
 */
 
 const oldTotal12 =
@@ -2611,7 +2833,8 @@ const oldTotal24 =
 oldPrice * 24;
 
 /*
-  ΚΟΣΤΗ ΔΕΗ
+  ΠΡΑΓΜΑΤΙΚΟ ΠΟΣΟ ΠΟΥ ΠΛΗΡΩΝΕΙ
+  ΣΤΗ ΔΕΗ FIBER
 */
 
 const newTotal12 =
@@ -2622,16 +2845,22 @@ newPrice * paidMonths24;
 
 /*
   ΑΞΙΑ ΔΩΡΕΑΝ ΠΑΓΙΩΝ
-*/
 
-const freeValue12 =
-newPrice * freeMonths;
+  Εμφανίζεται ενημερωτικά.
+  Δεν προστίθεται ξανά στο όφελος,
+  επειδή έχει ήδη αφαιρεθεί από
+  το πραγματικό ποσό που πληρώνει
+  ο πελάτης.
+*/
 
 const freeValue24 =
 newPrice * freeMonths;
 
 /*
-  ΕΞΟΙΚΟΝΟΜΗΣΗ
+  ΔΙΑΦΟΡΑ ΚΟΣΤΟΥΣ
+
+  Πάντα σε σύγκριση με το τι
+  θα πλήρωνε στον άλλο πάροχο.
 */
 
 const saving12Value =
@@ -2642,16 +2871,29 @@ oldTotal24 - newTotal24;
 
 /*
   ΚΑΘΑΡΟ ΟΦΕΛΟΣ
+
+  = διαφορά κόστους
+  + αξία δωρεάν Extender
+  - ρήτρα
+
+  Τα δωρεάν πάγια ΔΕΝ
+  προστίθενται δεύτερη φορά,
+  γιατί έχουν ήδη υπολογιστεί
+  στο ποσό newTotal.
 */
 
 const net12Value =
-saving12Value - penalty;
+saving12Value +
+extenderValueAmount -
+penalty;
 
 const net24Value =
-saving24Value - penalty;
+saving24Value +
+extenderValueAmount -
+penalty;
 
 /*
-  ΕΜΦΑΝΙΣΗ
+  ΕΜΦΑΝΙΣΗ ΒΑΣΙΚΩΝ ΠΟΣΩΝ
 */
 
 old12.textContent =
@@ -2675,6 +2917,9 @@ money(saving24Value);
 freeValue.textContent =
 money(freeValue24);
 
+extenderValue.textContent =
+money(extenderValueAmount);
+
 resultPenalty.textContent =
 money(penalty);
 
@@ -2689,7 +2934,42 @@ money(net24Value) +
 ' <small>στο 24μηνο</small>';
 
 /*
-  ΧΡΩΜΑ
+  ΣΥΝΟΛΙΚΟ ΟΦΕΛΟΣ
+*/
+
+totalBenefit.textContent =
+money(net24Value);
+
+if(freeMonths > 0 && extenderValueAmount > 0){
+
+totalBenefitNote.innerHTML =
+"Σύγκριση με τον προηγούμενο πάροχο, " +
+"με 3 πάγια δώρο και δωρεάν WiFi Extender αξίας " +
+"<strong>€55,00</strong>.";
+
+}else if(freeMonths > 0){
+
+totalBenefitNote.innerHTML =
+"Σύγκριση με τον προηγούμενο πάροχο, " +
+"με 3 πάγια δώρο. Το όφελος των δωρεάν παγίων " +
+"έχει ήδη υπολογιστεί στο ποσό που πραγματικά πληρώνετε.";
+
+}else if(extenderValueAmount > 0){
+
+totalBenefitNote.innerHTML =
+"Σύγκριση με τον προηγούμενο πάροχο, " +
+"με δωρεάν WiFi Extender αξίας <strong>€55,00</strong>.";
+
+}else{
+
+totalBenefitNote.innerHTML =
+"Σύγκριση με το συνολικό ποσό που θα πλήρωνε " +
+"ο πελάτης στον προηγούμενο πάροχο.";
+
+}
+
+/*
+  ΧΡΩΜΑΤΑ
 */
 
 net12.classList.remove(
@@ -2703,6 +2983,12 @@ net24.classList.remove(
 );
 
 result24.classList.remove(
+"green",
+"red",
+"negative"
+);
+
+totalBenefit.classList.remove(
 "green",
 "red"
 );
@@ -2721,16 +3007,22 @@ if(net24Value >= 0){
 
 net24.classList.add("green");
 result24.classList.add("green");
+totalBenefit.classList.add("green");
 
 }else{
 
 net24.classList.add("red");
 result24.classList.add("red");
+result24.classList.add("negative");
+totalBenefit.classList.add("red");
 
 }
 
 /*
   ΑΠΟΣΒΕΣΗ ΡΗΤΡΑΣ
+
+  Η σύγκριση γίνεται με βάση
+  τη μηνιαία διαφορά του παγίου.
 */
 
 if(
@@ -2772,26 +3064,38 @@ penalty === 0 &&
 oldPrice > newPrice
 ){
 
+if(freeMonths > 0){
+
 breakEven.innerHTML =
-"✓ Με " +
+"✓ Με τα " +
 freeMonths +
-" πάγια δώρο, η πραγματική χρέωση " +
-"στο 24μηνο είναι " +
+" πάγια δώρο, ο πελάτης πληρώνει " +
 "<strong>" +
 paidMonths24 +
-" πληρωτέοι μήνες</strong>.";
+" μήνες</strong> " +
+"στη ΔΕΗ Fiber μέσα στο 24μηνο.";
+
+}else{
+
+breakEven.innerHTML =
+"✓ Χωρίς δωρεάν πάγια, ο πελάτης πληρώνει " +
+"<strong>24 μήνες</strong> " +
+"και η διαφορά υπολογίζεται αποκλειστικά " +
+"από τα δύο μηνιαία πάγια.";
+
+}
 
 }else{
 
 breakEven.innerHTML =
 "Η διαφορά παγίου δεν δημιουργεί " +
-"εξοικονόμηση με τις συγκεκριμένες τιμές.";
+"θετικό καθαρό όφελος με τις συγκεκριμένες τιμές.";
 
 }
 
 /*
   BUSINESS
-  ΗΜΕΡΗΣΙΟ ΚΟΣΤΟΣ
+  ΚΡΑΤΑΜΕ ΤΑ ΛΕΚΤΙΚΑ ΩΣ ΕΙΧΑΝ
 */
 
 const dayPrice =
@@ -2826,6 +3130,9 @@ businessPhrase5.textContent =
 
 /*
   ΠΩΛΗΣΙΑΚΑ ΛΕΚΤΙΚΑ
+
+  Χρησιμοποιούμε το πραγματικό
+  καθαρό όφελος του 24μήνου.
 */
 
 const benefit =
@@ -2835,7 +3142,7 @@ if(benefit <= 0){
 
 benefitPhrase.textContent =
 "«Ας δούμε πρώτα το πραγματικό κόστος " +
-"και τι σημαίνουν τα 3 δωρεάν πάγια " +
+"και τι σημαίνουν τα συγκεκριμένα δώρα " +
 "στο σύνολο του 24μήνου.»";
 
 benefitPhrase2.textContent =
@@ -2845,51 +3152,57 @@ benefitPhrase2.textContent =
 }else if(benefit < 50){
 
 benefitPhrase.textContent =
-"«Με τα 3 πάγια δώρο, στο 24μηνο " +
-"μένει καθαρό όφελος περίπου " +
+"«Με βάση το τι θα πληρώνατε συνολικά " +
+"στον προηγούμενο πάροχο, το καθαρό όφελος " +
+"στο 24μηνο είναι περίπου " +
 money(benefit) +
 ".»";
 
 benefitPhrase2.textContent =
-"«Αυτό είναι το πραγματικό όφελος " +
-"αφού υπολογίσουμε και τη ρήτρα.»";
+"«Έχουμε υπολογίσει και τα δωρεάν " +
+"πάγια, το Extender και τη ρήτρα, " +
+"ώστε να βλέπουμε το πραγματικό ποσό.»";
 
 }else if(benefit < 100){
 
 benefitPhrase.textContent =
-"«Με τα " +
+"«Σε σύγκριση με αυτά που θα πληρώνατε " +
+"στον προηγούμενο πάροχο, κερδίζετε " +
 money(benefit) +
-" που κερδίζετε στο 24μηνο, " +
-"η διαφορά πλέον γίνεται αισθητή.»";
+" στο 24μηνο.»";
 
 benefitPhrase2.textContent =
-"«Και αυτό είναι επιπλέον της " +
-"αναβάθμισης της σύνδεσής σας.»";
+"«Και αυτό είναι το πραγματικό όφελος, " +
+"αφού έχουμε υπολογίσει τι πληρώνετε " +
+"πραγματικά στη διετία.»";
 
 }else if(benefit < 200){
 
 benefitPhrase.textContent =
-"«Με τα " +
+"«Σε δύο χρόνια, σε σχέση με αυτά που " +
+"θα πληρώνατε στον προηγούμενο πάροχο, " +
+"κρατάτε " +
 money(benefit) +
-" που κερδίζετε, " +
-"ουσιαστικά κρατάτε ένα σημαντικό ποσό " +
-"στην τσέπη σας μέσα στο 24μηνο.»";
+" στην τσέπη σας.»";
 
 benefitPhrase2.textContent =
-"«Τα 3 δωρεάν πάγια κάνουν τη διαφορά " +
-"στο συνολικό κόστος της διετίας.»";
+"«Τα δωρεάν πάγια και το δωρεάν Extender " +
+"έχουν ήδη υπολογιστεί στην πραγματική " +
+"εικόνα του κόστους.»";
 
 }else{
 
 benefitPhrase.textContent =
-"«Με τα " +
+"«Σε σύγκριση με το τι θα πληρώνατε " +
+"στον προηγούμενο πάροχο, το συνολικό " +
+"όφελος στη διετία φτάνει τα " +
 money(benefit) +
-" που κερδίζετε στο 24μηνο, " +
-"η διαφορά είναι πλέον πολύ σημαντική.»";
+".»";
 
 benefitPhrase2.textContent =
-"«Ουσιαστικά, το ποσό αυτό μένει " +
-"στην τσέπη σας μέσα στη διετία.»";
+"«Άρα δεν κοιτάμε απλώς ένα χαμηλότερο " +
+"μηνιαίο πάγιο· βλέπουμε πόσα πραγματικά " +
+"χρήματα εξοικονομείτε σε δύο χρόνια.»";
 
 }
 
@@ -2936,6 +3249,15 @@ calculateBenefit();
 
 newPriceInput.value =
 packageSelect.value;
+
+/*
+  Τα δώρα ξεκινούν OFF.
+  Ο πωλητής τα ενεργοποιεί
+  μόνο όταν πραγματικά τα δίνει.
+*/
+
+freeMonthsInput.checked = false;
+freeExtenderInput.checked = false;
 
 </script>
 
