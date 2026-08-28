@@ -717,6 +717,47 @@ button,input,select{
   font-weight:800;
 }
 
+/* ΔΩΡΕΑΝ ΠΑΡΟΧΕΣ */
+
+.gift-options{
+  display:grid;
+  gap:7px;
+}
+
+.gift-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:43px;
+  padding:9px 12px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:var(--surface);
+  cursor:pointer;
+}
+
+.gift-option input{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  accent-color:var(--blue);
+  cursor:pointer;
+}
+
+.gift-option-text{
+  font-size:10px;
+  line-height:1.3;
+  font-weight:700;
+}
+
+.gift-option-text small{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:7.5px;
+  font-weight:600;
+}
+
 .calc-button{
   width:100%;
   min-height:45px;
@@ -977,6 +1018,11 @@ body.dark .benefit-phrase{color:#d7e7f5}
 
   .calc-button{
     grid-column:1/-1;
+  }
+
+  .gift-options{
+    grid-column:1/-1;
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 
@@ -1812,7 +1858,7 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 Σύγκρινε το σημερινό πάγιο
 </h3>
 <div class="subcategory-count">
-Με 3 πάγια δώρο και προαιρετική ρήτρα
+Με 3 πάγια δώρο και προαιρετικό δώρο Extender
 </div>
 </div>
 
@@ -1830,8 +1876,8 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 Βάλε το σημερινό μηνιαίο πάγιο του πελάτη,
 διάλεξε το πακέτο που θα επιλέξει στη ΔΕΗ
 και, αν υπάρχει, πρόσθεσε τη ρήτρα αποχώρησης.
-Ο υπολογισμός θεωρεί ότι δίνονται
-<strong>3 πάγια δωρεάν</strong> μέσα στο 24μηνο.
+Επίλεξε αν δίνονται <strong>3 πάγια δωρεάν</strong>
+και/ή <strong>WiFi Extender δώρο</strong>.
 </p>
 
 <div class="calc-fields">
@@ -1930,31 +1976,44 @@ inputmode="decimal">
 
 </div>
 
+<!-- ΝΕΑ ΕΠΙΛΟΓΗ ΔΩΡΕΑΝ ΠΑΡΟΧΩΝ -->
+
 <div class="calc-field">
 
-<label for="freeMonths">
-Δωρεάν πάγια
+<label>
+Δωρεάν παροχές
 </label>
 
-<select id="freeMonths" class="calc-select">
+<div class="gift-options">
 
-<option value="3" selected>
-3 πάγια δώρο
-</option>
+<label class="gift-option">
 
-<option value="2">
-2 πάγια δώρο
-</option>
+<input
+id="freeMonthsCheck"
+type="checkbox"
+checked>
 
-<option value="1">
-1 πάγιο δώρο
-</option>
+<div class="gift-option-text">
+🎁 3 πάγια δώρο
+<small>3 μήνες χωρίς πάγιο</small>
+</div>
 
-<option value="0">
-Χωρίς δωρεάν πάγια
-</option>
+</label>
 
-</select>
+<label class="gift-option">
+
+<input
+id="extenderGiftCheck"
+type="checkbox">
+
+<div class="gift-option-text">
+📶 WiFi Extender δώρο
+<small>Αξία €55</small>
+</div>
+
+</label>
+
+</div>
 
 </div>
 
@@ -2084,7 +2143,7 @@ type="button">
 <div class="result-box">
 
 <div class="result-box-label">
-Δωρεάν πάγια
+Δωρεάν παροχές
 </div>
 
 <div class="result-box-value orange" id="freeValue">
@@ -2463,8 +2522,15 @@ document.getElementById("packageSelect");
 const newPriceInput =
 document.getElementById("newPrice");
 
-const freeMonthsInput =
-document.getElementById("freeMonths");
+/*
+  ΝΕΑ CHECKBOX
+*/
+
+const freeMonthsCheck =
+document.getElementById("freeMonthsCheck");
+
+const extenderGiftCheck =
+document.getElementById("extenderGiftCheck");
 
 const penaltyInput =
 document.getElementById("penalty");
@@ -2576,8 +2642,20 @@ parseFloat(oldPriceInput.value) || 0;
 const newPrice =
 parseFloat(newPriceInput.value) || 0;
 
+/*
+  3 ΠΑΓΙΑ ΔΩΡΟ
+*/
+
 const freeMonths =
-parseInt(freeMonthsInput.value) || 0;
+freeMonthsCheck.checked ? 3 : 0;
+
+/*
+  EXTENDER ΔΩΡΟ
+  Σταθερή αξία €55
+*/
+
+const extenderGift =
+extenderGiftCheck.checked ? 55 : 0;
 
 const penalty =
 parseFloat(penaltyInput.value) || 0;
@@ -2631,7 +2709,18 @@ const freeValue24 =
 newPrice * freeMonths;
 
 /*
-  ΕΞΟΙΚΟΝΟΜΗΣΗ
+  ΣΥΝΟΛΙΚΗ ΑΞΙΑ ΔΩΡΕΑΝ ΠΑΡΟΧΩΝ
+  = δωρεάν πάγια + Extender
+*/
+
+const totalGiftValue12 =
+freeValue12 + extenderGift;
+
+const totalGiftValue24 =
+freeValue24 + extenderGift;
+
+/*
+  ΕΞΟΙΚΟΝΟΜΗΣΗ ΑΠΟ ΤΟ ΠΑΓΙΟ
 */
 
 const saving12Value =
@@ -2642,13 +2731,14 @@ oldTotal24 - newTotal24;
 
 /*
   ΚΑΘΑΡΟ ΟΦΕΛΟΣ
+  Εξοικονόμηση + δωρεάν παροχές - ρήτρα
 */
 
 const net12Value =
-saving12Value - penalty;
+saving12Value + totalGiftValue12 - penalty;
 
 const net24Value =
-saving24Value - penalty;
+saving24Value + totalGiftValue24 - penalty;
 
 /*
   ΕΜΦΑΝΙΣΗ
@@ -2672,8 +2762,14 @@ money(saving12Value);
 saving24.textContent =
 money(saving24Value);
 
+/*
+  Εδώ εμφανίζεται η συνολική αξία
+  των δωρεάν παροχών:
+  3 πάγια + Extender, αν επιλεγεί.
+*/
+
 freeValue.textContent =
-money(freeValue24);
+money(totalGiftValue24);
 
 resultPenalty.textContent =
 money(penalty);
@@ -2835,7 +2931,7 @@ if(benefit <= 0){
 
 benefitPhrase.textContent =
 "«Ας δούμε πρώτα το πραγματικό κόστος " +
-"και τι σημαίνουν τα 3 δωρεάν πάγια " +
+"και τι σημαίνουν οι δωρεάν παροχές " +
 "στο σύνολο του 24μήνου.»";
 
 benefitPhrase2.textContent =
@@ -2845,7 +2941,7 @@ benefitPhrase2.textContent =
 }else if(benefit < 50){
 
 benefitPhrase.textContent =
-"«Με τα 3 πάγια δώρο, στο 24μηνο " +
+"«Με τις δωρεάν παροχές, στο 24μηνο " +
 "μένει καθαρό όφελος περίπου " +
 money(benefit) +
 ".»";
@@ -2876,7 +2972,7 @@ money(benefit) +
 "στην τσέπη σας μέσα στο 24μηνο.»";
 
 benefitPhrase2.textContent =
-"«Τα 3 δωρεάν πάγια κάνουν τη διαφορά " +
+"«Οι δωρεάν παροχές κάνουν τη διαφορά " +
 "στο συνολικό κόστος της διετίας.»";
 
 }else{
