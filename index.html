@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="el">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --bg:#f5f7fa;
   --surface:#fff;
@@ -20,39 +20,26 @@
   --text:#202633;
   --muted:#7c8491;
   --border:#e1e6ec;
-
   --blue:#005baa;
   --blue-dark:#004681;
   --blue-soft:#eaf3fb;
-
   --orange:#f58220;
   --orange-dark:#c95e08;
   --orange-soft:#fff1e5;
-
   --green:#31a66b;
   --green-dark:#247a50;
   --green-soft:#eaf8f1;
-
   --red:#df6666;
   --red-dark:#a84444;
   --red-soft:#fff0f0;
-
-  --yellow:#eabf43;
   --yellow-soft:#fff8df;
-
-  --dark:#202633;
-
   --radius:20px;
   --shadow:0 7px 25px rgba(32,38,51,.055);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -62,34 +49,25 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-button,
-input,
-select{
+button,input,select{
   font:inherit;
   -webkit-tap-highlight-color:transparent;
 }
 
-button{
-  -webkit-appearance:none;
-  appearance:none;
-}
-
 .page{
   width:100%;
-  max-width:1180px;
+  max-width:900px;
   margin:0 auto;
-  padding:20px 18px 60px;
+  padding:20px 16px 60px;
 }
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 
 .logo-area{
@@ -105,17 +83,15 @@ button{
 }
 
 .logo{
-  margin-top:-4px;
+  margin-top:-3px;
   font-family:"Baloo 2",sans-serif;
-  font-size:42px;
+  font-size:40px;
   line-height:1;
   font-weight:800;
   color:var(--blue);
 }
 
-.logo span{
-  color:var(--orange);
-}
+.logo span{color:var(--orange)}
 
 .theme-button{
   width:44px;
@@ -132,14 +108,12 @@ button{
   cursor:pointer;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero{
   position:relative;
   overflow:hidden;
-  padding:30px 26px 28px;
+  padding:28px 22px 25px;
   border-radius:26px;
   background:
     radial-gradient(circle at 100% 0%,rgba(245,130,32,.95),transparent 31%),
@@ -152,15 +126,13 @@ button{
 .hero:after{
   content:"✦";
   position:absolute;
-  right:18px;
-  bottom:-12px;
+  right:12px;
+  bottom:-8px;
   color:rgba(255,255,255,.08);
-  font-size:120px;
+  font-size:92px;
 }
 
 .hero-badge{
-  position:relative;
-  z-index:1;
   display:inline-flex;
   padding:7px 11px;
   border:1px solid rgba(255,255,255,.15);
@@ -173,55 +145,51 @@ button{
 .hero h1{
   position:relative;
   z-index:1;
-  margin:18px 0 8px;
+  margin:17px 0 8px;
   font-family:"Baloo 2",sans-serif;
-  font-size:clamp(38px,6vw,58px);
+  font-size:clamp(34px,8vw,52px);
   line-height:.93;
-  letter-spacing:-1.5px;
+  letter-spacing:-1px;
 }
 
-.hero h1 span{
-  color:#ffad69;
-}
+.hero h1 span{color:#ffad69}
 
 .hero-description{
   position:relative;
   z-index:1;
-  max-width:720px;
+  max-width:680px;
   margin:0;
   color:#e2eaf2;
-  font-size:12px;
-  line-height:1.6;
+  font-size:11px;
+  line-height:1.55;
 }
 
 .intro{
   display:flex;
   align-items:center;
-  gap:10px;
-  margin:20px 4px 16px;
+  gap:9px;
+  margin:18px 3px 15px;
   color:var(--muted);
-  font-size:10px;
+  font-size:9px;
   font-weight:600;
   line-height:1.4;
 }
 
 .intro:before{
   content:"";
-  width:24px;
+  width:21px;
   height:2px;
-  flex:0 0 24px;
+  flex:0 0 21px;
   border-radius:20px;
   background:var(--orange);
 }
 
-/* =====================================================
-   MAIN ACCORDION
-===================================================== */
+/* MAIN ACCORDION */
 
 .accordion{
   display:flex;
   flex-direction:column;
-  gap:11px;
+  gap:10px;
 }
 
 .accordion-item{
@@ -240,8 +208,8 @@ button{
   width:100%;
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:18px 16px;
+  gap:12px;
+  padding:17px 15px;
   border:0;
   background:transparent;
   color:var(--text);
@@ -250,41 +218,22 @@ button{
 }
 
 .section-icon{
-  width:48px;
-  height:48px;
-  flex:0 0 48px;
+  width:45px;
+  height:45px;
+  flex:0 0 45px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:14px;
-  font-size:20px;
+  border-radius:13px;
+  font-size:18px;
   font-weight:800;
 }
 
-.icon-blue{
-  background:var(--blue-soft);
-  color:var(--blue);
-}
-
-.icon-orange{
-  background:var(--orange-soft);
-  color:var(--orange-dark);
-}
-
-.icon-green{
-  background:var(--green-soft);
-  color:var(--green-dark);
-}
-
-.icon-yellow{
-  background:var(--yellow-soft);
-  color:#997715;
-}
-
-.icon-red{
-  background:var(--red-soft);
-  color:var(--red-dark);
-}
+.icon-blue{background:var(--blue-soft);color:var(--blue)}
+.icon-orange{background:var(--orange-soft);color:var(--orange-dark)}
+.icon-green{background:var(--green-soft);color:var(--green-dark)}
+.icon-yellow{background:var(--yellow-soft);color:#997715}
+.icon-red{background:var(--red-soft);color:var(--red-dark)}
 
 .section-info{
   min-width:0;
@@ -292,9 +241,9 @@ button{
 }
 
 .section-number{
-  margin-bottom:3px;
+  margin-bottom:2px;
   color:var(--muted);
-  font-size:8px;
+  font-size:7px;
   font-weight:800;
   letter-spacing:1.2px;
 }
@@ -302,14 +251,14 @@ button{
 .section-name{
   margin:0;
   font-family:"Baloo 2",sans-serif;
-  font-size:25px;
+  font-size:23px;
   line-height:1;
 }
 
 .section-subtitle{
-  margin-top:5px;
+  margin-top:4px;
   color:var(--muted);
-  font-size:9px;
+  font-size:8.5px;
   line-height:1.35;
 }
 
@@ -323,11 +272,11 @@ button{
 }
 
 .chevron{
-  width:31px;
-  height:31px;
-  flex:0 0 31px;
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
   border-radius:9px;
-  font-size:16px;
+  font-size:15px;
   transition:transform .25s ease;
 }
 
@@ -352,27 +301,23 @@ button{
 }
 
 .accordion-body{
-  padding:0 11px 13px;
+  padding:0 10px 12px;
 }
 
-/* =====================================================
-   SUBCATEGORY
-===================================================== */
+/* SUBCATEGORY */
 
 .subcategory{
   border-top:1px solid var(--border);
 }
 
-.subcategory:first-child{
-  border-top:0;
-}
+.subcategory:first-child{border-top:0}
 
 .subcategory-button{
   width:100%;
   display:flex;
   align-items:center;
-  gap:11px;
-  padding:15px 8px;
+  gap:10px;
+  padding:14px 8px;
   border:0;
   background:transparent;
   color:var(--text);
@@ -381,30 +326,22 @@ button{
 }
 
 .subcategory-icon{
-  width:34px;
-  height:34px;
-  flex:0 0 34px;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:9px;
   background:var(--surface2);
   color:var(--blue);
-  font-size:14px;
+  font-size:13px;
   font-weight:800;
 }
 
-.subcategory.orange .subcategory-icon{
-  color:var(--orange-dark);
-}
-
-.subcategory.green .subcategory-icon{
-  color:var(--green-dark);
-}
-
-.subcategory.red .subcategory-icon{
-  color:var(--red-dark);
-}
+.subcategory.orange .subcategory-icon{color:var(--orange-dark)}
+.subcategory.green .subcategory-icon{color:var(--green-dark)}
+.subcategory.red .subcategory-icon{color:var(--red-dark)}
 
 .subcategory-info{
   min-width:0;
@@ -415,22 +352,22 @@ button{
   margin:0;
   font-size:11px;
   font-weight:800;
-  line-height:1.3;
+  line-height:1.35;
 }
 
 .subcategory-count{
-  margin-top:3px;
+  margin-top:2px;
   color:var(--muted);
-  font-size:8px;
+  font-size:7.5px;
   line-height:1.35;
 }
 
 .subcategory-chevron{
-  width:27px;
-  height:27px;
-  flex:0 0 27px;
+  width:26px;
+  height:26px;
+  flex:0 0 26px;
   border-radius:8px;
-  font-size:14px;
+  font-size:13px;
   transition:transform .25s ease;
 }
 
@@ -453,9 +390,7 @@ button{
   padding:0 8px 14px;
 }
 
-/* =====================================================
-   PHRASES
-===================================================== */
+/* PHRASES */
 
 .phrase-list{
   display:grid;
@@ -463,37 +398,62 @@ button{
 }
 
 .phrase{
-  min-height:50px;
+  min-height:48px;
   display:flex;
-  align-items:center;
-  padding:11px 13px;
+  align-items:flex-start;
+  padding:11px 12px;
   border:1px solid var(--border);
   border-radius:12px;
   background:var(--surface);
 }
 
-.phrase-positive{
-  border-left:3px solid var(--green);
-}
-
-.phrase-negative{
-  border-left:3px solid var(--red);
-}
+.phrase-positive{border-left:3px solid var(--green)}
+.phrase-negative{border-left:3px solid var(--red)}
 
 .phrase p{
   margin:0;
   font-size:10.5px;
-  line-height:1.45;
+  line-height:1.48;
   font-weight:600;
 }
 
-/* =====================================================
-   EXAMPLE
-===================================================== */
+.phrase strong{font-weight:800}
+
+/* LONG TEXT */
+
+.long-phrase{
+  padding:14px;
+  border:1px solid var(--border);
+  border-left:3px solid var(--blue);
+  border-radius:13px;
+  background:var(--surface);
+}
+
+.long-phrase + .long-phrase{
+  margin-top:8px;
+}
+
+.long-phrase-title{
+  margin-bottom:7px;
+  color:var(--blue);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+
+.long-phrase p{
+  margin:0;
+  font-size:10.5px;
+  line-height:1.55;
+  font-weight:600;
+}
+
+/* EXAMPLE */
 
 .example{
   margin-top:9px;
-  padding:14px;
+  padding:13px;
   border:1px solid #f1dda8;
   border-radius:13px;
   background:var(--yellow-soft);
@@ -515,130 +475,70 @@ button{
   line-height:1.45;
 }
 
-/* =====================================================
-   BETTER
-===================================================== */
+/* OBJECTIONS */
 
-.better{
-  margin-top:10px;
-  padding:11px;
-  border-radius:13px;
-  background:var(--green-soft);
-}
-
-.better-title{
-  margin:0 3px 7px;
-  color:var(--green-dark);
-  font-size:7px;
-  font-weight:800;
-  letter-spacing:.9px;
-  text-transform:uppercase;
-}
-
-/* =====================================================
-   SWAPS
-===================================================== */
-
-.swap-list{
-  display:grid;
-  gap:8px;
-}
-
-.swap{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);
-  align-items:center;
-  gap:5px;
-  padding:12px;
+.objection{
+  padding:14px;
   border:1px solid var(--border);
   border-radius:14px;
   background:var(--surface);
 }
 
-.swap-label{
-  margin-bottom:4px;
-  font-size:6.5px;
-  font-weight:800;
-  letter-spacing:.6px;
-  text-transform:uppercase;
+.objection + .objection{
+  margin-top:8px;
 }
 
-.swap-bad .swap-label{
+.objection-question{
+  display:flex;
+  gap:7px;
+  align-items:flex-start;
   color:var(--red-dark);
-}
-
-.swap-good .swap-label{
-  color:var(--green-dark);
-}
-
-.swap-text{
-  font-size:9.5px;
+  font-size:10.5px;
   line-height:1.4;
+  font-weight:800;
+}
+
+.objection-answer{
+  margin-top:9px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:var(--green-soft);
+  color:var(--text);
+  font-size:10px;
+  line-height:1.52;
   font-weight:600;
 }
 
-.swap-arrow{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#aaaeb6;
-  font-size:14px;
+.objection-answer strong{
+  color:var(--green-dark);
 }
 
-/* =====================================================
-   GOLD
-===================================================== */
+/* WINBACK */
 
-.gold-list{
-  display:grid;
-  gap:8px;
+.winback{
+  border-top:3px solid var(--orange);
 }
 
-.gold{
-  position:relative;
-  overflow:hidden;
-  padding:16px;
-  border-radius:16px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(245,130,32,.2),transparent 34%),
-    #202633;
-  color:#fff;
+.winback .subcategory-button{
+  background:linear-gradient(90deg,var(--orange-soft),transparent);
 }
 
-.gold:after{
-  content:"✦";
-  position:absolute;
-  right:11px;
-  top:2px;
-  color:rgba(245,130,32,.55);
-  font-size:22px;
+.winback-note{
+  margin-bottom:9px;
+  padding:11px 12px;
+  border-radius:12px;
+  background:var(--orange-soft);
+  color:#75430f;
+  font-size:9px;
+  line-height:1.5;
+  font-weight:600;
 }
 
-.gold-label{
-  color:#ffae70;
-  font-size:6.5px;
-  font-weight:800;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-}
-
-.gold p{
-  position:relative;
-  z-index:1;
-  margin:6px 17px 0 0;
-  font-family:"Baloo 2",sans-serif;
-  color:#f7f9fb;
-  font-size:14px;
-  line-height:1.4;
-}
-
-/* =====================================================
-   PRICING
-===================================================== */
+/* PRICE */
 
 .price-grid{
   display:grid;
-  gap:8px;
+  gap:7px;
 }
 
 .price-card{
@@ -646,7 +546,7 @@ button{
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:14px;
+  padding:13px;
   border:1px solid var(--border);
   border-radius:14px;
   background:var(--surface);
@@ -664,16 +564,16 @@ button{
 }
 
 .price-description{
-  margin-top:4px;
+  margin-top:3px;
   color:var(--muted);
-  font-size:8px;
+  font-size:7.5px;
 }
 
 .price-value{
   flex:0 0 auto;
   color:var(--blue);
   font-family:"Baloo 2",sans-serif;
-  font-size:22px;
+  font-size:21px;
   font-weight:800;
   line-height:1;
 }
@@ -685,20 +585,16 @@ button{
   color:var(--muted);
 }
 
-/* =====================================================
-   ADDONS
-===================================================== */
+/* ADDONS */
 
 .addon{
-  padding:14px;
+  padding:13px;
   border:1px solid var(--border);
   border-radius:14px;
   background:var(--surface);
 }
 
-.addon+.addon{
-  margin-top:8px;
-}
+.addon+.addon{margin-top:7px}
 
 .addon-header{
   display:flex;
@@ -715,7 +611,7 @@ button{
 .addon-price{
   color:var(--orange-dark);
   font-family:"Baloo 2",sans-serif;
-  font-size:19px;
+  font-size:18px;
   font-weight:800;
   line-height:1;
 }
@@ -724,12 +620,12 @@ button{
   margin:5px 0 0;
   color:var(--muted);
   font-size:8px;
-  line-height:1.5;
+  line-height:1.45;
 }
 
 .info-box{
-  margin-top:10px;
-  padding:12px;
+  margin-top:9px;
+  padding:11px 12px;
   border-radius:13px;
   background:var(--orange-soft);
   color:#71400f;
@@ -738,19 +634,17 @@ button{
   font-weight:600;
 }
 
-/* =====================================================
-   CALCULATOR
-===================================================== */
+/* CALCULATOR */
 
 .calculator{
-  padding:14px;
+  padding:13px;
   border:1px solid var(--border);
   border-radius:16px;
   background:linear-gradient(145deg,#fff,#f5f8fb);
 }
 
 .calc-intro{
-  margin:0 0 12px;
+  margin:0 0 11px;
   color:var(--muted);
   font-size:8.5px;
   line-height:1.5;
@@ -758,12 +652,12 @@ button{
 
 .calc-fields{
   display:grid;
-  gap:9px;
+  gap:8px;
 }
 
 .calc-field label{
   display:block;
-  margin:0 0 5px 2px;
+  margin:0 0 4px 2px;
   color:var(--muted);
   font-size:7px;
   font-weight:800;
@@ -778,7 +672,7 @@ button{
 .calc-input,
 .calc-select{
   width:100%;
-  height:45px;
+  min-height:44px;
   padding:0 12px;
   border:1px solid var(--border);
   border-radius:11px;
@@ -809,10 +703,6 @@ button{
   font-weight:800;
 }
 
-/* =====================================================
-   FREE GIFTS
-===================================================== */
-
 .gift-options{
   display:grid;
   gap:7px;
@@ -822,7 +712,7 @@ button{
   display:flex;
   align-items:center;
   gap:10px;
-  min-height:44px;
+  min-height:43px;
   padding:9px 12px;
   border:1px solid var(--border);
   border-radius:11px;
@@ -866,22 +756,14 @@ button{
   box-shadow:0 7px 18px rgba(0,91,170,.18);
 }
 
-.calc-button:hover{
-  background:var(--blue-dark);
-}
-
-/* =====================================================
-   CALCULATOR RESULT
-===================================================== */
+.calc-button:hover{background:var(--blue-dark)}
 
 .calc-result{
   display:none;
   margin-top:10px;
 }
 
-.calc-result.show{
-  display:block;
-}
+.calc-result.show{display:block}
 
 .result-main{
   padding:15px;
@@ -902,7 +784,7 @@ button{
   margin-top:3px;
   color:var(--green-dark);
   font-family:"Baloo 2",sans-serif;
-  font-size:34px;
+  font-size:32px;
   font-weight:800;
   line-height:1;
 }
@@ -913,15 +795,11 @@ button{
   font-weight:700;
 }
 
-.result-saving.red{
-  color:var(--red-dark);
-}
-
 .result-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:7px;
-  margin-top:9px;
+  gap:6px;
+  margin-top:8px;
 }
 
 .result-box{
@@ -935,52 +813,36 @@ button{
   color:var(--muted);
   font-size:6.5px;
   font-weight:800;
-  line-height:1.3;
   text-transform:uppercase;
 }
 
 .result-box-value{
-  margin-top:4px;
+  margin-top:3px;
   font-family:"Baloo 2",sans-serif;
   font-size:18px;
   font-weight:800;
   line-height:1;
 }
 
-.result-box-value.blue{
-  color:var(--blue);
-}
-
-.result-box-value.orange{
-  color:var(--orange-dark);
-}
-
-.result-box-value.green{
-  color:var(--green-dark);
-}
-
-.result-box-value.red{
-  color:var(--red-dark);
-}
+.result-box-value.blue{color:var(--blue)}
+.result-box-value.orange{color:var(--orange-dark)}
+.result-box-value.green{color:var(--green-dark)}
+.result-box-value.red{color:var(--red-dark)}
 
 .break-even{
-  margin-top:8px;
+  margin-top:7px;
   padding:11px 12px;
   border-radius:12px;
   background:var(--yellow-soft);
   color:#68521a;
   font-size:8px;
-  line-height:1.5;
+  line-height:1.45;
 }
 
-/* =====================================================
-   BENEFIT PHRASES
-===================================================== */
-
 .benefit-phrases{
-  margin-top:9px;
+  margin-top:8px;
   display:grid;
-  gap:7px;
+  gap:6px;
 }
 
 .benefit-title{
@@ -992,7 +854,7 @@ button{
 }
 
 .benefit-phrase{
-  padding:12px;
+  padding:11px 12px;
   border-radius:12px;
   background:var(--blue-soft);
   color:#254b6e;
@@ -1001,76 +863,42 @@ button{
   line-height:1.4;
 }
 
-/* =====================================================
-   WINBACK
-===================================================== */
+/* BUSINESS */
 
-.winback{
-  border-top:3px solid var(--orange);
-}
-
-.winback .subcategory-button{
-  background:linear-gradient(90deg,var(--orange-soft),transparent);
-}
-
-.winback-note{
-  margin-bottom:9px;
-  padding:11px 12px;
-  border-radius:12px;
-  background:var(--orange-soft);
-  color:#75430f;
-  font-size:8px;
-  line-height:1.5;
-  font-weight:600;
-}
-
-/* =====================================================
-   BUSINESS SECTION
-===================================================== */
-
-.business-section{
-  border-top:4px solid var(--blue);
-}
-
-.business-section .subcategory-button{
-  background:linear-gradient(
-    90deg,
-    var(--blue-soft),
-    transparent
-  );
-}
-
-.business-intro{
-  margin-bottom:10px;
-  padding:13px;
-  border-radius:14px;
+.business-card{
+  position:relative;
+  overflow:hidden;
+  padding:16px;
+  border-radius:16px;
   background:
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(245,130,32,.16),
-      transparent 36%
-    ),
+    radial-gradient(circle at 100% 0%,rgba(245,130,32,.18),transparent 35%),
     var(--surface2);
   border:1px solid var(--border);
 }
 
-.business-intro-title{
+.business-card + .business-card{
+  margin-top:8px;
+}
+
+.business-card-label{
   color:var(--blue);
-  font-size:8px;
+  font-size:7px;
   font-weight:800;
   letter-spacing:.8px;
   text-transform:uppercase;
 }
 
-.business-intro p{
-  margin:6px 0 0;
-  color:var(--muted);
-  font-size:9px;
-  line-height:1.5;
+.business-card p{
+  position:relative;
+  z-index:1;
+  margin:7px 0 0;
+  font-family:"Baloo 2",sans-serif;
+  font-size:14px;
+  line-height:1.45;
 }
 
 .business-day-price{
-  margin-top:6px;
+  margin-top:5px;
   color:var(--blue);
   font-family:"Baloo 2",sans-serif;
   font-size:30px;
@@ -1085,28 +913,11 @@ button{
   font-weight:700;
 }
 
-.business-list{
-  display:grid;
-  gap:8px;
-}
-
-.business-phrase{
-  padding:13px;
-  border-radius:13px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  font-family:"Baloo 2",sans-serif;
-  font-size:14px;
-  line-height:1.45;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer{
-  margin-top:26px;
-  padding-top:17px;
+  margin-top:25px;
+  padding-top:16px;
   border-top:1px solid var(--border);
   color:var(--muted);
   text-align:center;
@@ -1114,13 +925,9 @@ footer{
   line-height:1.5;
 }
 
-footer strong{
-  color:var(--blue);
-}
+footer strong{color:var(--blue)}
 
-/* =====================================================
-   DARK MODE
-===================================================== */
+/* DARK */
 
 body.dark{
   --bg:#171b21;
@@ -1129,13 +936,11 @@ body.dark{
   --text:#eef2f6;
   --muted:#aab2bd;
   --border:#3a424d;
-
   --blue-soft:#193552;
   --orange-soft:#422d1d;
   --green-soft:#1c382b;
   --red-soft:#3e292b;
   --yellow-soft:#3b3421;
-
   --blue:#63a9e7;
   --blue-dark:#83bcea;
   --orange:#ff9b4a;
@@ -1146,25 +951,9 @@ body.dark{
 
 body.dark .hero{
   background:
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(245,130,32,.7),
-      transparent 31%
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(0,91,170,.8),
-      transparent 40%
-    ),
+    radial-gradient(circle at 100% 0%,rgba(245,130,32,.7),transparent 31%),
+    radial-gradient(circle at 0% 100%,rgba(0,91,170,.8),transparent 40%),
     #202633;
-}
-
-body.dark .calculator{
-  background:linear-gradient(
-    145deg,
-    #252b34,
-    #20252d
-  );
 }
 
 body.dark .example p{
@@ -1180,35 +969,27 @@ body.dark .benefit-phrase{
   color:#d7e7f5;
 }
 
-body.dark .business-intro p{
-  color:#b9c1ca;
+body.dark .calculator{
+  background:linear-gradient(145deg,#252b34,#20252c);
 }
 
-/* =====================================================
-   TABLET
-===================================================== */
+/* TABLET */
 
 @media(min-width:600px){
 
   .page{
-    padding-left:24px;
-    padding-right:24px;
+    padding:25px 22px 65px;
   }
 
   .hero{
-    padding:34px 30px;
+    padding:32px;
   }
 
   .accordion-body{
-    padding-left:15px;
-    padding-right:15px;
+    padding:0 14px 16px;
   }
 
   .phrase-list{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .gold-list{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
@@ -1229,375 +1010,86 @@ body.dark .business-intro p{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
-  .business-list{
+  .business-list-grid{
+    display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
   }
 
-  .business-phrase:last-child{
-    grid-column:1/-1;
+  .business-card + .business-card{
+    margin-top:0;
   }
 }
 
-/* =====================================================
-   LARGE TABLET / LAPTOP
-===================================================== */
+/* LAPTOP */
 
 @media(min-width:900px){
 
   .page{
-    padding-top:28px;
-    padding-left:30px;
-    padding-right:30px;
-  }
-
-  .topbar{
-    margin-bottom:22px;
+    max-width:980px;
   }
 
   .hero{
-    padding:40px 38px;
-    border-radius:28px;
+    padding:38px;
   }
 
   .hero-description{
-    font-size:12.5px;
-  }
-
-  .intro{
-    margin-top:22px;
-    margin-bottom:18px;
-  }
-
-  .accordion{
-    gap:13px;
-  }
-
-  .accordion-header{
-    padding:20px 19px;
-  }
-
-  .section-icon{
-    width:52px;
-    height:52px;
-    flex-basis:52px;
+    font-size:11.5px;
   }
 
   .section-name{
-    font-size:27px;
+    font-size:25px;
   }
 
-  .section-subtitle{
-    font-size:9.5px;
+  .phrase p,
+  .long-phrase p,
+  .objection-answer{
+    font-size:11px;
   }
 
-  .accordion-body{
-    padding-left:18px;
-    padding-right:18px;
-    padding-bottom:17px;
-  }
-
-  .subcategory-button{
-    padding-left:9px;
-    padding-right:9px;
-  }
-
-  .subcategory-body{
-    padding-left:9px;
-    padding-right:9px;
-    padding-bottom:16px;
-  }
-
-  .phrase-list{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .swap-list{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .swap:last-child{
-    grid-column:1/-1;
-  }
-
-  .business-list{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .business-phrase:last-child{
-    grid-column:auto;
+  .business-card p{
+    font-size:15px;
   }
 }
 
-/* =====================================================
-   DESKTOP
-===================================================== */
+/* SMALL MOBILE */
 
-@media(min-width:1100px){
+@media(max-width:380px){
 
   .page{
-    max-width:1240px;
-    padding-left:34px;
-    padding-right:34px;
+    padding-left:10px;
+    padding-right:10px;
   }
 
   .hero{
-    padding:44px 42px;
-  }
-
-  .hero h1{
-    font-size:60px;
-  }
-
-  .hero-description{
-    max-width:800px;
-    font-size:13px;
-  }
-
-  .accordion-body{
-    padding-left:22px;
-    padding-right:22px;
-  }
-
-  .phrase-list{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .gold-list{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .price-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .calc-fields{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .gift-options{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .calc-button{
-    grid-column:1/-1;
-  }
-
-  .business-list{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-}
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:420px){
-
-  .page{
-    padding:14px 10px 45px;
-  }
-
-  .topbar{
-    margin-bottom:14px;
-  }
-
-  .logo{
-    font-size:37px;
-  }
-
-  .theme-button{
-    width:41px;
-    height:41px;
-  }
-
-  .hero{
-    padding:23px 17px 22px;
+    padding:23px 17px;
     border-radius:22px;
   }
 
-  .hero-badge{
-    font-size:7.5px;
-  }
-
   .hero h1{
-    margin-top:15px;
-    font-size:35px;
-  }
-
-  .hero-description{
-    font-size:9.5px;
-  }
-
-  .intro{
-    margin:16px 3px 14px;
-    font-size:8.5px;
-  }
-
-  .accordion{
-    gap:8px;
-  }
-
-  .accordion-header{
-    gap:10px;
-    padding:15px 12px;
-  }
-
-  .section-icon{
-    width:41px;
-    height:41px;
-    flex-basis:41px;
-    border-radius:12px;
-    font-size:17px;
-  }
-
-  .section-number{
-    font-size:6.5px;
+    font-size:34px;
   }
 
   .section-name{
-    font-size:21px;
-  }
-
-  .section-subtitle{
-    font-size:7.5px;
-  }
-
-  .chevron{
-    width:27px;
-    height:27px;
-    flex-basis:27px;
-  }
-
-  .accordion-body{
-    padding:0 8px 10px;
-  }
-
-  .subcategory-button{
-    padding:13px 6px;
-    gap:8px;
-  }
-
-  .subcategory-icon{
-    width:30px;
-    height:30px;
-    flex-basis:30px;
-    font-size:12px;
+    font-size:20px;
   }
 
   .subcategory-title{
     font-size:10px;
   }
 
-  .subcategory-count{
-    font-size:7px;
-  }
-
-  .subcategory-chevron{
-    width:25px;
-    height:25px;
-    flex-basis:25px;
-  }
-
-  .subcategory-body{
-    padding:0 6px 12px;
-  }
-
-  .phrase-list{
-    grid-template-columns:1fr;
-  }
-
-  .phrase{
-    min-height:47px;
-    padding:9px 11px;
-  }
-
-  .phrase p{
-    font-size:9.5px;
-  }
-
-  .example p{
-    font-size:13px;
-  }
-
-  .swap{
-    grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);
-    gap:3px;
-    padding:9px;
-  }
-
-  .swap-text{
-    font-size:8.2px;
-  }
-
-  .swap-label{
-    font-size:5.8px;
-  }
-
-  .price-card{
-    padding:12px;
-  }
-
-  .price-speed{
-    font-size:17px;
-  }
-
-  .price-value{
-    font-size:19px;
-  }
-
-  .calculator{
-    padding:11px;
+  .phrase p,
+  .long-phrase p,
+  .objection-answer{
+    font-size:10px;
   }
 
   .result-grid{
     grid-template-columns:1fr 1fr;
   }
-
-  .business-list{
-    grid-template-columns:1fr;
-  }
-
-  .business-phrase{
-    font-size:13px;
-  }
 }
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media(max-width:340px){
-
-  .hero h1{
-    font-size:32px;
-  }
-
-  .section-name{
-    font-size:19px;
-  }
-
-  .swap{
-    grid-template-columns:minmax(0,1fr) 15px minmax(0,1fr);
-  }
-
-  .swap-text{
-    font-size:7.7px;
-  }
-
-  .result-box-value{
-    font-size:16px;
-  }
-}
-
-/* =====================================================
-   PRINT
-===================================================== */
 
 @media print{
-
-  body{
-    background:#fff;
-  }
 
   .theme-button{
     display:none;
@@ -1606,23 +1098,14 @@ body.dark .business-intro p{
   .page{
     max-width:none;
   }
-
-  .accordion-content,
-  .subcategory-content{
-    grid-template-rows:1fr !important;
-  }
 }
-
 </style>
+
 </head>
 
 <body>
 
 <div class="page">
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header class="topbar">
 
@@ -1631,19 +1114,13 @@ body.dark .business-intro p{
     <div class="logo">Λεκτικά <span>✦</span></div>
   </div>
 
-  <button
-    class="theme-button"
-    id="themeButton"
-    aria-label="Αλλαγή θέματος"
-    type="button">
-    ☾
-  </button>
+<button
+ class="theme-button"
+ id="themeButton"
+ aria-label="Αλλαγή θέματος">
+☾ </button>
 
 </header>
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="hero">
 
@@ -1677,22 +1154,15 @@ body.dark .business-intro p{
 
 <section class="accordion-item">
 
-<button
-  class="accordion-header"
-  type="button"
-  aria-expanded="false">
+<button class="accordion-header" type="button" aria-expanded="false">
 
   <div class="section-icon icon-blue">💬</div>
 
   <div class="section-info">
     <div class="section-number">01 · ΛΕΚΤΙΚΑ</div>
-
-    <h2 class="section-name">
-      Λεκτικά
-    </h2>
-
+    <h2 class="section-name">Λεκτικά</h2>
     <div class="section-subtitle">
-      Τι λες · τι αποφεύγεις · πώς κλείνεις
+      Πρόταση · Κλείσιμο · Αντιρρήσεις · Winback
     </div>
   </div>
 
@@ -1704,27 +1174,21 @@ body.dark .business-intro p{
 <div class="accordion-inner">
 <div class="accordion-body">
 
-<!-- ΕΜΠΙΣΤΟΣΥΝΗ -->
+<!-- ΠΡΟΤΑΣΗ -->
 
 <div class="subcategory">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-  <div class="subcategory-icon">✓</div>
+  <div class="subcategory-icon">✦</div>
 
   <div class="subcategory-info">
-
     <h3 class="subcategory-title">
-      Χτίζουν εμπιστοσύνη
+      Παραδείγματα Ανάδειξης της Πρότασης
     </h3>
-
     <div class="subcategory-count">
-      7 λεκτικά
+      2 ολοκληρωμένα λεκτικά
     </div>
-
   </div>
 
   <div class="subcategory-chevron">⌄</div>
@@ -1735,175 +1199,74 @@ body.dark .business-intro p{
 <div class="subcategory-inner">
 <div class="subcategory-body">
 
-<div class="phrase-list">
+<div class="long-phrase">
 
-<div class="phrase phrase-positive">
-<p>«Να δω αν σας αφορά.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Να δούμε αν ταιριάζει στη χρήση σας.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Αν έχει νόημα για εσάς.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Εφόσον σας εξυπηρετεί.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Εσείς γνωρίζετε καλύτερα τις ανάγκες σας.»</p>
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-
-</div>
-
-<!-- ΣΥΜΒΟΥΛΕΥΤΙΚΗ -->
-
-<div class="subcategory">
-
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
-
-<div class="subcategory-icon">💡</div>
-
-<div class="subcategory-info">
-
-<h3 class="subcategory-title">
-  Συμβουλευτική πώληση
-</h3>
-
-<div class="subcategory-count">
-  6 λεκτικά + παράδειγμα
-</div>
-
-</div>
-
-<div class="subcategory-chevron">⌄</div>
-
-</button>
-
-<div class="subcategory-content">
-<div class="subcategory-inner">
-<div class="subcategory-body">
-
-<div class="phrase-list">
-
-<div class="phrase phrase-positive">
-<p>«Με βάση αυτά που μου λέτε...»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Από τη χρήση που μου περιγράφετε...»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Για τη δική σας περίπτωση...»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Αυτό που θα σας πρότεινα...»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Αυτό που βλέπω ότι σας ταιριάζει...»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Η πιο λογική επιλογή για εσάς είναι...»</p>
-</div>
-
-</div>
-
-<div class="example">
-
-<div class="example-label">
-💡 Παράδειγμα
+<div class="long-phrase-title">
+🎯 Παράδειγμα 1
 </div>
 
 <p>
-«Με βάση ότι έχετε δύο παιδιά,
-τηλεόραση και τηλεργασία,
-θα κοιτούσα περισσότερο το 1 Gbps.»
+«Λύνουμε το πρόβλημα που υπάρχει με το αργό internet
+στην γειτονιά σας με <strong>οπτική ίνα μέχρι το σπίτι σας</strong>
+για υπερ-υψηλές ταχύτητες στο διαδίκτυο
+(500 Mbps, 1 & 2,5 Gbps) ώστε να έχετε:
+<br><br>
+
+🚀 την καλύτερη ταχύτητα για streaming,
+τηλεργασία & gaming <br><br>
+
+💶 Σταθερή τιμή, χωρίς κρυφές χρεώσεις <br><br>
+
+🔧 Η εγκατάσταση είναι εξαιρετικά απλή
+και χωρίς πολλά μερεμέτια <br><br>
+
+🎁 επιπλέον προσφορές
+(π.χ. 3 πάγια δωρεάν). <br><br>
+
+Είμαστε η μόνη εταιρεία που δεν σας
+υποχρεώνει να βάλετε σταθερό.»
+
 </p>
 
 </div>
 
-</div>
-</div>
-</div>
+<div class="long-phrase">
 
-</div>
-
-<!-- ΑΞΙΑ -->
-
-<div class="subcategory">
-
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
-
-<div class="subcategory-icon">✦</div>
-
-<div class="subcategory-info">
-
-<h3 class="subcategory-title">
-  Φράσεις που αυξάνουν την αξία
-</h3>
-
-<div class="subcategory-count">
-  5 λεκτικά
+<div class="long-phrase-title">
+⚡ Παράδειγμα 2
 </div>
 
-</div>
+<p>
+«Με το <strong>ΔΕΗ Fiber</strong>, κάθε σπίτι έχει τη δική του,
+αποκλειστική οπτική ίνα μέχρι τον χώρο σας.
+<br><br>
 
-<div class="subcategory-chevron">⌄</div>
+Αυτό σημαίνει: <br><br>
 
-</button>
+✔ <strong>Εγγυημένες ταχύτητες Down/Up</strong> <br>
+— 500/250 Mbps, 1G/500 Mbps, 2.5G/1.25G <br><br>
 
-<div class="subcategory-content">
-<div class="subcategory-inner">
-<div class="subcategory-body">
+✔ <strong>Δεν πέφτει η ταχύτητα</strong> <br><br>
 
-<div class="phrase-list">
+✔ <strong>Δωρεάν ενεργοποίηση</strong> <br><br>
 
-<div class="phrase phrase-positive">
-<p>«Πιο σταθερή εμπειρία.»</p>
-</div>
+✔ <strong>Δωρεάν εγκατάσταση,
+δωρεάν router Wi-Fi 6.</strong> <br><br>
 
-<div class="phrase phrase-positive">
-<p>«Καλύτερη απόκριση.»</p>
-</div>
+✔ <strong>Ιδανικό για:</strong> <br>
 
-<div class="phrase phrase-positive">
-<p>«Περισσότερη άνεση με πολλές συσκευές.»</p>
-</div>
+* Τηλεργασία χωρίς διακοπές
 
-<div class="phrase phrase-positive">
-<p>«Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet.»</p>
-</div>
+  <br>
+* Streaming 4K/8K χωρίς buffering
 
-<div class="phrase phrase-positive">
-<p>«Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων.»</p>
-</div>
+  <br>
+* Gaming με πολύ χαμηλό ping
+
+  <br>
+* Πολλές συσκευές ταυτόχρονα»
+
+</p>
 
 </div>
 
@@ -1917,26 +1280,20 @@ body.dark .business-intro p{
 
 <div class="subcategory">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-<div class="subcategory-icon">→</div>
+  <div class="subcategory-icon">→</div>
 
-<div class="subcategory-info">
+  <div class="subcategory-info">
+    <h3 class="subcategory-title">
+      Παραδείγματα Κλεισίματος
+    </h3>
+    <div class="subcategory-count">
+      1 βασικό λεκτικό
+    </div>
+  </div>
 
-<h3 class="subcategory-title">
-  Κλείσιμο χωρίς πίεση
-</h3>
-
-<div class="subcategory-count">
-  5 λεκτικά
-</div>
-
-</div>
-
-<div class="subcategory-chevron">⌄</div>
+  <div class="subcategory-chevron">⌄</div>
 
 </button>
 
@@ -1944,27 +1301,19 @@ body.dark .business-intro p{
 <div class="subcategory-inner">
 <div class="subcategory-body">
 
-<div class="phrase-list">
+<div class="long-phrase">
 
-<div class="phrase phrase-positive">
-<p>«Να το δούμε μαζί;»</p>
+<div class="long-phrase-title">
+✓ Κλείσιμο
 </div>
 
-<div class="phrase phrase-positive">
-<p>«Να κάνουμε έναν έλεγχο;»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Να δούμε αν υπάρχει διαθέσιμη επιλογή;»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Να σας δείξω τι μπορείτε να έχετε;»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.»</p>
-</div>
+<p>
+«Η διαδικασία είναι πολύ απλή και σε 2 λεπτά
+θα έχουμε τελειώσει. Το μόνο που θα χρειαστώ,
+ώστε να προχωρήσουμε σε ενεργοποίηση, είναι
+την ταυτότητα και έναν λογαριασμό ρεύματος/νερού
+για επιβεβαίωση στοιχείων.»
+</p>
 
 </div>
 
@@ -1974,30 +1323,24 @@ body.dark .business-intro p{
 
 </div>
 
-<!-- ΑΠΟΦΥΓΕ -->
+<!-- ΑΝΤΙΡΡΗΣΕΙΣ -->
 
 <div class="subcategory red">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-<div class="subcategory-icon">×</div>
+  <div class="subcategory-icon">!</div>
 
-<div class="subcategory-info">
+  <div class="subcategory-info">
+    <h3 class="subcategory-title">
+      Διαχείριση Αντιρρήσεων
+    </h3>
+    <div class="subcategory-count">
+      15 βασικές αντιρρήσεις
+    </div>
+  </div>
 
-<h3 class="subcategory-title">
-  Απόφυγε αυτά
-</h3>
-
-<div class="subcategory-count">
-  6 βασικά λεκτικά
-</div>
-
-</div>
-
-<div class="subcategory-chevron">⌄</div>
+  <div class="subcategory-chevron">⌄</div>
 
 </button>
 
@@ -2005,186 +1348,285 @@ body.dark .business-intro p{
 <div class="subcategory-inner">
 <div class="subcategory-body">
 
-<div class="phrase-list">
+<div class="objection">
 
-<div class="phrase phrase-negative">
-<p>«Πρέπει να το κάνετε σήμερα.»</p>
+<div class="objection-question">
+❗ 1. «Έχω ήδη καλή σύνδεση.»
 </div>
 
-<div class="phrase phrase-negative">
-<p>«Είναι η τελευταία ευκαιρία.»</p>
-</div>
+<div class="objection-answer">
+«Το καταλαβαίνω απόλυτα. Να σας πω μόνο πως η οπτική
+ίνα πρακτικά καταργεί τα προβλήματα ταχύτητας και
+αποσυνδέσεων.
 
-<div class="phrase phrase-negative">
-<p>«Πρέπει να αποφασίσετε τώρα.»</p>
-</div>
+Ακόμα κι αν δεν το νιώθετε απαραίτητο σήμερα, οι
+συσκευές και οι εφαρμογές μεγαλώνουν και ζητούν όλο
+και περισσότερη ταχύτητα.
 
-<div class="phrase phrase-negative">
-<p>«Είναι το καλύτερο της αγοράς.»</p>
-</div>
-
-<div class="phrase phrase-negative">
-<p>«Δεν θα έχετε ποτέ πρόβλημα.»</p>
-</div>
-
-<div class="phrase phrase-negative">
-<p>«Όλοι το παίρνουν.»</p>
-</div>
-
-</div>
-
-<div class="better">
-
-<div class="better-title">
-✨ Πες καλύτερα
-</div>
-
-<div class="phrase-list">
-
-<div class="phrase phrase-positive">
-<p>«Να δούμε αν σας ταιριάζει.»</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>«Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς.»</p>
-</div>
+Με τη ΔΕΗ Fiber εξασφαλίζετε ότι το σπίτι σας είναι
+έτοιμο για τις ανάγκες των επόμενων ετών χωρίς έξτρα
+κόστος. Και όλα αυτά με μόλις 19,90 € για υπηρεσία
+Internet 1 Gbps που συνήθως είναι χαμηλότερο από
+το σημερινό σας κόστος.»
 
 </div>
 
 </div>
 
+<div class="objection">
+
+<div class="objection-question">
+❗ 2. «Δεν θέλω τρύπες/μερεμέτια.»
 </div>
-</div>
-</div>
 
-</div>
+<div class="objection-answer">
+«Όλα γίνονται από πιστοποιημένο τεχνικό, όπου και
+θα συζητήσετε μαζί για τη διαδικασία της εγκατάστασης
+σε ραντεβού αυτοψίας που θα πραγματοποιηθεί.»
 
-<!-- ΜΗΝ ΠΕΙ -->
+<br><br>
 
-<div class="subcategory">
+<strong>Αν είναι ήδη ready κτίριο:</strong>
+«Η υποδομή είναι ήδη περασμένη μέχρι τον όροφο,
+οπότε ο τεχνικός κάνει μόνο μια μικρή σύνδεση στο
+διαμέρισμα. Χωρίς πολύ φασαρία για εσάς.»
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
-
-<div class="subcategory-icon">↔</div>
-
-<div class="subcategory-info">
-
-<h3 class="subcategory-title">
-  Μην πεις → Πες
-</h3>
-
-<div class="subcategory-count">
-  6 γρήγορες αντικαταστάσεις
 </div>
 
 </div>
 
-<div class="subcategory-chevron">⌄</div>
+<div class="objection">
 
-</button>
-
-<div class="subcategory-content">
-<div class="subcategory-inner">
-<div class="subcategory-body">
-
-<div class="swap-list">
-
-<div class="swap">
-
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Θέλετε Fiber;»</div>
+<div class="objection-question">
+❗ 3. «Θα το σκεφτώ.»
 </div>
 
-<div class="swap-arrow">→</div>
+<div class="objection-answer">
+<strong>Α)</strong> «Συνήθως όταν ακούω κάτι τέτοιο είναι επειδή
+κάποιος ενδιαφέρεται αλλά δεν είναι σίγουρος, ισχύει
+και για σας;»
 
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Να δούμε αν το Fiber σας ταιριάζει;»</div>
+<br><br>
+
+<strong>Β)</strong> «Φυσικά. Πείτε μου τι σας κάνει να διστάζετε;
+Η τιμή, η αλλαγή παρόχου ή κάτι άλλο; Να δω αν μπορώ
+να σας δώσω αμέσως απάντηση.»
+
 </div>
 
 </div>
 
-<div class="swap">
+<div class="objection">
 
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Έχουμε προσφορά.»</div>
+<div class="objection-question">
+❗ 4. «Πληρώνω ήδη χαμηλά.»
 </div>
 
-<div class="swap-arrow">→</div>
-
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Υπάρχουν διαθέσιμες επιλογές.»</div>
-</div>
-
-</div>
-
-<div class="swap">
-
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Είναι καλύτερο.»</div>
-</div>
-
-<div class="swap-arrow">→</div>
-
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Είναι διαφορετική τεχνολογία.»</div>
+<div class="objection-answer">
+«Αν όμως μπορείτε να έχετε <strong>καλύτερη τεχνολογία</strong>,
+<strong>πιο σταθερή ταχύτητα</strong> και <strong>500 Mbps πραγματική
+οπτική ίνα</strong>, στην ίδια ή και χαμηλότερη τιμή,
+ίσως αξίζει να το δείτε. Δεν πειράζει να συγκρίνουμε,
+σωστά;»
 </div>
 
 </div>
 
-<div class="swap">
+<div class="objection">
 
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Θα έχετε τέλειο internet.»</div>
+<div class="objection-question">
+❗ 5. «Δεν θέλω αλλαγή παρόχου.»
 </div>
 
-<div class="swap-arrow">→</div>
+<div class="objection-answer">
+<strong>Α)</strong> «Απόλυτα σεβαστό. Σας ενδιαφέρει όμως να έχετε
+ταχύτητα που δεν πέφτει ποτέ, ανεξαρτήτως φόρτου;
+Η οπτική ίνα μέχρι το σπίτι είναι ό,τι πιο σταθερό
+υπάρχει.»
 
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Στόχος είναι η μεγαλύτερη σταθερότητα.»</div>
-</div>
+<br><br>
 
-</div>
+<strong>Β)</strong> «Συνήθως όταν κάποιος δεν θέλει αλλαγή, είναι
+γιατί φοβάται την ταλαιπωρία ή γιατί είναι ικανοποιημένος
+με την υπηρεσία του. Εσείς τι θα λέγατε ότι ισχύει
+περισσότερο;»
 
-<div class="swap">
-
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Πρέπει να υπογράψετε.»</div>
-</div>
-
-<div class="swap-arrow">→</div>
-
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Αν σας καλύπτει, μπορούμε να προχωρήσουμε.»</div>
 </div>
 
 </div>
 
-<div class="swap">
+<div class="objection">
 
-<div class="swap-side swap-bad">
-<div class="swap-label">❌ Απόφυγε</div>
-<div class="swap-text">«Είναι φθηνό.»</div>
+<div class="objection-question">
+❗ 6. «Φοβάμαι τη διαδικασία ακύρωσης από τον τωρινό πάροχο.»
 </div>
 
-<div class="swap-arrow">→</div>
-
-<div class="swap-side swap-good">
-<div class="swap-label">✓ Πες</div>
-<div class="swap-text">«Έχει καλή σχέση κόστους/απόδοσης.»</div>
+<div class="objection-answer">
+«Η διαδικασία είναι εξαιρετικά απλή. Χρειάζεται μόνο
+η υπογραφή σας και αναλαμβάνουμε εμείς τα πάντα:
+από την αίτηση φορητότητας μέχρι την τελική ενεργοποίηση.
+Δεν χρειάζεται να επικοινωνήσετε με τον παλιό σας
+πάροχο για τίποτα.»
 </div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 7. «Δεν χρησιμοποιώ πολύ Internet.»
+</div>
+
+<div class="objection-answer">
+«Απόλυτα λογικό. Το καλό με την οπτική ίνα είναι ότι
+εξασφαλίζει ποιότητα και σταθερότητα για πολλά χρόνια
+μπροστά. Μπορείτε να έχετε μία κορυφαία σύνδεση άνετα
+για όλες τις συσκευές του σπιτιού.
+
+Να σας ρωτήσω μόνο: όταν χρησιμοποιείτε internet,
+αυτό που σας ενδιαφέρει περισσότερο είναι να λειτουργεί
+χωρίς κολλήματα και διακοπές, σωστά;»
+
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 8. «Φοβάμαι την εγκατάσταση.»
+</div>
+
+<div class="objection-answer">
+«Όλα γίνονται από πιστοποιημένο τεχνικό, όπου και θα
+συζητήσετε μαζί για τη διαδικασία της εγκατάστασης
+σε ραντεβού αυτοψίας που θα πραγματοποιηθεί.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 9. «Δεν μου αρέσουν οι δεσμεύσεις.»
+</div>
+
+<div class="objection-answer">
+«Η δέσμευση αφορά ΚΑΙ εμάς, καθώς δεσμευόμαστε ότι θα
+σας παρέχουμε κορυφαία ταχύτητα στο internet με
+κλειδωμένη τιμή για τα επόμενα 2 χρόνια.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 10. «Είμαι ευχαριστημένος με Cosmote / Nova / Vodafone.»
+</div>
+
+<div class="objection-answer">
+«Η διαφορά είναι στην ποιότητα, απλά πληρώνετε λιγότερα
+για καλύτερη υπηρεσία. Εσείς δεν θα καταλάβετε τίποτα.
+Ο αριθμός σας θα διατηρηθεί με φορητότητα.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 11. «Έχω Cosmote TV, Vodafone TV, EON κλπ. και δεν θέλω να την διακόψω.»
+</div>
+
+<div class="objection-answer">
+<strong>Α)</strong> «Φυσικά και μπορείτε να διατηρήσετε την υπηρεσία
+της τηλεόρασης. Και σκεφτείτε ότι με την 3πλάσια-5πλάσια-10πλάσια
+ταχύτητα που θα έχετε σε σχέση με αυτή που έχετε τώρα,
+θα μπορείτε να την απολαμβάνετε χωρίς "κολλήματα" και
+καθυστερήσεις.
+
+Μπορείτε λοιπόν να την διατηρήσετε ως υπηρεσία
+ανεξάρτητα και να απολαμβάνετε το πολύ γρήγορο
+Internet της ΔΕΗ Fiber.»
+
+<br><br>
+
+<strong>Β)</strong> «Αν μπορούσατε να κρατήσετε την τηλεόρασή σας
+όπως είναι σήμερα και παράλληλα να μειώσετε το κόστος
+στο Internet και τη σταθερή, θα άξιζε να το δείτε;»
+
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 12. «Φοβάμαι ότι θα μείνω χωρίς τηλέφωνο.»
+</div>
+
+<div class="objection-answer">
+«Το καταλαβαίνω απόλυτα, όμως δε θέλω να ανησυχείτε.
+Η φορητότητα γίνεται χωρίς καμία διακοπή. Η ενεργοποίηση
+της φωνής ολοκληρώνεται πριν απενεργοποιηθεί η παλιά
+γραμμή σας.
+
+Ουσιαστικά η μετάβαση είναι στιγμιαία, δε θα μείνετε
+ούτε λεπτό χωρίς υπηρεσία.»
+
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 13. «Έχω συνδυαστικό πακέτο και παίρνω έκπτωση στα κινητά.»
+</div>
+
+<div class="objection-answer">
+«Σωστά, συνήθως υπάρχει μια μικρή έκπτωση όταν όλα
+είναι μαζί. Το σημαντικό όμως είναι να δούμε τη συνολική
+εικόνα: πολλές φορές η καλύτερη τιμή στο σταθερό και
+internet μπορεί να καλύπτει ή και να ξεπερνά αυτή
+τη διαφορά.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 14. «Δεν θέλω να πληρώσω αναπόσβεστο ποσό στον πάροχό μου.»
+</div>
+
+<div class="objection-answer">
+«Το καταλαβαίνω απόλυτα. Κανείς δεν θέλει να έχει μια
+έκτακτη επιβάρυνση. Να δούμε όμως συνολικά την εικόνα:
+αν η δική μας υπηρεσία σας προσφέρει καλύτερη μηνιαία
+χρέωση και περισσότερες παροχές, πολλές φορές το συνολικό
+όφελος σε βάθος χρόνου αντισταθμίζει τη διαφορά.
+
+Να δούμε μαζί τι κερδίζετε συνολικά;»
+
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 15. «Έχω ακόμα συμβόλαιο, θα περιμένω να λήξει.»
+</div>
+
+<div class="objection-answer">
+«Είναι απόλυτα λογικό αυτό που λέτε. Να σας ρωτήσω μόνο:
+γνωρίζετε πόσος χρόνος απομένει ακριβώς;
+
+Το ρωτάω, καθώς συνήθως οι πελάτες θεωρούν ότι απομένει
+μεγάλο διάστημα ενώ στην πράξη είναι μικρότερο και μπορούμε
+να δούμε αν συμφέρει η αλλαγή.»
 
 </div>
 
@@ -2200,26 +1642,18 @@ body.dark .business-intro p{
 
 <div class="subcategory winback">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-<div class="subcategory-icon">↩</div>
+  <div class="subcategory-icon">↩</div>
 
-<div class="subcategory-info">
+  <div class="subcategory-info">
+    <h3 class="subcategory-title">Winback</h3>
+    <div class="subcategory-count">
+      Προετοιμασία μετά το κλείσιμο · 5 σενάρια
+    </div>
+  </div>
 
-<h3 class="subcategory-title">
-  Winback
-</h3>
-
-<div class="subcategory-count">
-  Προετοιμασία πριν την αντιπροσφορά
-</div>
-
-</div>
-
-<div class="subcategory-chevron">⌄</div>
+  <div class="subcategory-chevron">⌄</div>
 
 </button>
 
@@ -2228,57 +1662,111 @@ body.dark .business-intro p{
 <div class="subcategory-body">
 
 <div class="winback-note">
-🎯 Στόχος δεν είναι να φοβίσουμε τον πελάτη.
-Τον βοηθάμε να αξιολογήσει μια πιθανή
-αντιπροσφορά πέρα από την έκπτωση.
+🎯 Η τακτική αφορά την προσπάθεια του παρόχου
+να κρατήσει υπό αποχώρηση πελάτες με καλύτερες
+τιμές, παροχές κ.λπ.
+<br><br>
+Μετά το κλείσιμο προετοιμάζω τον πελάτη, καθώς
+ο πάροχός του θα προσπαθήσει να τον κρατήσει
+με κάποια αντιπροσφορά.
 </div>
 
-<div class="phrase-list">
+<div class="long-phrase">
 
-<div class="phrase phrase-positive">
-<p>
-«Όταν σας καλέσει ο προηγούμενος πάροχος,
-μην κοιτάξετε μόνο πόσα ευρώ θα πληρώνετε.
-Δείτε και τι υπηρεσία θα έχετε.»
-</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>
-«Με αυτή την τιμή τι ακριβώς παίρνω;
-Παραμένει η ίδια τεχνολογία ή αναβαθμίζεται
-και η σύνδεσή μου;»
-</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>
-«Αν δεν υπήρχε η έκπτωση,
-θα επέλεγα ξανά την ίδια υπηρεσία;»
-</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>
-«Η επιλογή παρόχου καλό είναι να γίνεται
-με βάση το τι θα σας εξυπηρετεί καθημερινά
-και όχι μόνο την τιμή της ημέρας.»
-</p>
-</div>
-
-</div>
-
-<div class="example">
-
-<div class="example-label">
-🔒 Κλείδωμα
+<div class="long-phrase-title">
+🔒 Ενδεικτικό λεκτικό
 </div>
 
 <p>
-«Αν σας καλέσει ο προηγούμενος πάροχος,
-κρατήστε την ίδια σύγκριση:
-τιμή + τεχνολογία + εμπειρία χρήσης.»
+«Τέλεια, ολοκληρώσαμε την αίτησή σας κανονικά.
+Να σας προετοιμάσω και για το επόμενο βήμα ώστε
+να ξέρετε ακριβώς τι θα συμβεί.
+
+Είναι πιθανό να σας καλέσει ο υπάρχων πάροχος
+γιατί βλέπει ότι ξεκίνησε διαδικασία φορητότητας.
+Συνήθως τότε εμφανίζονται και νέες προσφορές,
+κάτι που είναι απολύτως φυσιολογικό.
+
+Το σημαντικό όμως είναι να θυμηθείτε γιατί
+αποφασίσατε σήμερα να αλλάξετε.
+
+Από εδώ και πέρα εμείς παρακολουθούμε όλη τη
+διαδικασία μέχρι την ενεργοποίηση. Οπότε αν
+σας καλέσουν και έχετε οποιαδήποτε απορία,
+μπορείτε πάντα να επικοινωνήσετε και μαζί μου.»
+
 </p>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 1. «Με πήραν και μου έκαναν καλύτερη τιμή.»
+</div>
+
+<div class="objection-answer">
+«Λογικό, αυτό γίνεται σχεδόν πάντα όταν ξεκινά
+φορητότητα. Το σημαντικό είναι αν λύνεται πραγματικά
+ο λόγος που θέλατε να αλλάξετε.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 2. «Μου είπαν ότι θα έχω διακοπή.»
+</div>
+
+<div class="objection-answer">
+«Η διαδικασία γίνεται κανονικά και οργανωμένα.
+Αν υπήρχε οποιοδήποτε θέμα, θα σας είχα ενημερώσει
+από την αρχή. Είναι τυπική διαδικασία μεταφοράς.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 3. «Μα αφού τώρα μου έδωσαν την ίδια τιμή, γιατί να αλλάξω;»
+</div>
+
+<div class="objection-answer">
+«Η τιμή είναι ένα κομμάτι της απόφασης. Το θέμα είναι
+γιατί χρειάστηκε να ξεκινήσετε διαδικασία αποχώρησης
+για να εμφανιστεί αυτή η πρόταση.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 4. «Μου είπαν ότι τώρα μπορούν να μου λύσουν όλα τα προβλήματα.»
+</div>
+
+<div class="objection-answer">
+«Το θετικό είναι ότι αναγνωρίστηκαν οι ανάγκες σας.
+Η ερώτηση είναι αν αισθάνεστε ότι αυτές οι λύσεις
+έρχονται προληπτικά ή μόνο επειδή ξεκίνησε η αποχώρηση.»
+</div>
+
+</div>
+
+<div class="objection">
+
+<div class="objection-question">
+❗ 5. «Δεν ξέρω αν αξίζει να μπω τώρα σε αυτή τη διαδικασία.»
+</div>
+
+<div class="objection-answer">
+«Οι περισσότεροι πελάτες που προχωρούν σε αλλαγή το
+κάνουν γιατί θέλουν μια καλύτερη συνολική εμπειρία
+χρήσης για τα επόμενα χρόνια και όχι απλώς μια
+προσωρινή προσφορά.»
+</div>
 
 </div>
 
@@ -2300,30 +1788,19 @@ body.dark .business-intro p{
 
 <section class="accordion-item">
 
-<button
-  class="accordion-header"
-  type="button"
-  aria-expanded="false">
+<button class="accordion-header" type="button" aria-expanded="false">
 
-<div class="section-icon icon-orange">€</div>
+  <div class="section-icon icon-orange">€</div>
 
-<div class="section-info">
+  <div class="section-info">
+    <div class="section-number">02 · ΤΙΜΕΣ</div>
+    <h2 class="section-name">Τιμές & Πακέτα</h2>
+    <div class="section-subtitle">
+      Γρήγορη αναφορά για τις βασικές επιλογές
+    </div>
+  </div>
 
-<div class="section-number">
-02 · ΤΙΜΕΣ
-</div>
-
-<h2 class="section-name">
-Τιμές & Πακέτα
-</h2>
-
-<div class="section-subtitle">
-Γρήγορη αναφορά για τις βασικές επιλογές
-</div>
-
-</div>
-
-<div class="chevron">⌄</div>
+  <div class="chevron">⌄</div>
 
 </button>
 
@@ -2331,27 +1808,15 @@ body.dark .business-intro p{
 <div class="accordion-inner">
 <div class="accordion-body">
 
-<!-- INTERNET -->
-
 <div class="subcategory orange">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
 <div class="subcategory-icon">⚡</div>
 
 <div class="subcategory-info">
-
-<h3 class="subcategory-title">
-ΔΕΗ Fiber Internet
-</h3>
-
-<div class="subcategory-count">
-Μηνιαίο πάγιο
-</div>
-
+<h3 class="subcategory-title">ΔΕΗ Fiber Internet</h3>
+<div class="subcategory-count">Μηνιαίο πάγιο</div>
 </div>
 
 <div class="subcategory-chevron">⌄</div>
@@ -2365,48 +1830,27 @@ body.dark .business-intro p{
 <div class="price-grid">
 
 <div class="price-card">
-
 <div class="price-left">
 <div class="price-speed">500 Mbps</div>
-<div class="price-description">
-Fiber Internet
+<div class="price-description">Fiber Internet</div>
 </div>
-</div>
-
-<div class="price-value">
-€17,90 <small>/μήνα</small>
-</div>
-
+<div class="price-value">€17,90 <small>/μήνα</small></div>
 </div>
 
 <div class="price-card">
-
 <div class="price-left">
 <div class="price-speed">1000 Mbps</div>
-<div class="price-description">
-Fiber Internet
+<div class="price-description">Fiber Internet</div>
 </div>
-</div>
-
-<div class="price-value">
-€19,90 <small>/μήνα</small>
-</div>
-
+<div class="price-value">€19,90 <small>/μήνα</small></div>
 </div>
 
 <div class="price-card">
-
 <div class="price-left">
 <div class="price-speed">2.5 Gbps</div>
-<div class="price-description">
-Fiber Internet
+<div class="price-description">Fiber Internet</div>
 </div>
-</div>
-
-<div class="price-value">
-€52,90 <small>/μήνα</small>
-</div>
-
+<div class="price-value">€52,90 <small>/μήνα</small></div>
 </div>
 
 </div>
@@ -2416,28 +1860,18 @@ Fiber Internet
 </div>
 
 </div>
-
-<!-- ADDONS -->
 
 <div class="subcategory orange">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
 <div class="subcategory-icon">+</div>
 
 <div class="subcategory-info">
-
-<h3 class="subcategory-title">
-Add-ons
-</h3>
-
+<h3 class="subcategory-title">Add-ons</h3>
 <div class="subcategory-count">
 Static IP · Σταθερή τηλεφωνία · WiFi Extender
 </div>
-
 </div>
 
 <div class="subcategory-chevron">⌄</div>
@@ -2449,125 +1883,72 @@ Static IP · Σταθερή τηλεφωνία · WiFi Extender
 <div class="subcategory-body">
 
 <div class="addon">
-
 <div class="addon-header">
-
-<div class="addon-title">
-Static IP
+<div class="addon-title">Static IP</div>
+<div class="addon-price">€3</div>
 </div>
-
-<div class="addon-price">
-€3
-</div>
-
-</div>
-
 <p class="addon-text">
 Πρόσθετη υπηρεσία με χρέωση €3 / μήνα.
 </p>
-
 </div>
 
 <div class="addon">
-
 <div class="addon-header">
-
-<div class="addon-title">
-Σταθερό · Basic
+<div class="addon-title">Σταθερό · Basic</div>
+<div class="addon-price">€4</div>
 </div>
-
-<div class="addon-price">
-€4
-</div>
-
-</div>
-
 <p class="addon-text">
 Δωρεάν εθνικές κλήσεις σε σταθερά
 και κινητά. Προϋποθέτει ενεργή
 σύνδεση ΔΕΗ Fiber Internet.
 </p>
-
 </div>
 
 <div class="addon">
-
 <div class="addon-header">
-
-<div class="addon-title">
-International
+<div class="addon-title">International</div>
+<div class="addon-price">+€10</div>
 </div>
-
-<div class="addon-price">
-+€10
-</div>
-
-</div>
-
 <p class="addon-text">
 Επιπλέον διεθνείς κλήσεις και
 1.000 λεπτά προς χώρες της Ε.Ε.
 </p>
-
 </div>
 
 <div class="addon">
-
 <div class="addon-header">
-
-<div class="addon-title">
-WiFi Extender
+<div class="addon-title">WiFi Extender</div>
+<div class="addon-price">€55</div>
 </div>
-
-<div class="addon-price">
-€55
-</div>
-
-</div>
-
 <p class="addon-text">
 Εφάπαξ κόστος €55 για ενίσχυση
 του WiFi και καλύτερη κάλυψη
 σε μεγαλύτερους χώρους.
 </p>
-
 </div>
 
 <div class="info-box">
-
-⚠️ Σημαντικό: Δεν υπάρχει τηλεφωνία
-χωρίς ενεργή σύνδεση ΔΕΗ Fiber.
-Το International προϋποθέτει ενεργό
-Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
+⚠️ Σημαντικό: Δεν υπάρχει τηλεφωνία χωρίς ενεργή
+σύνδεση ΔΕΗ Fiber. Το International προϋποθέτει
+ενεργό Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 Το WiFi Extender χρεώνεται εφάπαξ €55.
-
 </div>
 
 <div class="example">
-
-<div class="example-label">
-💡 Παράδειγμα
-</div>
-
+<div class="example-label">💡 Παράδειγμα</div>
 <p>
 500 Mbps €17,90 + Basic €4 =
 <strong>€21,90 / μήνα</strong>
 </p>
-
 </div>
 
 <div class="example">
-
-<div class="example-label">
-🌍 Με International
-</div>
-
+<div class="example-label">🌍 Με International</div>
 <p>
 500 Mbps €17,90 + Basic €4
 + International €10 =
 <strong>€31,90 / μήνα</strong>
 </p>
-
 </div>
 
 </div>
@@ -2588,30 +1969,19 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 
 <section class="accordion-item">
 
-<button
-  class="accordion-header"
-  type="button"
-  aria-expanded="false">
+<button class="accordion-header" type="button" aria-expanded="false">
 
-<div class="section-icon icon-green">%</div>
+  <div class="section-icon icon-green">%</div>
 
-<div class="section-info">
+  <div class="section-info">
+    <div class="section-number">03 · CALCULATOR</div>
+    <h2 class="section-name">Υπολογισμός Οφέλους</h2>
+    <div class="section-subtitle">
+      3 πάγια δώρο · πραγματικό κόστος 24μήνου
+    </div>
+  </div>
 
-<div class="section-number">
-03 · CALCULATOR
-</div>
-
-<h2 class="section-name">
-Υπολογισμός Οφέλους
-</h2>
-
-<div class="section-subtitle">
-3 πάγια δώρο · πραγματικό κόστος 24μήνου
-</div>
-
-</div>
-
-<div class="chevron">⌄</div>
+  <div class="chevron">⌄</div>
 
 </button>
 
@@ -2619,27 +1989,19 @@ Basic πακέτο + ενεργό ΔΕΗ Fiber Internet.
 <div class="accordion-inner">
 <div class="accordion-body">
 
-<!-- ΚΥΡΙΟΣ ΥΠΟΛΟΓΙΣΜΟΣ -->
-
 <div class="subcategory">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
 <div class="subcategory-icon">€</div>
 
 <div class="subcategory-info">
-
 <h3 class="subcategory-title">
 Σύγκρινε το σημερινό πάγιο
 </h3>
-
 <div class="subcategory-count">
-Με 3 πάγια δώρο και προαιρετικό δώρο Extender
+Με 3 πάγια δώρο και προαιρετικό WiFi Extender
 </div>
-
 </div>
 
 <div class="subcategory-chevron">⌄</div>
@@ -2691,45 +2053,17 @@ inputmode="decimal">
 Νέο πακέτο ΔΕΗ Fiber
 </label>
 
-<select
-id="packageSelect"
-class="calc-select">
+<select id="packageSelect" class="calc-select">
 
-<option value="17.90">
-500 Mbps — €17,90
-</option>
-
-<option value="19.90">
-1000 Mbps — €19,90
-</option>
-
-<option value="52.90">
-2.5 Gbps — €52,90
-</option>
-
-<option value="21.90">
-500 Mbps + Basic — €21,90
-</option>
-
-<option value="23.90">
-1000 Mbps + Basic — €23,90
-</option>
-
-<option value="56.90">
-2.5 Gbps + Basic — €56,90
-</option>
-
-<option value="31.90">
-500 Mbps + Basic + International — €31,90
-</option>
-
-<option value="33.90">
-1000 Mbps + Basic + International — €33,90
-</option>
-
-<option value="66.90">
-2.5 Gbps + Basic + International — €66,90
-</option>
+<option value="17.90">500 Mbps — €17,90</option>
+<option value="19.90">1000 Mbps — €19,90</option>
+<option value="52.90">2.5 Gbps — €52,90</option>
+<option value="21.90">500 Mbps + Basic — €21,90</option>
+<option value="23.90">1000 Mbps + Basic — €23,90</option>
+<option value="56.90">2.5 Gbps + Basic — €56,90</option>
+<option value="31.90">500 Mbps + Basic + International — €31,90</option>
+<option value="33.90">1000 Mbps + Basic + International — €33,90</option>
+<option value="66.90">2.5 Gbps + Basic + International — €66,90</option>
 
 </select>
 
@@ -2774,13 +2108,8 @@ type="checkbox"
 checked>
 
 <div class="gift-option-text">
-
 🎁 3 πάγια δώρο
-
-<small>
-3 μήνες χωρίς πάγιο
-</small>
-
+<small>3 μήνες χωρίς πάγιο</small>
 </div>
 
 </label>
@@ -2792,13 +2121,8 @@ id="extenderGiftCheck"
 type="checkbox">
 
 <div class="gift-option-text">
-
 📶 WiFi Extender δώρο
-
-<small>
-Αξία €55
-</small>
-
+<small>Αξία €55</small>
 </div>
 
 </label>
@@ -2841,11 +2165,7 @@ type="button">
 
 </div>
 
-<!-- RESULT -->
-
-<div
-class="calc-result"
-id="calcResult">
+<div class="calc-result" id="calcResult">
 
 <div class="result-main">
 
@@ -2853,171 +2173,70 @@ id="calcResult">
 Καθαρό όφελος στο 24μηνο
 </div>
 
-<div
-class="result-saving"
-id="result24">
-
+<div class="result-saving" id="result24">
 €0,00
-
-<small>
-στο 24μηνο
-</small>
-
+<small>στο 24μηνο</small>
 </div>
 
 <div class="result-grid">
 
 <div class="result-box">
-
-<div class="result-box-label">
-Άλλος πάροχος · 12μηνο
-</div>
-
-<div
-class="result-box-value"
-id="old12">
-€0,00
-</div>
-
+<div class="result-box-label">Άλλος πάροχος · 12μηνο</div>
+<div class="result-box-value" id="old12">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-ΔΕΗ Fiber · πληρωτέο 12μηνο
-</div>
-
-<div
-class="result-box-value blue"
-id="new12">
-€0,00
-</div>
-
+<div class="result-box-label">ΔΕΗ Fiber · πληρωτέο 12μηνο</div>
+<div class="result-box-value blue" id="new12">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Άλλος πάροχος · 24μηνο
-</div>
-
-<div
-class="result-box-value"
-id="old24">
-€0,00
-</div>
-
+<div class="result-box-label">Άλλος πάροχος · 24μηνο</div>
+<div class="result-box-value" id="old24">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-ΔΕΗ Fiber · πληρωτέο 24μηνο
-</div>
-
-<div
-class="result-box-value blue"
-id="new24">
-€0,00
-</div>
-
+<div class="result-box-label">ΔΕΗ Fiber · πληρωτέο 24μηνο</div>
+<div class="result-box-value blue" id="new24">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Εξοικονόμηση · 12μηνο
-</div>
-
-<div
-class="result-box-value green"
-id="saving12">
-€0,00
-</div>
-
+<div class="result-box-label">Εξοικονόμηση · 12μηνο</div>
+<div class="result-box-value green" id="saving12">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Εξοικονόμηση · 24μηνο
-</div>
-
-<div
-class="result-box-value green"
-id="saving24">
-€0,00
-</div>
-
+<div class="result-box-label">Εξοικονόμηση · 24μηνο</div>
+<div class="result-box-value green" id="saving24">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Δωρεάν παροχές
-</div>
-
-<div
-class="result-box-value orange"
-id="freeValue">
-€0,00
-</div>
-
+<div class="result-box-label">Δωρεάν παροχές</div>
+<div class="result-box-value orange" id="freeValue">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Ρήτρα
-</div>
-
-<div
-class="result-box-value orange"
-id="resultPenalty">
-€0,00
-</div>
-
+<div class="result-box-label">Ρήτρα</div>
+<div class="result-box-value orange" id="resultPenalty">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Καθαρό όφελος · 12μηνο
-</div>
-
-<div
-class="result-box-value"
-id="net12">
-€0,00
-</div>
-
+<div class="result-box-label">Καθαρό όφελος · 12μηνο</div>
+<div class="result-box-value" id="net12">€0,00</div>
 </div>
 
 <div class="result-box">
-
-<div class="result-box-label">
-Καθαρό όφελος · 24μηνο
-</div>
-
-<div
-class="result-box-value"
-id="net24">
-€0,00
+<div class="result-box-label">Καθαρό όφελος · 24μηνο</div>
+<div class="result-box-value" id="net24">€0,00</div>
 </div>
 
 </div>
 
-</div>
-
-<div
-class="break-even"
-id="breakEven">
+<div class="break-even" id="breakEven">
 —
 </div>
 
 </div>
-
-<!-- BENEFIT WORDING -->
 
 <div class="benefit-phrases">
 
@@ -3025,15 +2244,11 @@ id="breakEven">
 🗣️ Πες το στον πελάτη
 </div>
 
-<div
-class="benefit-phrase"
-id="benefitPhrase">
+<div class="benefit-phrase" id="benefitPhrase">
 —
 </div>
 
-<div
-class="benefit-phrase"
-id="benefitPhrase2">
+<div class="benefit-phrase" id="benefitPhrase2">
 —
 </div>
 
@@ -3046,15 +2261,10 @@ id="benefitPhrase2">
 </div>
 
 </div>
-
-<!-- ΓΡΗΓΟΡΟ ΠΑΡΑΔΕΙΓΜΑ -->
 
 <div class="subcategory">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
 <div class="subcategory-icon">⚡</div>
 
@@ -3108,11 +2318,6 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 </div>
 
 <div class="better">
-
-<div class="better-title">
-💡 Τι δείχνουμε στον πελάτη
-</div>
-
 <div class="phrase-list">
 
 <div class="phrase phrase-positive">
@@ -3138,7 +2343,6 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 </div>
 
 </div>
-
 </div>
 
 </div>
@@ -3154,35 +2358,24 @@ Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
 </section>
 
 <!-- =====================================================
-     04 · BUSINESS ΛΕΚΤΙΚΑ
+     04 · BUSINESS
 ===================================================== -->
 
-<section class="accordion-item business-section">
+<section class="accordion-item">
 
-<button
-  class="accordion-header"
-  type="button"
-  aria-expanded="false">
+<button class="accordion-header" type="button" aria-expanded="false">
 
-<div class="section-icon icon-blue">🏢</div>
+  <div class="section-icon icon-yellow">🏢</div>
 
-<div class="section-info">
+  <div class="section-info">
+    <div class="section-number">04 · BUSINESS</div>
+    <h2 class="section-name">Business · Πώς το σπάμε σε ημέρα</h2>
+    <div class="section-subtitle">
+      Business λεκτικά · ημερήσιο κόστος · WiFi για πελάτες
+    </div>
+  </div>
 
-<div class="section-number">
-04 · BUSINESS
-</div>
-
-<h2 class="section-name">
-Business Λεκτικά
-</h2>
-
-<div class="section-subtitle">
-Πώς το σπάμε σε ημέρα · WiFi · επιχειρηματική αξία
-</div>
-
-</div>
-
-<div class="chevron">⌄</div>
+  <div class="chevron">⌄</div>
 
 </button>
 
@@ -3192,30 +2385,21 @@ Business Λεκτικά
 
 <div class="subcategory">
 
-<button
-  class="subcategory-button"
-  type="button"
-  aria-expanded="false">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-<div class="subcategory-icon">
-🏢
-</div>
+<div class="subcategory-icon">€</div>
 
 <div class="subcategory-info">
-
 <h3 class="subcategory-title">
-Business · Πώς το σπάμε σε ημέρα
+Το κόστος σε μία ημέρα
 </h3>
 
 <div class="subcategory-count">
-Λεκτικά για να παρουσιάσεις το κόστος πιο απλά
+Υπολογίζεται αυτόματα από το πακέτο του calculator
+</div>
 </div>
 
-</div>
-
-<div class="subcategory-chevron">
-⌄
-</div>
+<div class="subcategory-chevron">⌄</div>
 
 </button>
 
@@ -3223,117 +2407,120 @@ Business · Πώς το σπάμε σε ημέρα
 <div class="subcategory-inner">
 <div class="subcategory-body">
 
-<div class="business-intro">
+<div class="business-card">
 
-<div class="business-intro-title">
-💡 Η λογική
+<div class="business-card-label">
+🏢 Ημερήσιο κόστος
+</div>
+
+<div class="business-day-price" id="businessDayPrice">
+€0,00
+<small>/ημέρα</small>
 </div>
 
 <p>
-Στην επιχείρηση δεν παρουσιάζουμε μόνο
-το μηνιαίο κόστος. Το μετατρέπουμε
-σε ημερήσιο κόστος ώστε ο πελάτης
-να καταλάβει πιο εύκολα την αξία.
+Το μηνιαίο κόστος μετατρέπεται σε ημερήσιο
+ποσό για να γίνει πιο εύκολο να παρουσιαστεί
+η αξία της υπηρεσίας στην επιχείρηση.
 </p>
 
-<div
-class="business-day-price"
-id="businessDayPrice">
+</div>
 
-€0,00
-
-<small>/ημέρα</small>
-
+</div>
+</div>
 </div>
 
 </div>
 
-<div class="business-list">
+<div class="subcategory">
 
-<div
-class="business-phrase"
-id="businessPhrase1">
+<button class="subcategory-button" type="button" aria-expanded="false">
 
-«Για την επιχείρησή σας μιλάμε για
-μόλις €0,00 την ημέρα.»
+<div class="subcategory-icon">🗣</div>
+
+<div class="subcategory-info">
+<h3 class="subcategory-title">
+Business Λεκτικά
+</h3>
+
+<div class="subcategory-count">
+5 έτοιμες φράσεις
+</div>
+</div>
+
+<div class="subcategory-chevron">⌄</div>
+
+</button>
+
+<div class="subcategory-content">
+<div class="subcategory-inner">
+<div class="subcategory-body">
+
+<div class="business-list-grid">
+
+<div class="business-card">
+
+<div class="business-card-label">
+💬 Λεκτικό 1
+</div>
+
+<p id="businessPhrase1">
+«Για την επιχείρησή σας μιλάμε για μόλις
+€0,00 την ημέρα.»
+</p>
 
 </div>
 
-<div
-class="business-phrase"
-id="businessPhrase2">
+<div class="business-card">
 
-«Δεν πιστεύετε πως αξίζει να δίνετε
-μόλις €0,00/30 την ημέρα
-για την επιχείρησή σας;»
+<div class="business-card-label">
+💬 Λεκτικό 2
+</div>
+
+<p id="businessPhrase2">
+«Δεν πιστεύετε πως αξίζει να δίνετε μόλις
+€0,00/30 την ημέρα για την επιχείρησή σας;»
+</p>
 
 </div>
 
-<div
-class="business-phrase"
-id="businessPhrase3">
+<div class="business-card">
 
+<div class="business-card-label">
+📶 Λεκτικό 3 · WiFi
+</div>
+
+<p id="businessPhrase3">
 «Έτσι μπορείτε να έχετε WiFi ανοικτό
-και για περαστικούς ή πελάτες
-που το χρειάζονται.»
+και για περαστικούς ή πελάτες που το χρειάζονται.»
+</p>
 
 </div>
 
-<div
-class="business-phrase"
-id="businessPhrase4">
+<div class="business-card">
 
+<div class="business-card-label">
+🚶 Λεκτικό 4 · Πελατεία
+</div>
+
+<p id="businessPhrase4">
 «Είστε σε σημείο που περνάει κόσμος
 ο οποίος μπορεί να χρειάζεται WiFi.»
+</p>
 
 </div>
 
-<div
-class="business-phrase"
-id="businessPhrase5">
+<div class="business-card">
 
-«Πολύς κόσμος δουλεύει με το laptop
-του έξω, ειδικά σε καφέ,
-όταν υπάρχει ελεύθερη πρόσβαση
+<div class="business-card-label">
+💻 Λεκτικό 5 · Laptop
+</div>
+
+<p id="businessPhrase5">
+«Πολύς κόσμος δουλεύει με το laptop του έξω,
+ειδικά σε καφέ, όταν υπάρχει ελεύθερη πρόσβαση
 στο WiFi.»
-
-</div>
-
-</div>
-
-<div class="better">
-
-<div class="better-title">
-✨ Επιχειρηματική προσέγγιση
-</div>
-
-<div class="phrase-list">
-
-<div class="phrase phrase-positive">
-<p>
-«Δεν μιλάμε μόνο για internet.
-Μιλάμε για μια υπηρεσία που μπορεί
-να εξυπηρετεί και την καθημερινή
-εμπειρία των πελατών σας.»
 </p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>
-«Το WiFi μπορεί να λειτουργήσει
-και ως επιπλέον εξυπηρέτηση
-για τον πελάτη που βρίσκεται
-στο κατάστημά σας.»
-</p>
-</div>
-
-<div class="phrase phrase-positive">
-<p>
-«Ας το δούμε με βάση το τι μπορεί
-να προσφέρει στην επιχείρησή σας
-και όχι μόνο με βάση το πάγιο.»
-</p>
-</div>
 
 </div>
 
@@ -3378,23 +2565,20 @@ document.querySelectorAll(".accordion-item");
 accordionItems.forEach(item => {
 
   const header =
-    item.querySelector(".accordion-header");
+  item.querySelector(".accordion-header");
 
-  header.addEventListener("click", () => {
+  header.addEventListener("click",() => {
 
     const isOpen =
-      item.classList.contains("open");
+    item.classList.contains("open");
 
     accordionItems.forEach(other => {
 
       other.classList.remove("open");
 
       other
-        .querySelector(".accordion-header")
-        .setAttribute(
-          "aria-expanded",
-          "false"
-        );
+      .querySelector(".accordion-header")
+      .setAttribute("aria-expanded","false");
 
     });
 
@@ -3410,9 +2594,8 @@ accordionItems.forEach(item => {
       setTimeout(() => {
 
         const top =
-          item.getBoundingClientRect().top +
-          window.scrollY -
-          10;
+        item.getBoundingClientRect().top +
+        window.scrollY - 10;
 
         window.scrollTo({
           top:top,
@@ -3427,6 +2610,7 @@ accordionItems.forEach(item => {
 
 });
 
+
 /* =====================================================
    SUBCATEGORIES
 ===================================================== */
@@ -3437,32 +2621,32 @@ document.querySelectorAll(".subcategory");
 subcategories.forEach(subcategory => {
 
   const button =
-    subcategory.querySelector(".subcategory-button");
+  subcategory.querySelector(".subcategory-button");
 
-  button.addEventListener("click", event => {
+  button.addEventListener("click",event => {
 
     event.stopPropagation();
 
     const isOpen =
-      subcategory.classList.contains("open");
+    subcategory.classList.contains("open");
 
     const parentMain =
-      subcategory.closest(".accordion-item");
+    subcategory.closest(".accordion-item");
 
     parentMain
-      .querySelectorAll(":scope > .accordion-content .subcategory")
-      .forEach(other => {
+    .querySelectorAll(":scope > .accordion-content .subcategory")
+    .forEach(other => {
 
-        other.classList.remove("open");
+      other.classList.remove("open");
 
-        other
-          .querySelector(".subcategory-button")
-          .setAttribute(
-            "aria-expanded",
-            "false"
-          );
+      other
+      .querySelector(".subcategory-button")
+      .setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-      });
+    });
 
     if(!isOpen){
 
@@ -3479,6 +2663,7 @@ subcategories.forEach(subcategory => {
 
 });
 
+
 /* =====================================================
    DARK MODE
 ===================================================== */
@@ -3486,17 +2671,18 @@ subcategories.forEach(subcategory => {
 const themeButton =
 document.getElementById("themeButton");
 
-themeButton.addEventListener("click", () => {
+themeButton.addEventListener("click",() => {
 
   document.body.classList.toggle("dark");
 
   const dark =
-    document.body.classList.contains("dark");
+  document.body.classList.contains("dark");
 
   themeButton.textContent =
-    dark ? "☀" : "☾";
+  dark ? "☀" : "☾";
 
 });
+
 
 /* =====================================================
    CALCULATOR
@@ -3568,9 +2754,8 @@ document.getElementById("benefitPhrase");
 const benefitPhrase2 =
 document.getElementById("benefitPhrase2");
 
-/* =====================================================
-   BUSINESS ELEMENTS
-===================================================== */
+
+/* BUSINESS */
 
 const businessDayPrice =
 document.getElementById("businessDayPrice");
@@ -3590,16 +2775,18 @@ document.getElementById("businessPhrase4");
 const businessPhrase5 =
 document.getElementById("businessPhrase5");
 
+
 /* =====================================================
    PACKAGE SELECT
 ===================================================== */
 
-packageSelect.addEventListener("change", () => {
+packageSelect.addEventListener("change",() => {
 
   newPriceInput.value =
-    packageSelect.value;
+  packageSelect.value;
 
 });
+
 
 /* =====================================================
    MONEY
@@ -3619,6 +2806,7 @@ function money(value){
 
 }
 
+
 /* =====================================================
    CALCULATE
 ===================================================== */
@@ -3626,119 +2814,108 @@ function money(value){
 function calculateBenefit(){
 
   const oldPrice =
-    parseFloat(oldPriceInput.value) || 0;
+  parseFloat(oldPriceInput.value) || 0;
 
   const newPrice =
-    parseFloat(newPriceInput.value) || 0;
+  parseFloat(newPriceInput.value) || 0;
 
   const freeMonths =
-    freeMonthsCheck.checked ? 3 : 0;
+  freeMonthsCheck.checked ? 3 : 0;
 
   const extenderGift =
-    extenderGiftCheck.checked ? 55 : 0;
+  extenderGiftCheck.checked ? 55 : 0;
 
   const penalty =
-    parseFloat(penaltyInput.value) || 0;
+  parseFloat(penaltyInput.value) || 0;
 
-  /* ΠΛΗΡΩΤΕΟΙ ΜΗΝΕΣ */
 
   const paidMonths24 =
-    Math.max(
-      24 - freeMonths,
-      0
-    );
+  Math.max(24 - freeMonths,0);
 
   const paidMonths12 =
-    Math.max(
-      12 - freeMonths,
-      0
-    );
+  Math.max(12 - freeMonths,0);
 
-  /* ΚΟΣΤΗ ΑΛΛΟΥ ΠΑΡΟΧΟΥ */
 
   const oldTotal12 =
-    oldPrice * 12;
+  oldPrice * 12;
 
   const oldTotal24 =
-    oldPrice * 24;
+  oldPrice * 24;
 
-  /* ΚΟΣΤΗ ΔΕΗ */
 
   const newTotal12 =
-    newPrice * paidMonths12;
+  newPrice * paidMonths12;
 
   const newTotal24 =
-    newPrice * paidMonths24;
+  newPrice * paidMonths24;
 
-  /* ΑΞΙΑ ΔΩΡΕΑΝ ΠΑΓΙΩΝ */
 
   const freeValue12 =
-    newPrice * freeMonths;
+  newPrice * freeMonths;
 
   const freeValue24 =
-    newPrice * freeMonths;
+  newPrice * freeMonths;
+
 
   const totalGiftValue12 =
-    freeValue12 + extenderGift;
+  freeValue12 + extenderGift;
 
   const totalGiftValue24 =
-    freeValue24 + extenderGift;
+  freeValue24 + extenderGift;
 
-  /* ΕΞΟΙΚΟΝΟΜΗΣΗ */
 
   const saving12Value =
-    oldTotal12 - newTotal12;
+  oldTotal12 - newTotal12;
 
   const saving24Value =
-    oldTotal24 - newTotal24;
+  oldTotal24 - newTotal24;
 
-  /* ΚΑΘΑΡΟ ΟΦΕΛΟΣ */
 
   const net12Value =
-    saving12Value +
-    totalGiftValue12 -
-    penalty;
+  saving12Value +
+  totalGiftValue12 -
+  penalty;
 
   const net24Value =
-    saving24Value +
-    totalGiftValue24 -
-    penalty;
+  saving24Value +
+  totalGiftValue24 -
+  penalty;
 
-  /* ΕΜΦΑΝΙΣΗ */
 
   old12.textContent =
-    money(oldTotal12);
+  money(oldTotal12);
 
   new12.textContent =
-    money(newTotal12);
+  money(newTotal12);
 
   old24.textContent =
-    money(oldTotal24);
+  money(oldTotal24);
 
   new24.textContent =
-    money(newTotal24);
+  money(newTotal24);
 
   saving12.textContent =
-    money(saving12Value);
+  money(saving12Value);
 
   saving24.textContent =
-    money(saving24Value);
+  money(saving24Value);
 
   freeValue.textContent =
-    money(totalGiftValue24);
+  money(totalGiftValue24);
 
   resultPenalty.textContent =
-    money(penalty);
+  money(penalty);
 
   net12.textContent =
-    money(net12Value);
+  money(net12Value);
 
   net24.textContent =
-    money(net24Value);
+  money(net24Value);
 
   result24.innerHTML =
-    money(net24Value) +
-    ' <small>στο 24μηνο</small>';
+  money(net24Value) +
+  ' <small>στο 24μηνο</small>';
+
 
   /* ΧΡΩΜΑ */
 
@@ -3757,6 +2934,7 @@ function calculateBenefit(){
     "red"
   );
 
+
   if(net12Value >= 0){
 
     net12.classList.add("green");
@@ -3766,6 +2944,7 @@ function calculateBenefit(){
     net12.classList.add("red");
 
   }
+
 
   if(net24Value >= 0){
 
@@ -3779,9 +2958,8 @@ function calculateBenefit(){
 
   }
 
-  /* ===================================================
-     ΑΠΟΣΒΕΣΗ ΡΗΤΡΑΣ
-  =================================================== */
+
+  /* ΑΠΟΣΒΕΣΗ ΡΗΤΡΑΣ */
 
   if(
     penalty > 0 &&
@@ -3789,31 +2967,31 @@ function calculateBenefit(){
   ){
 
     const monthlySaving =
-      oldPrice - newPrice;
+    oldPrice - newPrice;
 
     const months =
-      penalty / monthlySaving;
+    penalty / monthlySaving;
 
     if(months <= 24){
 
       breakEven.innerHTML =
-        "⏱️ Η ρήτρα των " +
-        "<strong>" +
-        money(penalty) +
-        "</strong>" +
-        " αποσβένεται σε περίπου " +
-        "<strong>" +
-        months.toFixed(1) +
-        " μήνες</strong>.";
+      "⏱️ Η ρήτρα των " +
+      "<strong>" +
+      money(penalty) +
+      "</strong>" +
+      " αποσβένεται σε περίπου " +
+      "<strong>" +
+      months.toFixed(1) +
+      " μήνες</strong>.";
 
     }else{
 
       breakEven.innerHTML =
-        "⏱️ Η ρήτρα αποσβένεται σε περίπου " +
-        "<strong>" +
-        months.toFixed(1) +
-        " μήνες</strong>, " +
-        "άρα η πλήρης απόσβεση ξεπερνά το 24μηνο.";
+      "⏱️ Η ρήτρα αποσβένεται σε περίπου " +
+      "<strong>" +
+      months.toFixed(1) +
+      " μήνες</strong>, " +
+      "άρα η πλήρης απόσβεση ξεπερνά το 24μηνο.";
 
     }
 
@@ -3823,129 +3001,138 @@ function calculateBenefit(){
   ){
 
     breakEven.innerHTML =
-      "✓ Με " +
-      freeMonths +
-      " πάγια δώρο, η πραγματική χρέωση " +
-      "στο 24μηνο είναι " +
-      "<strong>" +
-      paidMonths24 +
-      " πληρωτέοι μήνες</strong>.";
+    "✓ Με " +
+    freeMonths +
+    " πάγια δώρο, η πραγματική χρέωση " +
+    "στο 24μηνο είναι " +
+    "<strong>" +
+    paidMonths24 +
+    " πληρωτέοι μήνες</strong>.";
 
   }else{
 
     breakEven.innerHTML =
-      "Η διαφορά παγίου δεν δημιουργεί " +
-      "εξοικονόμηση με τις συγκεκριμένες τιμές.";
+    "Η διαφορά παγίου δεν δημιουργεί " +
+    "εξοικονόμηση με τις συγκεκριμένες τιμές.";
 
   }
 
-  /* ===================================================
-     BUSINESS
-     Υπολογισμός ημερήσιου κόστους
-  =================================================== */
+
+  /* =====================================================
+     BUSINESS · ΗΜΕΡΗΣΙΟ ΚΟΣΤΟΣ
+  ===================================================== */
 
   const dayPrice =
-    newPrice / 30;
+  newPrice / 30;
 
   businessDayPrice.innerHTML =
-    money(dayPrice) +
-    ' <small>/ημέρα</small>';
+  money(dayPrice) +
+  ' <small>/ημέρα</small>';
+
 
   businessPhrase1.textContent =
-    "«Για την επιχείρησή σας μιλάμε για μόλις " +
-    money(dayPrice) +
-    " την ημέρα.»";
+  "«Για την επιχείρησή σας μιλάμε για μόλις " +
+  money(dayPrice) +
+  " την ημέρα.»";
+
 
   businessPhrase2.textContent =
-    "«Δεν πιστεύετε πως αξίζει να δίνετε μόλις " +
-    money(dayPrice) +
-    " την ημέρα για την επιχείρησή σας;»";
+  "«Δεν πιστεύετε πως αξίζει να δίνετε μόλις " +
+  newPrice.toFixed(2) +
+  "/30 την ημέρα για την επιχείρησή σας;»";
+
 
   businessPhrase3.textContent =
-    "«Έτσι θα μπορείτε να έχετε WiFi ανοικτό " +
-    "και για περαστικούς ή πελάτες που το χρειάζονται.»";
+  "«Έτσι θα μπορείτε να έχετε WiFi ανοικτό " +
+  "και για περαστικούς ή πελάτες που το χρειάζονται.»";
+
 
   businessPhrase4.textContent =
-    "«Είστε σε μέρος που περνάει πολύς κόσμος " +
-    "ο οποίος μπορεί να χρειάζεται WiFi.»";
+  "«Είστε σε μέρος που περνάει πολύς κόσμος " +
+  "ο οποίος μπορεί να χρειάζεται WiFi.»";
+
 
   businessPhrase5.textContent =
-    "«Πολύς κόσμος δουλεύει με το laptop του " +
-    "έξω, ειδικά σε καφέ, όταν υπάρχει ελεύθερη " +
-    "πρόσβαση στο WiFi.»";
+  "«Πολύς κόσμος δουλεύει με το laptop του " +
+  "έξω, ειδικά σε καφέ, όταν υπάρχει ελεύθερη " +
+  "πρόσβαση στο WiFi.»";
 
-  /* ===================================================
-     ΠΩΛΗΣΙΑΚΑ ΛΕΚΤΙΚΑ
-  =================================================== */
+
+  /* =====================================================
+     ΠΩΛΗΣΙΑΚΑ ΛΕΚΤΙΚΑ CALCULATOR
+  ===================================================== */
 
   const benefit =
-    Math.max(net24Value,0);
+  Math.max(net24Value,0);
+
 
   if(benefit <= 0){
 
     benefitPhrase.textContent =
-      "«Ας δούμε πρώτα το πραγματικό κόστος " +
-      "και τι σημαίνουν οι δωρεάν παροχές " +
-      "στο σύνολο του 24μήνου.»";
+    "«Ας δούμε πρώτα το πραγματικό κόστος " +
+    "και τι σημαίνουν οι δωρεάν παροχές " +
+    "στο σύνολο του 24μήνου.»";
 
     benefitPhrase2.textContent =
-      "«Δεν κοιτάμε μόνο την τιμή· κοιτάμε " +
-      "τη συνολική εικόνα του 24μήνου.»";
+    "«Δεν κοιτάμε μόνο την τιμή· κοιτάμε " +
+    "τη συνολική εικόνα του 24μήνου.»";
 
   }else if(benefit < 50){
 
     benefitPhrase.textContent =
-      "«Με τις δωρεάν παροχές, στο 24μηνο " +
-      "μένει καθαρό όφελος περίπου " +
-      money(benefit) +
-      ".»";
+    "«Με τις δωρεάν παροχές, στο 24μηνο " +
+    "μένει καθαρό όφελος περίπου " +
+    money(benefit) +
+    ".»";
 
     benefitPhrase2.textContent =
-      "«Αυτό είναι το πραγματικό όφελος " +
-      "αφού υπολογίσουμε και τη ρήτρα.»";
+    "«Αυτό είναι το πραγματικό όφελος " +
+    "αφού υπολογίσουμε και τη ρήτρα.»";
 
   }else if(benefit < 100){
 
     benefitPhrase.textContent =
-      "«Με τα " +
-      money(benefit) +
-      " που κερδίζετε στο 24μηνο, " +
-      "η διαφορά πλέον γίνεται αισθητή.»";
+    "«Με τα " +
+    money(benefit) +
+    " που κερδίζετε στο 24μηνο, " +
+    "η διαφορά πλέον γίνεται αισθητή.»";
 
     benefitPhrase2.textContent =
-      "«Και αυτό είναι επιπλέον της " +
-      "αναβάθμισης της σύνδεσής σας.»";
+    "«Και αυτό είναι επιπλέον της " +
+    "αναβάθμισης της σύνδεσής σας.»";
 
   }else if(benefit < 200){
 
     benefitPhrase.textContent =
-      "«Με τα " +
-      money(benefit) +
-      " που κερδίζετε, " +
-      "ουσιαστικά κρατάτε ένα σημαντικό ποσό " +
-      "στην τσέπη σας μέσα στο 24μηνο.»";
+    "«Με τα " +
+    money(benefit) +
+    " που κερδίζετε, " +
+    "ουσιαστικά κρατάτε ένα σημαντικό ποσό " +
+    "στην τσέπη σας μέσα στο 24μηνο.»";
 
     benefitPhrase2.textContent =
-      "«Οι δωρεάν παροχές κάνουν τη διαφορά " +
-      "στο συνολικό κόστος της διετίας.»";
+    "«Οι δωρεάν παροχές κάνουν τη διαφορά " +
+    "στο συνολικό κόστος της διετίας.»";
 
   }else{
 
     benefitPhrase.textContent =
-      "«Με τα " +
-      money(benefit) +
-      " που κερδίζετε στο 24μηνο, " +
-      "η διαφορά είναι πλέον πολύ σημαντική.»";
+    "«Με τα " +
+    money(benefit) +
+    " που κερδίζετε στο 24μηνο, " +
+    "η διαφορά είναι πλέον πολύ σημαντική.»";
 
     benefitPhrase2.textContent =
-      "«Ουσιαστικά, το ποσό αυτό μένει " +
-      "στην τσέπη σας μέσα στη διετία.»";
+    "«Ουσιαστικά, το ποσό αυτό μένει " +
+    "στην τσέπη σας μέσα στη διετία.»";
 
   }
+
 
   calcResult.classList.add("show");
 
 }
+
 
 /* =====================================================
    CALCULATE BUTTON
@@ -3955,6 +3142,7 @@ calculateButton.addEventListener(
   "click",
   calculateBenefit
 );
+
 
 /* =====================================================
    ENTER KEY
@@ -3981,12 +3169,20 @@ calculateButton.addEventListener(
 
 });
 
+
 /* =====================================================
    INITIAL SYNC
 ===================================================== */
 
 newPriceInput.value =
-  packageSelect.value;
+packageSelect.value;
+
+
+/* =====================================================
+   INITIAL BUSINESS VALUE
+===================================================== */
+
+calculateBenefit();
 
 </script>
 
