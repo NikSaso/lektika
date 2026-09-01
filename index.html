@@ -41,8 +41,6 @@ body{
   font-size:14px;
 }
 
-/* APP */
-
 .app{
   min-height:100vh;
   display:flex;
@@ -597,7 +595,7 @@ body{
 
 .calc-button:hover{background:var(--blue-dark)}
 
-/* RESULT */
+/* SIMPLE RESULT */
 
 .calc-result{
   display:none;
@@ -606,62 +604,62 @@ body{
 
 .calc-result.show{display:block}
 
-.profit-grid{
+.benefit-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
 
-.profit-card{
+.benefit-card{
   padding:18px;
   background:#e8f5e9;
   border-left:5px solid var(--green);
 }
 
-.profit-card.negative{
-  background:#ffebee;
-  border-left-color:var(--red);
-}
-
-.profit-label{
+.benefit-label{
   color:#527558;
   font-size:10px;
   font-weight:700;
   text-transform:uppercase;
 }
 
-.profit-value{
+.benefit-value{
   margin-top:6px;
   color:var(--green);
   font-size:32px;
   font-weight:900;
 }
 
-.profit-value.red{color:var(--red)}
-
-.result-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:12px;
+.benefit-value.red{
+  color:var(--red);
 }
 
-.result-box{
-  padding:13px;
+.cost-summary{
+  margin-top:12px;
+  padding:15px;
   border:1px solid var(--border);
   background:#fff;
 }
 
-.result-label{
-  color:var(--muted);
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
+.cost-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:7px 0;
+  font-size:12px;
 }
 
-.result-value{
-  margin-top:5px;
-  font-size:20px;
+.cost-line + .cost-line{
+  border-top:1px solid var(--border);
+}
+
+.cost-label{
+  color:var(--muted);
+}
+
+.cost-value{
+  font-size:16px;
   font-weight:700;
 }
 
@@ -675,12 +673,13 @@ body{
   font-size:12px;
 }
 
-/* BUSINESS */
+/* BUSINESS DAY */
 
-.business-box{
+.business-day-box{
   padding:20px;
   background:#f5f7f8;
   border:1px solid var(--border);
+  text-align:center;
 }
 
 .business-day-price{
@@ -701,6 +700,7 @@ body{
   background:#fff;
   border-left:3px solid var(--blue);
   line-height:1.5;
+  text-align:left;
 }
 
 /* FOOTER */
@@ -731,7 +731,7 @@ body.dark .addon,
 body.dark .check-option span,
 body.dark .calc-input,
 body.dark .calc-select,
-body.dark .result-box,
+body.dark .cost-summary,
 body.dark .business-phrase{
   background:#42474f;
   color:#eceff1;
@@ -739,7 +739,7 @@ body.dark .business-phrase{
 
 body.dark .panel-button:hover{background:#4a5058}
 body.dark .calculator{background:#383d44}
-body.dark .business-box{background:#383d44}
+body.dark .business-day-box{background:#383d44}
 body.dark .swap{background:#383d44}
 body.dark .example{background:#4a432b;color:#eee}
 body.dark .theme-button{background:#4a5058;color:#fff}
@@ -782,8 +782,7 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 .phrase-grid,
 .price-grid,
 .calc-grid,
-.profit-grid,
-.result-row{
+.benefit-grid{
   grid-template-columns:1fr;
 }
 
@@ -793,6 +792,10 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 
 .swap-arrow{
   transform:rotate(90deg);
+}
+
+.cost-line{
+  align-items:flex-start;
 }
 
 }
@@ -816,7 +819,30 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 
 <div class="nav-label">ΕΡΓΑΛΕΙΑ</div>
 
-<a href="#lektika" class="active"><span class="nav-icon">💬</span><span class="nav-text">Λεκτικά</span></a> <a href="#prices"><span class="nav-icon">€</span><span class="nav-text">Τιμές & Πακέτα</span></a> <a href="#calculator"><span class="nav-icon">%</span><span class="nav-text">Υπολογισμός Οφέλους</span></a> <a href="#business"><span class="nav-icon">🏢</span><span class="nav-text">Business</span></a>
+<a href="#lektika" class="active">
+<span class="nav-icon">💬</span>
+<span class="nav-text">Λεκτικά</span>
+</a>
+
+<a href="#prices">
+<span class="nav-icon">€</span>
+<span class="nav-text">Τιμές & Πακέτα</span>
+</a>
+
+<a href="#calculator">
+<span class="nav-icon">%</span>
+<span class="nav-text">Υπολογισμός Οφέλους</span>
+</a>
+
+<a href="#business-day">
+<span class="nav-icon">€</span>
+<span class="nav-text">Business · Ανά ημέρα</span>
+</a>
+
+<a href="#business">
+<span class="nav-icon">🏢</span>
+<span class="nav-text">Business</span>
+</a>
 
 </nav>
 
@@ -839,9 +865,18 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 <div class="content">
 
 <section class="hero">
+
 <div class="hero-badge">🎯 Μίλα σωστά · Πούλα συμβουλευτικά</div>
-<h1>Οι σωστές λέξεις<br><strong>αλλάζουν τη συζήτηση.</strong></h1>
-<p>Γρήγορο εργαλείο με λεκτικά, τιμές και υπολογισμό πραγματικού οφέλους για καθημερινή χρήση.</p>
+
+<h1>
+Οι σωστές λέξεις<br>
+<strong>αλλάζουν τη συζήτηση.</strong>
+</h1>
+
+<p>
+Γρήγορο εργαλείο με λεκτικά, τιμές και υπολογισμό πραγματικού οφέλους για καθημερινή χρήση.
+</p>
+
 </section>
 
 <!-- ΛΕΚΤΙΚΑ -->
@@ -849,24 +884,35 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 <section class="section" id="lektika">
 
 <div class="section-header">
+
 <div class="section-number">01</div>
+
 <div>
 <div class="section-title">Λεκτικά</div>
 <div class="section-subtitle">Τι λες · τι αποφεύγεις · πώς κλείνεις</div>
 </div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">✓</div>
+
 <div class="panel-info">
 <div class="panel-title">Χτίζουν εμπιστοσύνη</div>
 <div class="panel-desc">7 λεκτικά</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="phrase-grid">
+
 <div class="phrase">«Να δω αν σας αφορά.»</div>
 <div class="phrase">«Να δούμε αν ταιριάζει στη χρήση σας.»</div>
 <div class="phrase">«Αν έχει νόημα για εσάς.»</div>
@@ -874,168 +920,317 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 <div class="phrase">«Δεν υπάρχει λόγος να πάτε σε κάτι που δεν χρειάζεστε.»</div>
 <div class="phrase">«Να σας εξηγήσω τις επιλογές και αποφασίζετε εσείς.»</div>
 <div class="phrase">«Εσείς γνωρίζετε καλύτερα τις ανάγκες σας.»</div>
+
 </div>
+
 </div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">💡</div>
+
 <div class="panel-info">
 <div class="panel-title">Συμβουλευτική πώληση</div>
 <div class="panel-desc">6 λεκτικά + παράδειγμα</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="phrase-grid">
+
 <div class="phrase">«Με βάση αυτά που μου λέτε...»</div>
 <div class="phrase">«Από τη χρήση που μου περιγράφετε...»</div>
 <div class="phrase">«Για τη δική σας περίπτωση...»</div>
 <div class="phrase">«Αυτό που θα σας πρότεινα...»</div>
 <div class="phrase">«Αυτό που βλέπω ότι σας ταιριάζει...»</div>
 <div class="phrase">«Η πιο λογική επιλογή για εσάς είναι...»</div>
+
 </div>
+
 <div class="example">
+
 <div class="example-label">💡 Παράδειγμα</div>
-<p>«Με βάση ότι έχετε δύο παιδιά, τηλεόραση και τηλεργασία, θα κοιτούσα περισσότερο το 1 Gbps.»</p>
+
+<p>
+«Με βάση ότι έχετε δύο παιδιά, τηλεόραση και τηλεργασία,
+θα κοιτούσα περισσότερο το 1 Gbps.»
+</p>
+
 </div>
+
 </div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">✦</div>
+
 <div class="panel-info">
 <div class="panel-title">Φράσεις που αυξάνουν την αξία</div>
 <div class="panel-desc">5 λεκτικά</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="phrase-grid">
+
 <div class="phrase">«Πιο σταθερή εμπειρία.»</div>
 <div class="phrase">«Καλύτερη απόκριση.»</div>
 <div class="phrase">«Περισσότερη άνεση με πολλές συσκευές.»</div>
 <div class="phrase">«Λιγότερος ανταγωνισμός μέσα στο σπίτι όταν χρησιμοποιούν όλοι internet.»</div>
 <div class="phrase">«Μεγαλύτερο περιθώριο για τις ανάγκες των επόμενων χρόνων.»</div>
+
 </div>
+
 </div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">→</div>
+
 <div class="panel-info">
 <div class="panel-title">Κλείσιμο χωρίς πίεση</div>
 <div class="panel-desc">5 λεκτικά</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="phrase-grid">
+
 <div class="phrase">«Να το δούμε μαζί;»</div>
 <div class="phrase">«Να κάνουμε έναν έλεγχο;»</div>
 <div class="phrase">«Να δούμε αν υπάρχει διαθέσιμη επιλογή;»</div>
 <div class="phrase">«Να σας δείξω τι μπορείτε να έχετε;»</div>
 <div class="phrase">«Αν σας καλύπτει, προχωράμε. Αν όχι, το αφήνουμε.»</div>
+
 </div>
+
 </div>
+
 </div>
 
 <div class="panel red">
+
 <button class="panel-button">
+
 <div class="panel-icon">×</div>
+
 <div class="panel-info">
 <div class="panel-title">Απόφυγε αυτά</div>
 <div class="panel-desc">6 βασικά λεκτικά</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="phrase-grid">
+
 <div class="phrase negative">«Πρέπει να το κάνετε σήμερα.»</div>
 <div class="phrase negative">«Είναι η τελευταία ευκαιρία.»</div>
 <div class="phrase negative">«Πρέπει να αποφασίσετε τώρα.»</div>
 <div class="phrase negative">«Είναι το καλύτερο της αγοράς.»</div>
 <div class="phrase negative">«Δεν θα έχετε ποτέ πρόβλημα.»</div>
 <div class="phrase negative">«Όλοι το παίρνουν.»</div>
+
 </div>
+
 </div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">↔</div>
+
 <div class="panel-info">
 <div class="panel-title">Μην πεις → Πες</div>
 <div class="panel-desc">6 γρήγορες αντικαταστάσεις</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Θέλετε Fiber;»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Θέλετε Fiber;»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Να δούμε αν το Fiber σας ταιριάζει;»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Να δούμε αν το Fiber σας ταιριάζει;»</div>
+</div>
+
 </div>
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Έχουμε προσφορά.»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Έχουμε προσφορά.»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Υπάρχουν διαθέσιμες επιλογές.»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Υπάρχουν διαθέσιμες επιλογές.»</div>
+</div>
+
 </div>
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Είναι καλύτερο.»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Είναι καλύτερο.»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Είναι διαφορετική τεχνολογία.»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Είναι διαφορετική τεχνολογία.»</div>
+</div>
+
 </div>
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Θα έχετε τέλειο internet.»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Θα έχετε τέλειο internet.»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Στόχος είναι η μεγαλύτερη σταθερότητα.»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Στόχος είναι η μεγαλύτερη σταθερότητα.»</div>
+</div>
+
 </div>
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Πρέπει να υπογράψετε.»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Πρέπει να υπογράψετε.»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Αν σας καλύπτει, μπορούμε να προχωρήσουμε.»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Αν σας καλύπτει, μπορούμε να προχωρήσουμε.»</div>
+</div>
+
 </div>
 
 <div class="swap">
-<div class="bad"><div class="swap-label">❌ Απόφυγε</div><div class="swap-text">«Είναι φθηνό.»</div></div>
+
+<div class="bad">
+<div class="swap-label">❌ Απόφυγε</div>
+<div class="swap-text">«Είναι φθηνό.»</div>
+</div>
+
 <div class="swap-arrow">→</div>
-<div class="good"><div class="swap-label">✓ Πες</div><div class="swap-text">«Έχει καλή σχέση κόστους/απόδοσης.»</div></div>
+
+<div class="good">
+<div class="swap-label">✓ Πες</div>
+<div class="swap-text">«Έχει καλή σχέση κόστους/απόδοσης.»</div>
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 <div class="panel orange">
+
 <button class="panel-button">
+
 <div class="panel-icon">↩</div>
+
 <div class="panel-info">
 <div class="panel-title">Winback</div>
 <div class="panel-desc">Προετοιμασία πριν την αντιπροσφορά</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
+
 <div class="panel-content">
+
 <div class="example">
+
 <div class="example-label">🎯 Στόχος</div>
-<p>Στόχος δεν είναι να φοβίσουμε τον πελάτη. Τον βοηθάμε να αξιολογήσει μια πιθανή αντιπροσφορά πέρα από την έκπτωση.</p>
+
+<p>
+Στόχος δεν είναι να φοβίσουμε τον πελάτη.
+Τον βοηθάμε να αξιολογήσει μια πιθανή αντιπροσφορά πέρα από την έκπτωση.
+</p>
+
 </div>
+
 <div class="phrase-grid" style="margin-top:12px">
-<div class="phrase">«Όταν σας καλέσει ο προηγούμενος πάροχος, μην κοιτάξετε μόνο πόσα ευρώ θα πληρώνετε. Δείτε και τι υπηρεσία θα έχετε.»</div>
-<div class="phrase">«Με αυτή την τιμή τι ακριβώς παίρνω; Παραμένει η ίδια τεχνολογία ή αναβαθμίζεται και η σύνδεσή μου;»</div>
-<div class="phrase">«Αν δεν υπήρχε η έκπτωση, θα επέλεγα ξανά την ίδια υπηρεσία;»</div>
-<div class="phrase">«Η επιλογή παρόχου καλό είναι να γίνεται με βάση το τι θα σας εξυπηρετεί καθημερινά και όχι μόνο την τιμή της ημέρας.»</div>
+
+<div class="phrase">
+«Όταν σας καλέσει ο προηγούμενος πάροχος, μην κοιτάξετε μόνο πόσα ευρώ θα πληρώνετε. Δείτε και τι υπηρεσία θα έχετε.»
 </div>
+
+<div class="phrase">
+«Με αυτή την τιμή τι ακριβώς παίρνω; Παραμένει η ίδια τεχνολογία ή αναβαθμίζεται και η σύνδεσή μου;»
 </div>
+
+<div class="phrase">
+«Αν δεν υπήρχε η έκπτωση, θα επέλεγα ξανά την ίδια υπηρεσία;»
+</div>
+
+<div class="phrase">
+«Η επιλογή παρόχου καλό είναι να γίνεται με βάση το τι θα σας εξυπηρετεί καθημερινά και όχι μόνο την τιμή της ημέρας.»
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
@@ -1045,24 +1240,33 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 <section class="section orange" id="prices">
 
 <div class="section-header">
+
 <div class="section-number">02</div>
+
 <div>
 <div class="section-title">Τιμές & Πακέτα</div>
 <div class="section-subtitle">Γρήγορη αναφορά για τις βασικές επιλογές</div>
 </div>
+
 </div>
 
 <div class="panel orange">
+
 <button class="panel-button">
+
 <div class="panel-icon">⚡</div>
+
 <div class="panel-info">
 <div class="panel-title">ΔΕΗ Fiber Internet</div>
 <div class="panel-desc">Μηνιαίο πάγιο</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
+
 <div class="price-grid">
 
 <div class="price-card">
@@ -1084,191 +1288,458 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 </div>
 
 </div>
+
 </div>
+
 </div>
 
 <div class="panel orange">
+
 <button class="panel-button">
+
 <div class="panel-icon">+</div>
+
 <div class="panel-info">
 <div class="panel-title">Add-ons</div>
 <div class="panel-desc">Static IP · Σταθερή τηλεφωνία · WiFi Extender</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
 
 <div class="addon">
-<div class="addon-header"><div class="addon-title">Static IP</div><div class="addon-price">€3</div></div>
-<p class="addon-text">Πρόσθετη υπηρεσία με χρέωση €3 / μήνα.</p>
+
+<div class="addon-header">
+<div class="addon-title">Static IP</div>
+<div class="addon-price">€3</div>
+</div>
+
+<p class="addon-text">
+Πρόσθετη υπηρεσία με χρέωση €3 / μήνα.
+</p>
+
 </div>
 
 <div class="addon">
-<div class="addon-header"><div class="addon-title">Σταθερό · Basic</div><div class="addon-price">€4</div></div>
-<p class="addon-text">Δωρεάν εθνικές κλήσεις σε σταθερά και κινητά. Προϋποθέτει ενεργή σύνδεση ΔΕΗ Fiber Internet.</p>
+
+<div class="addon-header">
+<div class="addon-title">Σταθερό · Basic</div>
+<div class="addon-price">€4</div>
+</div>
+
+<p class="addon-text">
+Δωρεάν εθνικές κλήσεις σε σταθερά και κινητά.
+Προϋποθέτει ενεργή σύνδεση ΔΕΗ Fiber Internet.
+</p>
+
 </div>
 
 <div class="addon">
-<div class="addon-header"><div class="addon-title">International</div><div class="addon-price">+€10</div></div>
-<p class="addon-text">Επιπλέον διεθνείς κλήσεις και 1.000 λεπτά προς χώρες της Ε.Ε.</p>
+
+<div class="addon-header">
+<div class="addon-title">International</div>
+<div class="addon-price">+€10</div>
+</div>
+
+<p class="addon-text">
+Επιπλέον διεθνείς κλήσεις και 1.000 λεπτά προς χώρες της Ε.Ε.
+</p>
+
 </div>
 
 <div class="addon">
-<div class="addon-header"><div class="addon-title">WiFi Extender</div><div class="addon-price">€55</div></div>
-<p class="addon-text">Εφάπαξ κόστος €55 για ενίσχυση του WiFi και καλύτερη κάλυψη.</p>
+
+<div class="addon-header">
+<div class="addon-title">WiFi Extender</div>
+<div class="addon-price">€55</div>
+</div>
+
+<p class="addon-text">
+Εφάπαξ κόστος €55 για ενίσχυση του WiFi και καλύτερη κάλυψη.
+</p>
+
 </div>
 
 <div class="example">
+
 <div class="example-label">💡 Παράδειγμα</div>
-<p>500 Mbps €17,90 + Basic €4 = <strong>€21,90 / μήνα</strong></p>
+
+<p>
+500 Mbps €17,90 + Basic €4 =
+<strong>€21,90 / μήνα</strong>
+</p>
+
 </div>
 
 </div>
+
 </div>
 
 </section>
 
-<!-- CALCULATOR -->
+<!-- ΥΠΟΛΟΓΙΣΜΟΣ ΟΦΕΛΟΥΣ -->
 
 <section class="section green" id="calculator">
 
 <div class="section-header">
+
 <div class="section-number">03</div>
+
 <div>
 <div class="section-title">Υπολογισμός Οφέλους</div>
-<div class="section-subtitle">Πραγματικό κόστος 12 & 24 μηνών</div>
+<div class="section-subtitle">Δες γρήγορα πόσα εξοικονομεί ο πελάτης</div>
 </div>
+
 </div>
 
 <div class="panel green open">
 
 <button class="panel-button">
+
 <div class="panel-icon">€</div>
+
 <div class="panel-info">
-<div class="panel-title">Σύγκρινε το σημερινό πάγιο</div>
-<div class="panel-desc">Δες αμέσως το καθαρό όφελος του πελάτη</div>
+<div class="panel-title">Υπολόγισε το καθαρό όφελος</div>
+<div class="panel-desc">Σύγκρινε το σημερινό κόστος με το νέο πακέτο</div>
 </div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
 
 <div class="calculator">
 
-<p class="calc-intro">Βάλε το σημερινό πάγιο, διάλεξε το νέο πακέτο και πρόσθεσε τυχόν δωρεάν παροχές ή ρήτρα.</p>
+<p class="calc-intro">
+Βάλε το σημερινό πάγιο, διάλεξε το νέο πακέτο και πρόσθεσε τυχόν δωρεάν παροχές ή ρήτρα.
+</p>
 
 <div class="calc-grid">
 
 <div class="calc-field">
+
 <label>Πάγιο άλλου παρόχου</label>
-<input id="oldPrice" class="calc-input" type="number" value="24" min="0" step="0.01">
+
+<input
+id="oldPrice"
+class="calc-input"
+type="number"
+value="24"
+min="0"
+step="0.01"
+
+>
+
 </div>
 
 <div class="calc-field">
+
 <label>Νέο Πακέτο ΔΕΗ Fiber</label>
+
 <select id="packageSelect" class="calc-select">
-<option value="17.90">500 Mbps — €17,90</option>
-<option value="19.90">1000 Mbps — €19,90</option>
-<option value="52.90">2.5 Gbps — €52,90</option>
-<option value="21.90">500 Mbps + Basic — €21,90</option>
-<option value="23.90">1000 Mbps + Basic — €23,90</option>
-<option value="56.90">2.5 Gbps + Basic — €56,90</option>
-<option value="31.90">500 Mbps + Basic + International — €31,90</option>
-<option value="33.90">1000 Mbps + Basic + International — €33,90</option>
-<option value="66.90">2.5 Gbps + Basic + International — €66,90</option>
+
+<option value="17.90">
+500 Mbps — €17,90
+</option>
+
+<option value="19.90">
+1000 Mbps — €19,90
+</option>
+
+<option value="52.90">
+2.5 Gbps — €52,90
+</option>
+
+<option value="21.90">
+500 Mbps + Basic — €21,90
+</option>
+
+<option value="23.90">
+1000 Mbps + Basic — €23,90
+</option>
+
+<option value="56.90">
+2.5 Gbps + Basic — €56,90
+</option>
+
+<option value="31.90">
+500 Mbps + Basic + International — €31,90
+</option>
+
+<option value="33.90">
+1000 Mbps + Basic + International — €33,90
+</option>
+
+<option value="66.90">
+2.5 Gbps + Basic + International — €66,90
+</option>
+
 </select>
+
 </div>
 
 <div class="calc-field">
+
 <label>Δωρεάν παροχές</label>
+
 <div class="benefits">
-<label class="check-option"><input type="checkbox" id="freeThreeMonths"><span>🎁 3 πάγια δώρο</span></label>
-<label class="check-option"><input type="checkbox" id="freeExtender"><span>📶 Δωρεάν Extender</span></label>
+
+<label class="check-option">
+<input type="checkbox" id="freeThreeMonths">
+<span>🎁 3 πάγια δώρο</span>
+</label>
+
+<label class="check-option">
+<input type="checkbox" id="freeExtender">
+<span>📶 Δωρεάν Extender</span>
+</label>
+
 </div>
+
 </div>
 
 <div class="calc-field">
+
 <label>Ρήτρα αποχώρησης</label>
-<input id="penalty" class="calc-input" type="number" value="0" min="0" step="0.01">
-</div>
+
+<input
+id="penalty"
+class="calc-input"
+type="number"
+value="0"
+min="0"
+step="0.01"
+
+>
 
 </div>
 
-<button class="calc-button" id="calculateButton">✦ Υπολόγισε το κέρδος</button>
+</div>
+
+<button class="calc-button" id="calculateButton">
+✦ Υπολόγισε το όφελος
+</button>
 
 <div class="calc-result" id="calcResult">
 
-<div class="profit-grid">
+<div class="benefit-grid">
 
-<div class="profit-card" id="profitCard12">
-<div class="profit-label">Κέρδος 12μήνου</div>
-<div class="profit-value" id="net12">€0,00</div>
+<div class="benefit-card">
+
+<div class="benefit-label">
+Καθαρό όφελος · 12 μήνες
 </div>
 
-<div class="profit-card" id="profitCard24">
-<div class="profit-label">Κέρδος 24μήνου</div>
-<div class="profit-value" id="net24">€0,00</div>
-</div>
-
-</div>
-
-<div class="result-row">
-
-<div class="result-box">
-<div class="result-label">Σημερινό κόστος · 24 μήνες</div>
-<div class="result-value" id="old24">€0,00</div>
-</div>
-
-<div class="result-box">
-<div class="result-label">ΔΕΗ Fiber · 24 μήνες</div>
-<div class="result-value" id="new24">€0,00</div>
+<div class="benefit-value" id="net12">
+€0,00
 </div>
 
 </div>
 
-<div class="result-row">
+<div class="benefit-card">
 
-<div class="result-box">
-<div class="result-label">Αξία 3 δωρεάν παγίων</div>
-<div class="result-value" id="freeValue">€0,00</div>
+<div class="benefit-label">
+Καθαρό όφελος · 24 μήνες
 </div>
 
-<div class="result-box">
-<div class="result-label">Απόσβεση ρήτρας</div>
-<div class="result-value" id="breakEvenMonths">—</div>
-</div>
-
-</div>
-
-<div class="result-message" id="breakEven">—</div>
-
+<div class="benefit-value" id="net24">
+€0,00
 </div>
 
 </div>
 
 </div>
+
+<div class="cost-summary">
+
+<div class="cost-line">
+
+<span class="cost-label">
+Σήμερα · 24 μήνες
+</span>
+
+<span class="cost-value" id="old24">
+€0,00
+</span>
+
 </div>
+
+<div class="cost-line">
+
+<span class="cost-label">
+ΔΕΗ Fiber · 24 μήνες
+</span>
+
+<span class="cost-value" id="new24">
+€0,00
+</span>
+
+</div>
+
+<div class="cost-line">
+
+<span class="cost-label">
+Αξία δωρεάν παροχών
+</span>
+
+<span class="cost-value" id="freeValue">
+€0,00
+</span>
+
+</div>
+
+<div class="cost-line">
+
+<span class="cost-label">
+Απόσβεση ρήτρας
+</span>
+
+<span class="cost-value" id="breakEvenMonths">
+—
+</span>
+
+</div>
+
+</div>
+
+<div class="result-message" id="breakEven">
+—
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ΓΡΗΓΟΡΟ ΠΑΡΑΔΕΙΓΜΑ -->
 
 <div class="panel">
 
 <button class="panel-button">
+
 <div class="panel-icon">⚡</div>
+
 <div class="panel-info">
-<div class="panel-title">Γρήγορο παράδειγμα</div>
-<div class="panel-desc">Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο</div>
+
+<div class="panel-title">
+Γρήγορο παράδειγμα
 </div>
+
+<div class="panel-desc">
+Vodafone €24 → ΔΕΗ Fiber €17,90 με 3 πάγια δώρο
+</div>
+
+</div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
 
 <div class="example">
-<div class="example-label">📊 24 μήνες · 3 πάγια δώρο</div>
-<p>€24 × 24 = <strong>€576</strong><br>ΔΕΗ Fiber: €17,90 × 21 = <strong>€375,90</strong><br>Διαφορά = <strong>€200,10</strong></p>
+
+<div class="example-label">
+📊 24 μήνες · 3 πάγια δώρο
+</div>
+
+<p>
+€24 × 24 = <strong>€576</strong><br>
+ΔΕΗ Fiber: €17,90 × 21 = <strong>€375,90</strong><br>
+Διαφορά = <strong>€200,10</strong>
+</p>
+
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- BUSINESS · ΑΝΑ ΗΜΕΡΑ -->
+
+<section class="section yellow" id="business-day">
+
+<div class="section-header">
+
+<div class="section-number">04</div>
+
+<div>
+
+<div class="section-title">
+Business · Πώς το σπάμε σε ημέρα
+</div>
+
+<div class="section-subtitle">
+Μετατρέπουμε το μηνιαίο κόστος σε ημερήσιο
+</div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<button class="panel-button">
+
+<div class="panel-icon">€</div>
+
+<div class="panel-info">
+
+<div class="panel-title">
+Πώς το σπάμε σε ημέρα
+</div>
+
+<div class="panel-desc">
+Το μηνιαίο κόστος γίνεται πιο εύκολο να το αντιληφθεί ο πελάτης
+</div>
+
+</div>
+
+<div class="panel-arrow">⌄</div>
+
+</button>
+
+<div class="panel-content">
+
+<div class="business-day-box">
+
+<div class="business-day-price">
+€0,60 <small>/ημέρα περίπου</small>
+</div>
+
+<div class="business-phrase">
+«Για την επιχείρησή σας μιλάμε για ένα πολύ μικρό ποσό την ημέρα.»
+</div>
+
+<div class="business-phrase">
+«Δεν πιστεύετε πως αξίζει να δίνετε αυτό το ποσό την ημέρα για την επιχείρησή σας;»
+</div>
+
+<div class="business-phrase">
+«Έτσι μπορείτε να έχετε WiFi ανοικτό και για περαστικούς ή πελάτες που το χρειάζονται.»
+</div>
+
+<div class="business-phrase">
+«Είστε σε σημείο που περνάει κόσμος ο οποίος μπορεί να χρειάζεται WiFi.»
+</div>
+
+<div class="business-phrase">
+«Πολύς κόσμος δουλεύει με το laptop του έξω, ειδικά σε καφέ, όταν υπάρχει ελεύθερη πρόσβαση στο WiFi.»
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
@@ -1278,107 +1749,191 @@ body.dark .theme-button{background:#4a5058;color:#fff}
 <section class="section yellow" id="business">
 
 <div class="section-header">
-<div class="section-number">04</div>
+
+<div class="section-number">05</div>
+
 <div>
+
 <div class="section-title">Business</div>
-<div class="section-subtitle">Λεκτικά με οφέλη για την επιχείρηση</div>
+
+<div class="section-subtitle">
+Λεκτικά με οφέλη για την επιχείρηση
 </div>
+
+</div>
+
 </div>
 
 <div class="panel">
-<button class="panel-button">
-<div class="panel-icon">€</div>
-<div class="panel-info">
-<div class="panel-title">Πώς το σπάμε σε ημέρα</div>
-<div class="panel-desc">Μετατρέπουμε το μηνιαίο κόστος σε ημερήσιο</div>
-</div>
-<div class="panel-arrow">⌄</div>
-</button>
 
-<div class="panel-content">
-<div class="business-box">
-<div class="business-day-price">€0,60 <small>/ημέρα περίπου</small></div>
-<div class="business-phrase">«Για την επιχείρησή σας μιλάμε για ένα πολύ μικρό ποσό την ημέρα.»</div>
-<div class="business-phrase">«Δεν πιστεύετε πως αξίζει να δίνετε αυτό το ποσό την ημέρα για την επιχείρησή σας;»</div>
-<div class="business-phrase">«Έτσι μπορείτε να έχετε WiFi ανοικτό και για περαστικούς ή πελάτες που το χρειάζονται.»</div>
-<div class="business-phrase">«Είστε σε σημείο που περνάει κόσμος ο οποίος μπορεί να χρειάζεται WiFi.»</div>
-<div class="business-phrase">«Πολύς κόσμος δουλεύει με το laptop του έξω, ειδικά σε καφέ, όταν υπάρχει ελεύθερη πρόσβαση στο WiFi.»</div>
-</div>
-</div>
-</div>
-
-<div class="panel">
 <button class="panel-button">
+
 <div class="panel-icon">✦</div>
+
 <div class="panel-info">
-<div class="panel-title">Λεκτικά με οφέλη για το Business</div>
-<div class="panel-desc">Τι κερδίζει πρακτικά η επιχείρηση</div>
+
+<div class="panel-title">
+Λεκτικά με οφέλη για το Business
 </div>
+
+<div class="panel-desc">
+Τι κερδίζει πρακτικά η επιχείρηση
+</div>
+
+</div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
+
 <div class="phrase-grid">
-<div class="phrase">«Για μια επιχείρηση, το internet δεν είναι απλώς ένα πάγιο. Είναι εργαλείο καθημερινής λειτουργίας.»</div>
-<div class="phrase">«Με σταθερή σύνδεση μπορείτε να εξυπηρετείτε καλύτερα POS, παραγγελίες, cloud εφαρμογές και τις καθημερινές ανάγκες της επιχείρησης.»</div>
-<div class="phrase">«Το WiFi μπορεί να γίνει και μέρος της εμπειρίας που προσφέρετε στον πελάτη σας.»</div>
-<div class="phrase">«Όταν ο πελάτης μπορεί να συνδεθεί εύκολα στο WiFi, παραμένει πιο άνετα στον χώρο και χρησιμοποιεί περισσότερο τις ψηφιακές υπηρεσίες.»</div>
-<div class="phrase">«Η σωστή σύνδεση δεν αφορά μόνο την ταχύτητα. Αφορά το πόσο ομαλά λειτουργεί η επιχείρηση μέσα στην ημέρα.»</div>
-<div class="phrase">«Αν το internet είναι βασικό εργαλείο για τη δουλειά σας, αξίζει να το βλέπουμε σαν λειτουργικό κόστος και όχι απλώς σαν λογαριασμό.»</div>
+
+<div class="phrase">
+«Για μια επιχείρηση, το internet δεν είναι απλώς ένα πάγιο. Είναι εργαλείο καθημερινής λειτουργίας.»
 </div>
+
+<div class="phrase">
+«Με σταθερή σύνδεση μπορείτε να εξυπηρετείτε καλύτερα POS, παραγγελίες, cloud εφαρμογές και τις καθημερινές ανάγκες της επιχείρησης.»
 </div>
+
+<div class="phrase">
+«Το WiFi μπορεί να γίνει και μέρος της εμπειρίας που προσφέρετε στον πελάτη σας.»
+</div>
+
+<div class="phrase">
+«Όταν ο πελάτης μπορεί να συνδεθεί εύκολα στο WiFi, παραμένει πιο άνετα στον χώρο και χρησιμοποιεί περισσότερο τις ψηφιακές υπηρεσίες.»
+</div>
+
+<div class="phrase">
+«Η σωστή σύνδεση δεν αφορά μόνο την ταχύτητα. Αφορά το πόσο ομαλά λειτουργεί η επιχείρηση μέσα στην ημέρα.»
+</div>
+
+<div class="phrase">
+«Αν το internet είναι βασικό εργαλείο για τη δουλειά σας, αξίζει να το βλέπουμε σαν λειτουργικό κόστος και όχι απλώς σαν λογαριασμό.»
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">📶</div>
+
 <div class="panel-info">
-<div class="panel-title">WiFi για πελάτες & επισκέπτες</div>
-<div class="panel-desc">Λεκτικά για χώρους με κίνηση</div>
+
+<div class="panel-title">
+WiFi για πελάτες & επισκέπτες
 </div>
+
+<div class="panel-desc">
+Λεκτικά για χώρους με κίνηση
+</div>
+
+</div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
+
 <div class="phrase-grid">
-<div class="phrase">«Μπορείτε να έχετε WiFi ανοικτό για τους πελάτες σας χωρίς να χρειάζεται να τους εξηγείτε κάθε φορά τη διαδικασία.»</div>
-<div class="phrase">«Σε ένα καφέ ή έναν χώρο με κόσμο, το WiFi μπορεί να είναι μια επιπλέον παροχή προς τον πελάτη.»</div>
-<div class="phrase">«Πολλοί πελάτες πλέον θεωρούν το WiFi μέρος της εμπειρίας ενός χώρου.»</div>
-<div class="phrase">«Αν κάποιος κάθεται στον χώρο σας και χρειάζεται internet, είναι χρήσιμο να μπορεί να συνδεθεί εύκολα.»</div>
-<div class="phrase">«Το WiFi μπορεί να λειτουργήσει σαν μια μικρή αλλά ουσιαστική παροχή προς τον πελάτη.»</div>
+
+<div class="phrase">
+«Μπορείτε να έχετε WiFi ανοικτό για τους πελάτες σας χωρίς να χρειάζεται να τους εξηγείτε κάθε φορά τη διαδικασία.»
 </div>
+
+<div class="phrase">
+«Σε ένα καφέ ή έναν χώρο με κόσμο, το WiFi μπορεί να είναι μια επιπλέον παροχή προς τον πελάτη.»
 </div>
+
+<div class="phrase">
+«Πολλοί πελάτες πλέον θεωρούν το WiFi μέρος της εμπειρίας ενός χώρου.»
+</div>
+
+<div class="phrase">
+«Αν κάποιος κάθεται στον χώρο σας και χρειάζεται internet, είναι χρήσιμο να μπορεί να συνδεθεί εύκολα.»
+</div>
+
+<div class="phrase">
+«Το WiFi μπορεί να λειτουργήσει σαν μια μικρή αλλά ουσιαστική παροχή προς τον πελάτη.»
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="panel">
+
 <button class="panel-button">
+
 <div class="panel-icon">✓</div>
+
 <div class="panel-info">
-<div class="panel-title">Η αξία πίσω από το κόστος</div>
-<div class="panel-desc">Μεταφέρουμε τη συζήτηση από την τιμή στην αξία</div>
+
+<div class="panel-title">
+Η αξία πίσω από το κόστος
 </div>
+
+<div class="panel-desc">
+Μεταφέρουμε τη συζήτηση από την τιμή στην αξία
+</div>
+
+</div>
+
 <div class="panel-arrow">⌄</div>
+
 </button>
 
 <div class="panel-content">
+
 <div class="phrase-grid">
-<div class="phrase">«Δεν σας προτείνω απλώς μια σύνδεση. Σας προτείνω να έχετε ένα εργαλείο που υποστηρίζει την καθημερινή λειτουργία της επιχείρησης.»</div>
-<div class="phrase">«Το θέμα δεν είναι μόνο πόσο κοστίζει. Είναι τι σας εξυπηρετεί να κάνετε μέσα στην ημέρα.»</div>
-<div class="phrase">«Για μια επιχείρηση, η σταθερότητα και η διαθεσιμότητα του internet έχουν μεγαλύτερη αξία από μια απλή σύγκριση τιμών.»</div>
-<div class="phrase">«Ας δούμε τι χρειάζεται πραγματικά η επιχείρησή σας και μετά ποιο πακέτο ταιριάζει καλύτερα.»</div>
+
+<div class="phrase">
+«Δεν σας προτείνω απλώς μια σύνδεση. Σας προτείνω να έχετε ένα εργαλείο που υποστηρίζει την καθημερινή λειτουργία της επιχείρησης.»
 </div>
+
+<div class="phrase">
+«Το θέμα δεν είναι μόνο πόσο κοστίζει. Είναι τι σας εξυπηρετεί να κάνετε μέσα στην ημέρα.»
 </div>
+
+<div class="phrase">
+«Για μια επιχείρηση, η σταθερότητα και η διαθεσιμότητα του internet έχουν μεγαλύτερη αξία από μια απλή σύγκριση τιμών.»
+</div>
+
+<div class="phrase">
+«Ας δούμε τι χρειάζεται πραγματικά η επιχείρησή σας και μετά ποιο πακέτο ταιριάζει καλύτερα.»
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
 
 <footer>
+
 <strong>Λεκτικά</strong> · Sales Toolkit<br>
+
 Μίλα με τον πελάτη. Μην μιλάς πάνω στον πελάτη.
+
 </footer>
 
 </div>
+
 </div>
+
 </div>
 
 <script>
@@ -1406,6 +1961,7 @@ panel.classList.add("open");
 
 });
 
+
 /* MOBILE MENU */
 
 const sidebar=document.getElementById("sidebar");
@@ -1415,10 +1971,13 @@ sidebar.classList.toggle("show");
 });
 
 document.querySelectorAll(".nav a").forEach(link=>{
+
 link.addEventListener("click",()=>{
 sidebar.classList.remove("show");
 });
+
 });
+
 
 /* DARK MODE */
 
@@ -1433,6 +1992,7 @@ document.body.classList.contains("dark") ? "☀" : "☾";
 
 });
 
+
 /* CALCULATOR */
 
 const oldPriceInput=document.getElementById("oldPrice");
@@ -1443,14 +2003,18 @@ const penaltyInput=document.getElementById("penalty");
 
 const calcResult=document.getElementById("calcResult");
 
+
 function money(value){
+
 return new Intl.NumberFormat("el-GR",{
 style:"currency",
 currency:"EUR",
 minimumFractionDigits:2,
 maximumFractionDigits:2
 }).format(value);
+
 }
+
 
 function calculateBenefit(){
 
@@ -1461,23 +2025,39 @@ const penalty=parseFloat(penaltyInput.value)||0;
 const freeMonths=freeThreeMonths.checked ? 3 : 0;
 const extenderValue=freeExtender.checked ? 55 : 0;
 
+
 const oldTotal12=oldPrice*12;
 const oldTotal24=oldPrice*24;
+
 
 const newTotal12=newPrice*Math.max(12-freeMonths,0);
 const newTotal24=newPrice*Math.max(24-freeMonths,0);
 
+
 const saving12=oldTotal12-newTotal12;
 const saving24=oldTotal24-newTotal24;
+
 
 const net12=saving12-penalty+extenderValue;
 const net24=saving24-penalty+extenderValue;
 
-document.getElementById("old24").textContent=money(oldTotal24);
-document.getElementById("new24").textContent=money(newTotal24);
+
+/* ΚΟΣΤΗ */
+
+document.getElementById("old24").textContent=
+money(oldTotal24);
+
+document.getElementById("new24").textContent=
+money(newTotal24);
+
+
+/* ΔΩΡΕΑΝ ΠΑΡΟΧΕΣ */
 
 document.getElementById("freeValue").textContent=
-money(newPrice*freeMonths);
+money((newPrice*freeMonths)+extenderValue);
+
+
+/* ΚΑΘΑΡΟ ΟΦΕΛΟΣ */
 
 const net12El=document.getElementById("net12");
 const net24El=document.getElementById("net24");
@@ -1488,11 +2068,13 @@ net24El.textContent=money(net24);
 net12El.classList.toggle("red",net12<0);
 net24El.classList.toggle("red",net24<0);
 
+
 /* ΑΠΟΣΒΕΣΗ ΡΗΤΡΑΣ */
 
 const monthlySaving=oldPrice-newPrice;
 
 let breakEvenText="Δεν υπάρχει απόσβεση";
+
 
 if(penalty===0){
 
@@ -1515,12 +2097,15 @@ breakEvenText="Δεν αποσβένεται";
 
 }
 
+
 document.getElementById("breakEvenMonths").textContent=
 breakEvenText;
+
 
 /* ΤΕΛΙΚΟ ΜΗΝΥΜΑ */
 
 let message;
+
 
 if(net24>=0){
 
@@ -1531,7 +2116,8 @@ money(net24)+
 
 if(penalty>0 && monthlySaving>0){
 
-message+=" Η ρήτρα αποσβένεται σε <strong>"+
+message+=
+" Η ρήτρα αποσβένεται σε <strong>"+
 breakEvenText+
 "</strong>.";
 
@@ -1546,14 +2132,17 @@ money(net24)+
 
 }
 
+
 document.getElementById("breakEven").innerHTML=message;
 
 calcResult.classList.add("show");
 
 }
 
+
 document.getElementById("calculateButton")
 .addEventListener("click",calculateBenefit);
+
 
 [oldPriceInput,penaltyInput]
 .forEach(input=>{
